@@ -9,7 +9,7 @@ const PublicRoute = ({
 }) => (
     <Route {...rest} component = {(props) => (
         auth ? (
-            <Redirect to = '/home' />
+            <Redirect to = '/dashboard' />
         ):(
             <Component {...props}/>
         )

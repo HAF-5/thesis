@@ -1,28 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
 
-import Header from './../Header/header';
-
-export class home extends Component {
-  
-  componentDidMount(){
-  }
-
-  render() {
-    return (
-      <div>
-        <Header/>
-        <h1>WELCOME TO HAF</h1>
-      </div>
-    )
-  }
+export default class home extends Component {
+    render() {
+        return (
+            <div>
+               <p>home</p> 
+            </div>
+        )
+    }
 }
-
-const mapStateToProps = (state) => ({
-})
-
-const mapDispatchToProps = (dispatch) => ({
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(home)
-
