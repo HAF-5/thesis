@@ -1,5 +1,5 @@
 
-import {LOGIN, LOGOUT} from './constants';
+import {LOGIN, LOGOUT, URL} from './constants';
 
 export const singupDispatcher = (user) => ({
     type: LOGIN,
@@ -8,7 +8,7 @@ export const singupDispatcher = (user) => ({
 
 export const signup = (user) => async dispatch => {
     try{
-        let response = await fetch('http://localhost:8000/api/user', {
+        let response = await fetch(`${URL}/api/user`, {
             method: 'POST',
             body: JSON.stringify(user),
             headers: {
@@ -32,7 +32,7 @@ export const loginDispatcher = (user) => ({
 
 export const login = (user) => async dispatch => {
     try{
-        let response = await fetch('http://localhost:8000/api/user/login', {
+        let response = await fetch(`${URL}/api/user/login`, {
             method: 'POST',
             body: JSON.stringify(user),
             headers: {
@@ -51,7 +51,7 @@ export const login = (user) => async dispatch => {
 
 export const me = (token) => async dispatch => {
     try{
-        let response = await fetch('http://localhost:8000/api/user/me', {
+        let response = await fetch(`${URL}/api/user/me`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ export const logoutDispatcher = () => ({
 
 export const logout = (token) => async dispatch => {
     try{
-        let response = await fetch('http://localhost:8000/api/user/me/logout', {
+        let response = await fetch(`${URL}/api/user/me/logout`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

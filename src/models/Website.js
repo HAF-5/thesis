@@ -6,12 +6,16 @@ const websiteSchema = mongoose.Schema({
         required: true,
         trim: true
     },
+    user: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User'
+    },
     page: [{
         type: mongoose.Types.ObjectId,
         ref: 'Page'
     }],
     createdAt: {
-        type: Number,
+        type: Date,
         default: Date.now()
     }
 });
