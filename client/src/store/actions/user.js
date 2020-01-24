@@ -1,5 +1,5 @@
 
-import {LOGIN, LOGOUT, URL} from './constants';
+import {LOGIN, LOGOUT} from './constants';
 
 export const singupDispatcher = (user) => ({
     type: LOGIN,
