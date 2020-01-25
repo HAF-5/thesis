@@ -1,6 +1,11 @@
 const express = require('express');
-const userRouter = require('./routers/user');
 const path = require('path');
+
+const userRouter = require('./routers/user');
+const websiteRouter = require('./routers/website');
+const pageRouter = require('./routers/page');
+
+
 
 const publicPath = path.join(__dirname, '..', 'client', 'build');
 
@@ -19,6 +24,8 @@ app.use(function(req, res, next) {
 });
 
 app.use('/api/user', userRouter);
+app.use('/api/website', websiteRouter);
+app.use('/api/page', pageRouter);
 
 
 app.get('*', (req, res) => {
