@@ -8,6 +8,7 @@ import Dashboard from './../components/Dashboard/dashboard';
 import Login from './../components/Login/login';
 import Signup from './../components/Signup/signup';
 import Home from './../components/Home/home';
+import Editor from './../components/Editor/editor';
 
 const AppRouter = () => {
     return (
@@ -18,7 +19,8 @@ const AppRouter = () => {
             <PublicRoute path = '/signup' component = {Signup} />
             <PublicRoute path = '/login' component = {Login} />
             <PublicRoute path = '/home' component = {Home} />
-            <PrivateRoute path = '/dashboard' component = {Dashboard}/>
+            <PublicRoute path = '/dashboard' component = {Dashboard}/>
+            <PublicRoute path = '/editor/:title' component = {Editor}/>
             <Route>
               <div>not found</div>
             </Route>
