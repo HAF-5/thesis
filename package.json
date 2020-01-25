@@ -24,6 +24,7 @@
   "dependencies": {
     "bcrypt": "^3.0.7",
     "bcryptjs": "^2.4.3",
+    "clean-cache": "^1.0.2",
     "concurrently": "^4.1.1",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
