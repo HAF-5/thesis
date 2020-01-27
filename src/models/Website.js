@@ -4,7 +4,8 @@ const websiteSchema = mongoose.Schema({
     title: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        unique: true
     },
     user: {
         type: mongoose.Types.ObjectId,
@@ -15,7 +16,7 @@ const websiteSchema = mongoose.Schema({
         ref: 'Page'
     }],
     createdAt: {
-        type: Date,
+        type: Number,
         default: Date.now()
     }
 });

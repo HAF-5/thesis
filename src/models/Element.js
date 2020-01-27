@@ -4,14 +4,43 @@ const elementSchema = mongoose.Schema({
     classList: [{
         type: String
     }],
-    children: [{
-        type: mongoose.Types.ObjectId,
-        ref: 'Element'
+    element: {
+        type: String
+    },
+    content: {
+        type: String
+    },
+    style: [{
+        property: {
+            type: String
+        },
+        value: {
+            type: String
+        }
     }],
     createdAt: {
         type: Number,
         default: Date.now()
-    }
+    },
+    children: [{
+        classList: [{
+            type: String
+        }],
+        element: {
+            type: String
+        },
+        content: {
+            type: String
+        },
+        style: [{
+            property: {
+                type: String
+            },
+            value: {
+                type: String
+            }
+        }]
+    }]
 });
 
 const Element = mongoose.model('Element', elementSchema);
