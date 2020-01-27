@@ -11,12 +11,17 @@ class Editor extends Component {
 
     render() {
         return (
-            <div id= "editor-cotainer">
+            <div>
+               <div className="d-flex flex-column flex-md-row align-items-center p-3 mb-3 bg-white " >
+               <h1 style={{fontSize: "20px"}}> Select and Drag Section to Page </h1>
+               
+               </div>    
                 <SideMenu/>
-                <div id= "editor">
+                <div id="editor">
 
                 </div>
             </div>
+
         )
     }
 }

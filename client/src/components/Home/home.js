@@ -38,8 +38,8 @@ export default class home extends Component {
                     <div className="col-md-6"><img className="image" src={Img} style={{width: "100%",height: "100%"}}/></div>
                 </div>
                 </div>
-
-                <div className="container marketing">
+                <div className="container-fluid marketing ">
+                <div className="container ">
                     <h1 className="div-title"> Create a website in 3 steps</h1>
                     <div className="row">   
                         <div className="col-lg-4">
@@ -60,7 +60,7 @@ export default class home extends Component {
                             <p>Quickly publish your website, connect domain and submit to Google. Get your website online in a few clicks!</p>
                             
                         </div>
-
+                        </div>
                     </div>
                 </div>
 
