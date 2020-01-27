@@ -35,11 +35,19 @@ body {
 h1{
     color:#201f31
 }
+h6{
+    padding-top: 50px;
+    font-size: 30px;
+    padding-bottom: 50px;
+}
 h2{
     color: #1bb1dc;
 }
 .nav-head{
     border-bottom: 0px solid #dee2e6 !important;
+}
+.container{
+    text-align: center;
 }
 .div1{
     display: inline-flex;
@@ -59,6 +67,7 @@ h2{
     text-align: center;
 }
 p{
+    margin-top: 15px;
     color: #292b2b;
 }
 footer{

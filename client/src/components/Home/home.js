@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './home.css';
-import Img1 from '../img/templates.png';
-import Img2 from '../img/share.png';
-import Img3 from '../img/art.png';
+import Img1 from '../img/test.png';
+import Img2 from '../img/test2.png';
+import Img3 from '../img/test1.png';
 import Img from '../img/example3.png';
 import {Link} from 'react-router-dom';
 import Signup from '../Signup/signup'
@@ -14,6 +14,7 @@ export default class home extends Component {
                     <h5 className="my-0 mr-md-auto font-weight-normal">H A F 5</h5>
                     <Link to="Signup" className="btn btn-outline-primary btn-create" >Create Free Website</Link>
                 </div>
+
                 <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
                     <div className="col-md-6 p-lg-5 mx-auto my-5">
                         <h1 className="display-4 font-weight-normal title">Create your website</h1>
@@ -23,26 +24,24 @@ export default class home extends Component {
                     <div className="product-device box-shadow d-none d-md-block"></div>
                     <div className="product-device product-device-2 box-shadow d-none d-md-block"></div>
                 </div>
-                <div style={{backgroundColor:"white"}}>
-                <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 container mx-auto text-center">
-                    <h6 className="display-4">Rock your website with HAF builder </h6>
-                    
-                    <div className="div1">
-                        <h5 className="h5-div1">
-                        Get access to customizable webpage designs and useful tools to build your website and grow your ideal business. 
-                        Easily build a free website to help you get discovered and grow your customer base in style.
-                         Start today with our powerful free website builder.
-                        </h5>
-                        <img className="image" src={Img} style={{height: "600px"}}/>
 
+                <div  style={{backgroundColor:"white"}}>
+                <h6 className="display-4 text-center">Rock your website with HAF builder </h6>
+                <div className="row pricing-header px-3 py-3 pt-md-5 pb-md-4 container mx-auto text-center">
+                    <div className="col-md-6" style={{paddingTop:"15px"}}>
+                        <h5>Get access to customizable webpage designs and useful tools to build your website and grow your ideal business. 
+                        Easily build a free website to help you get discovered and grow your customer base in style.
+                        Start today with our powerful free website builder.
+                        </h5>
+                        <p><Link to="Signup" className="btn btn-outline-primary btn-create" >Start now</Link></p>
                     </div>
+                    <div className="col-md-6"><img className="image" src={Img} style={{width: "100%",height: "100%"}}/></div>
                 </div>
                 </div>
 
                 <div className="container marketing">
                     <h1 className="div-title"> Create a website in 3 steps</h1>
-                    <div className="row">
-                        
+                    <div className="row">   
                         <div className="col-lg-4">
                         <img className="img image" src={Img1} alt="Generic placeholder image" />
                             <h2>Choose a template</h2>
@@ -65,8 +64,10 @@ export default class home extends Component {
                     </div>
                 </div>
 
-   
-                <footer className="pt-4 my-md-5 pt-md-5 border-top">
+                <div>
+                    
+                </div>
+                <footer className="py-5 ">
                     <div className="container">
                     <div className="row">
                     <div className="col-6 col-md">
