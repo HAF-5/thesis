@@ -37,7 +37,7 @@ class sideMenu extends Component {
     render() { 
         console.log(this.props.menuItems)
         return (
-            <div className=" col-md-2">
+            <div className=" col-md-1">
                 <div className=" sidebar">
                     <div className="container">
                         <ul className="sideList">
