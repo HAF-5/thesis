@@ -9,25 +9,27 @@ import Signin from './../components/auth/Signin';
 import Signup from './../components/auth/Signup';
 import Home from './../components/Home/home';
 import Editor from './../components/Editor/editor';
+import Activate from './../components/auth/Activate'
 
 const AppRouter = () => {
   return (
     <Router>
-        <div>
-          <Switch>
-            <PublicRoute path = '/' component = {Home} exact/>
-            <PublicRoute path = '/signup' component = {Signup} />
-            <PublicRoute path = '/login' component = {Signin} />
-            <PublicRoute path = '/home' component = {Home} />
-            <PublicRoute path = '/dashboard' component = {Dashboard}/>
-            <PublicRoute path = '/editor/:title' component = {Editor}/>
-            <Route>
-              <div>not found</div>
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    )
+      <div>
+        <Switch>
+          <PublicRoute path='/' component={Home} exact />
+          <PublicRoute path='/signup' component={Signup} />
+          <PublicRoute path='/login' component={Signin} />
+          <PublicRoute path='/home' component={Home} />
+          <PublicRoute path='/dashboard' component={Dashboard} />
+          <PublicRoute path='/editor/:title' component={Editor} />
+          <PublicRoute path='/auth/activate/:token' component={Activate} />
+          <Route>
+            <div>not found</div>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  )
 }
 
 export default AppRouter;

@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { authenticate, isAuth } from './helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-const Signin = () => {
+const Signin = ({ history }) => {
   const [values, setValues] = useState({
     email: 'amera@gmail.com',
     password: '123456',
@@ -38,6 +38,9 @@ const Signin = () => {
         authenticate(response, () => {
           setValues({ ...values, email: '', password: '', buttonText: 'Submitted' });
           toast.success(`Hi ${response.user.name}, Welcome back`);
+          setTimeout(() => {
+            history.push('/')
+          }, 5000);
         });
       }
     } catch (err) {
@@ -68,7 +71,7 @@ const Signin = () => {
   return (
     <div>
       <ToastContainer />
-      {isAuth() ? <Redirect to="/" /> : null}
+      {/* {isAuth() ? <Redirect to="/" /> : null} */}
       <div className="col-md-6 offset-md-3">
         <h1 className="p-5 text-center">Signin</h1>
         {singinForm()}
