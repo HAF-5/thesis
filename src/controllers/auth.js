@@ -1,37 +1,51 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
-const sgMail = require('@sendgrid/mail');
-
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const nodemailer = require('nodemailer');
 
 exports.signup = async (req, res) => {
   const { name, email, password } = req.body;
-  const user = await User.findOne({ email })
+  const user = await User.findOne({ email });
+
   if (user) {
     return res.status(400).json({
       error: 'Email is taken'
     });
   };
-  const token = jwt.sign({ name, email, password }, process.env.JWT_ACCOUNT_ACTIVATION, { expiresIn: '20d' });
-  return res.json({ token: token });
 
-  const emailData = {
+  const token = jwt.sign({ name, email, password }, process.env.JWT_ACCOUNT_ACTIVATION, { expiresIn: '20d' });
+
+  const emailData = `
+      <h1>Please use the following link to activata your account</h1>
+      <p>${process.env.CLIENT_URL}/auth/activate/${token}</p>`;
+
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.EMAIL_FROM,
+      pass: process.env.EMAIL_PASS
+    },
+    tls: {
+      rejectUnauthorized: false
+    }
+  });
+
+  var mailOptions = {
     from: process.env.EMAIL_FROM,
     to: email,
-    subject: `Account activationlink`,
-    html: `
-      <h1>Please use the following link to activata your account</h1>
-      <p>${process.env.CLIENT_URL}/auth/activate/${token}</p>`
+    subject: 'Account activationlink',
+    html: emailData
   };
 
-  await sgMail.send(emailData)
-  try {
-    return res.json({
-      message: `Email has been sent to ${email}. Follow the instruction to activate your account`
-    });
-  } catch (err) {
-    console.log('sendGridError: ', err)
-  }
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent');
+      return res.json(res.json({
+        message: `Email has been sent to ${email}. Follow the instruction to activate your account`
+      }));
+    }
+  });
 };
 
 exports.accountActivation = async (req, res) => {

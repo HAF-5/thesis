@@ -32,7 +32,6 @@ const Signup = () => {
       });
 
       const response = await res.json();
-      console.log(response.token)
       if (response.error) {
         setValues({ ...values, buttonText: 'Submit' });
         toast.error(response.error);
