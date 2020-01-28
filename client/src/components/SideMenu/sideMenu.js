@@ -14,8 +14,7 @@ class sideMenu extends Component {
   }
     render() {
         return (
-          <div className=" col-md-2">
-          <div className=" sidebar">
+          <div className="col-md-1 sidebar">
             <div className="container">
               <ul className="sideList">
                 <li className="">
@@ -104,7 +103,6 @@ class sideMenu extends Component {
                 </li>                                                                                                   
               </ul>
             </div>
-          </div>
           </div> 
 
         )

@@ -12,15 +12,12 @@ class Editor extends Component {
 
     render() {
         return (
-            <div >
-               <div className="row">
+            <div className="row">
                     <SideMenu />
-                    <div className=" col-md-10" id="editor" >
-                        <p>Panel</p>
-                    </div>
+                <div className=" col-md-11" id="editor" >
+                    <p>Panel</p>
                 </div>
             </div>
-
         )
     }
 }
