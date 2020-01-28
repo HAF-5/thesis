@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setMenuElementDispatcher } from './../../store/actions/sideMenu';
 import {elementsData} from './../../sideMenuElementsData';
+import './sideMenu.css'
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
 
 class sideMenu extends Component {
 
@@ -34,19 +37,36 @@ class sideMenu extends Component {
     render() { 
         console.log(this.props.menuItems)
         return (
-            <div>
-                {
-                    this.props.menuItems.map(item => (
-                        <div>
-                            <h3>{item.title}</h3>
-                            {
-                                this.createElement(item.elements)
-                            }
-                            
-                        </div>
-                    ))
-                }
-            </div>
+            <div className=" col-md-2">
+                <div className=" sidebar">
+                    <div className="container">
+                        <ul className="sideList">
+                        {
+                            this.props.menuItems.map(item => (
+                                <li className="">
+                                    {item.title}
+                                    <ul className="">
+                                        <li className="">Navbar 1</li>
+                                        <li className="">Navbar 2</li>
+                                        <li className="">Navbar 3</li>
+                                        <li className="">Navbar 4</li>
+                                        <li className="">NAvbar 5</li>
+                                    </ul>
+                                </li>
+
+                                // <div>
+                                //     <h3>{item.title}</h3>
+                                //     {
+                                //         this.createElement(item.elements)
+                                //     }
+                                    
+                                // </div>
+                            ))
+                        }
+                        </ul>
+                    </div>
+                </div>
+            </div> 
         )
     }
 }

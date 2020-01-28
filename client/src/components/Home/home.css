@@ -1,6 +1,4 @@
-body {
-    background-color:#f8f9fa ;
-}
+
 .title{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 7em;
@@ -14,17 +12,43 @@ body {
 .btn-link{
     border: 0 solid;
 }
+.marketing{
+    text-align: center;
+    background-color:#f8f9fa ;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
 .img{
     padding: 30px;
     padding-left: 50px;
     height: 190px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+   
+}
+.image:hover {
+    
+    transform: scale(1.2);
+}
+h1{
+    color:#201f31
+}
+h6{
+    padding-top: 50px;
+    font-size: 30px;
+    padding-bottom: 50px;
+}
+h2{
+    color: #1bb1dc;
 }
 .nav-head{
     border-bottom: 0px solid #dee2e6 !important;
 }
+.container{
+    text-align: center;
+}
 .div1{
     display: inline-flex;
-    margin-left: -50px;
 }
 .h5-div1{
     margin-top: 194px;
@@ -41,6 +65,7 @@ body {
     text-align: center;
 }
 p{
+    margin-top: 15px;
     color: #292b2b;
 }
 footer{
