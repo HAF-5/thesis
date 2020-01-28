@@ -6,10 +6,12 @@ li {
 }
 .sidebar{
     padding-left: 0px;
-
 }
+
 .sideList > li:hover {
-        color: #007bff;
+    color: #007bff;
+    background-color: rgba(238,238,238,.5);
+    padding-left: 52px;
 }
 
 .container > ul {
@@ -18,25 +20,28 @@ li {
     overflow:visible;
     list-style: none;
     padding-left: 0px;
+    padding-right: 25px;
     float: left;
     border-radius: 15px;
 
 }
 .container > ul > li > ul {
-    display:none;
-    position:absolute;
-    right:-250px;
-    top:0;
-    width:250px;
-    background-color:#f8f9fa;
+    display: none;
+    position: absolute;
+    right: -100px;
+    top: 0;
+    width: auto;
+    background-color: grey;
     list-style: none;
+    border-radius: 15px;
+    padding-left: 0px;
 }
 .container > ul > li:hover > ul {
     display:block;
-
+    height: 100vh;
 }
 
-.container > ul > li > ul > li:hover ul {
+.container > ul > li > ul > li:hover {
     display:block;
     background-color: rgba(238,238,238,.5);
 }
