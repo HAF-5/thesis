@@ -6,6 +6,10 @@ const pageSchema = mongoose.Schema({
         required: true,
         trim: true
     },
+    website: {
+        type: mongoose.Types.ObjectId,
+        ref: 'Website'
+    },
     element: [{
         type: mongoose.Types.ObjectId,
         ref: 'Element'
