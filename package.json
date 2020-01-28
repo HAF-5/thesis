@@ -30,6 +30,7 @@
     "express-jwt": "^5.3.1",
     "express-validator": "^6.3.1",
     "google-auth-library": "^5.9.1",
+    "js-cookie": "^2.2.1",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.4.1",
     "mongoose": "^5.8.4",

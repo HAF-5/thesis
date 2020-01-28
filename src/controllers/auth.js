@@ -12,26 +12,26 @@ exports.signup = async (req, res) => {
       error: 'Email is taken'
     });
   };
-  const token = jwt.sign({ name, email, password }, process.env.JWT_ACCOUNT_ACTIVATION, { expiresIn: '10m' });
-  return res.send(token);
+  const token = jwt.sign({ name, email, password }, process.env.JWT_ACCOUNT_ACTIVATION, { expiresIn: '20d' });
+  return res.json({ token: token });
 
-  // const emailData = {
-  //   from: process.env.EMAIL_FROM,
-  //   to: email,
-  //   subject: `Account activationlink`,
-  //   html: `
-  //     <h1>Please use the following link to activata your account</h1>
-  //     <p>${process.env.CLIENT_URL}/auth/activate/${token}</p>`
-  // };
+  const emailData = {
+    from: process.env.EMAIL_FROM,
+    to: email,
+    subject: `Account activationlink`,
+    html: `
+      <h1>Please use the following link to activata your account</h1>
+      <p>${process.env.CLIENT_URL}/auth/activate/${token}</p>`
+  };
 
-  // await sgMail.send(emailData)
-  // try {
-  //   return res.json({
-  //     message: `Email has been sent to ${email}. Follow the instruction to activate your account`
-  //   });
-  // } catch (err) {
-  //   console.log('sendGridError: ', err)
-  // }
+  await sgMail.send(emailData)
+  try {
+    return res.json({
+      message: `Email has been sent to ${email}. Follow the instruction to activate your account`
+    });
+  } catch (err) {
+    console.log('sendGridError: ', err)
+  }
 };
 
 exports.accountActivation = async (req, res) => {
