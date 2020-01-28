@@ -22,7 +22,7 @@ const Signin = () => {
     try {
       setValues({ ...values, buttonText: 'Submitting' });
 
-      const res = await fetch(`${process.env.REACT_APP_API}/signin`, {
+      const res = await fetch(`${process.env.REACT_APP_API}/api/user/signin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
