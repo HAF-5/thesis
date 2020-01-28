@@ -1,12 +1,14 @@
-
-.title{
+body{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 7em;
+}
+.title{
+    font-size: 8em;
 }
 .btn-create{
     border-radius: 50px;
-    box-shadow: 0 0.4375rem 2.25rem rgba(0, 0, 0, 0.2);
-    background-color: #0000000a;
+    box-shadow: 0 0.4306rem 0.08rem rgba(0, 0, 0, 0.03);
+    background-color: #fcf9f91c;
+    font-family:Cambria, Georgia, serif;
     
 }
 .btn-link{
@@ -67,6 +69,7 @@ h2{
 p{
     margin-top: 15px;
     color: #292b2b;
+    padding: 25px;
 }
 footer{
     background-color: white;

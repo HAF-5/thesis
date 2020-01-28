@@ -1,75 +1,67 @@
 const mongoose = require('mongoose');
-const validator = require('validator');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
 
-const userSchema = mongoose.Schema({
+// user schema
+const userSchema = new mongoose.Schema({
     name: {
         type: String,
+        trim: true,
         required: true,
-        trim: true
+        max: 32
     },
     email: {
         type: String,
+        trim: true,
         required: true,
         unique: true,
         lowercase: true
     },
-    password: {
+    hashed_password: {
         type: String,
         required: true
     },
-    tokens: [{
-        token: {
-            type: String,
-            required: true
-        }
-    }],
-    createdAt: {
-        type: Number,
-        default: Date.now()
+    salt: String,
+    role: {
+        type: String,
+        default: 'subscriber'
+    },
+    resetPasswordLink: {
+        data: String,
+        default: ''
     }
-})
+}, { timestamp: true });
 
-userSchema.methods.toJSON = function () {
-    let user = this;
-    let userObject = user.toObject();
-    return {
-        _id: userObject._id,
-        name: userObject.name,
-        email: userObject.email
+// virtual
+userSchema.virtual('password')
+    .set(function (password) {
+        this._password = password;
+        this.salt = this.makeSalt();
+        this.hashed_password = this.encryptPassword(password);
+    })
+    .get(function () {
+        return this._password;
+    });
+
+// methods
+userSchema.methods = {
+    authenticate: function (plainText) {
+        return this.encryptPassword(plainText) === this.hashed_password;
+    },
+
+    encryptPassword: function (password) {
+        if (!password) return '';
+        try {
+            return crypto.createHmac('sha1', this.salt)
+                .update(password)
+                .digest('hex');
+        } catch (err) {
+            return '';
+        }
+    },
+
+    makeSalt: function () {
+        return Math.round(new Date().valueOf() * Math.random()) + '';
     }
 };
 
-
-userSchema.pre('save', async function (next) {
-    const user = this;
-    if (user.isModified('password')) {
-        user.password = await bcrypt.hash(user.password, 8);
-    }
-    next();
-});
-
-userSchema.methods.generateAuthToken = async function() {
-    const user = this;
-    const token = jwt.sign({_id: user._id}, process.env.JWT_KEY);
-    user.tokens = user.tokens.concat({token: token});
-    await user.save();
-    return token;
-}
-
-userSchema.statics.findByCredentials = async (email, password) => {
-    const user = await User.findOne({ email});
-    if (!user) {
-        throw new Error({ error: 'Invalid login credentials' });
-    }
-    const isPasswordMatch = await bcrypt.compare(password, user.password);
-    if (!isPasswordMatch) {
-        throw new Error({ error: 'Invalid login credentials' });
-    }
-    return user;
-}
-
-const User = mongoose.model('User', userSchema);
-
-module.exports = User;
+module.exports = mongoose.model('User', userSchema);
