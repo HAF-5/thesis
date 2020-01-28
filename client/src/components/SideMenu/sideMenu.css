@@ -16,29 +16,42 @@ li {
 
 .container > ul {
     background-color:#f8f9fa;
-    position:relative;
+    position:fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
     overflow:visible;
     list-style: none;
     padding-left: 0px;
-    padding-right: 25px;
     float: left;
     border-radius: 15px;
+    z-index: 9;
+
 
 }
 .container > ul > li > ul {
     display: none;
-    position: absolute;
-    right: -100px;
+    position: fixed;
+    left: 135px;
     top: 0;
-    width: auto;
-    background-color: grey;
+    min-width: 600px;
+    background-color: white;
     list-style: none;
-    border-radius: 15px;
     padding-left: 0px;
+    z-index: 9;
+
 }
 .container > ul > li:hover > ul {
     display:block;
     height: 100vh;
+    z-index: 9;
+
+}
+.container > ul > li:active > ul {
+    display:block;
+    height: 100vh;
+    z-index: 9;
+
 }
 
 .container > ul > li > ul > li:hover {
