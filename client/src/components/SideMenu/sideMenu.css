@@ -1,0 +1,49 @@
+li {
+    padding:20px 20px 20px 20px;
+    width:100%;
+    color:black; 
+    font-size:20px
+}
+.sidebar{
+    padding-left: 0px;
+}
+
+.sideList > li:hover {
+    color: #007bff;
+    background-color: rgba(238,238,238,.5);
+    padding-left: 52px;
+}
+
+.container > ul {
+    background-color:#f8f9fa;
+    position:relative;
+    overflow:visible;
+    list-style: none;
+    padding-left: 0px;
+    padding-right: 25px;
+    float: left;
+    border-radius: 15px;
+
+}
+.container > ul > li > ul {
+    display: none;
+    position: absolute;
+    right: -100px;
+    top: 0;
+    width: auto;
+    background-color: grey;
+    list-style: none;
+    border-radius: 15px;
+    padding-left: 0px;
+}
+.container > ul > li:hover > ul {
+    display:block;
+    height: 100vh;
+}
+
+.container > ul > li > ul > li:hover {
+    display:block;
+    background-color: rgba(238,238,238,.5);
+}
+
+
