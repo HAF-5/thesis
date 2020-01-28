@@ -17,7 +17,7 @@ const AppRouter = () => {
           <Switch>
             <PublicRoute path = '/' component = {Home} exact/>
             <PublicRoute path = '/signup' component = {Signup} />
-            <PublicRoute path = '/login' component = {Login} />
+            <PublicRoute path = '/login' component = {Signin} />
             <PublicRoute path = '/home' component = {Home} />
             <PublicRoute path = '/dashboard' component = {Dashboard}/>
             <PublicRoute path = '/editor/:title' component = {Editor}/>

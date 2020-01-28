@@ -14,7 +14,7 @@ require('./db/db');
 const app = express();
 
 // import routes
-const userRouter = require('./routers/user');
+// const userRouter = require('./routers/user');
 
 // app middleware 
 app.use(morgan('dev'));
