@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Header from './../Header/header';
 import './dashboard.css'
 
-export class Dashboard extends Component {
+class Dashboard extends Component {
   
   componentDidMount(){
   }
@@ -24,18 +24,17 @@ export class Dashboard extends Component {
             <div className="box"> 
             <p id="p"> All Sites</p>
                 <div className="flex-container">                
-                    <div class="card container-div">  Website </div> 
-                    <div class="card container-div">  Website </div> 
-                    <div class="card container-div-create ">
-                    <div className="icon-position">
-                    <h4 class="line"><i className="fas fa-chess-queen icons"></i> </h4>
-                    </div>
-                    <p class="div-text-create">Start to Create a New Templete </p>
-                    <p>For Free</p>
-                    <a class="btn btn-default btn-lg btn-create-div" href="#">Create New Website</ a>
+                    <div className="card container-div">  Website </div> 
+                    <div className="card container-div">  Website </div> 
+                    <div className="card container-div">  Website </div> 
+                    <div className="card container-div">  Website </div> 
+                    <div class="card container-div-create">
+                    <p className="div-text-create">Start to Create a New Templete </p>
+                    <p id="pargraph-card-craete">Start Desgin Your Sites</p>
+                    <a className="btn btn-default btn-lg btn-create-div" href="#">Create New Website</ a>
                     </div>   
                     </div>
-                    </div>
+           </div>
            <footer className="pt-3 my-md-2 pt-md-4">
                     <div className="container">
                     <div className="row">

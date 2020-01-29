@@ -1,21 +1,23 @@
 body {
-  font-family: 'Noto Sans TC', sans-serif;}
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
 .box {
-  display: flex;
+  /* display: flex; */
   flex-wrap: wrap;
   box-sizing: border-box;
   margin: auto;
-  background-color:  rgba(225, 233, 237);
-  padding-bottom: 90px;
-
+  background-color:  rgb(240, 242, 243);
+  padding-bottom: 100px;
+  padding-left: 0;
+  color : rgb(55, 56, 59);
+  font-size: x-large;
 }
 
 .flex-container {
    display: flex;
    flex-wrap: wrap;
-   margin-left: 70px;
-   margin-top: 70px;
+   margin-left: 90px;
 }
 
 .container-div { 
@@ -40,6 +42,7 @@ body {
   font-family: 'Roboto', sans-serif;
   border: none;
   background-color: white;  
+  box-sizing: border-box;
 
 }
 
@@ -63,7 +66,7 @@ body {
   padding-left: 100px;
   padding-top: 15px;
   height: 150px;
-  background-color:rgb(252, 252, 252);
+  background-color: white;
 
 }
 
@@ -84,9 +87,9 @@ body {
 }
 
 #p {
-  position: absolute;
+  position: relative;
   margin-left: 90px;
-  margin-top: 30px;
+  margin-top: 100px;
   cursor: pointer;
   font-size: smaller;
   color : rgb(55, 56, 59);
@@ -96,36 +99,38 @@ body {
   font-weight: bold;
 }
 
-.icons {
-  color:  purple;
-  padding-top: 10px;
-}
-
-.icon-position {
-  text-align: center;
-}
 
 .div-text-create {
-  color: purple;
+  color: rgb(128, 65, 128);
   font-size: 21px;
-  padding-top: 20px;
-  font-family: 'Old Standard TT', serif;
+  padding-top: 25px;
+  background-color: #fcf9f91c;
+  font-family:Cambria, Georgia, serif;  
+  padding-bottom: 0;
+  margin: 0;
 }
+
 
 .btn-create-div {
   border-radius: 50px;
-  background-color: rgb(172, 76, 187);
+  background-color: rgb(128, 65, 128);
   color: white;
   width: 230px;
   margin: auto;
 }
 
+#pargraph-card-craete {
+  padding: 25px;
+  padding-top: 0;
+}
+
 .font {
+
   font-family: 'Noto Sans TC', sans-serif;
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: smaller;
-  color : rgb(55, 56, 59);
-
+  padding-left: 2px;
+  padding-top: 2px;
 }
 
 footer {
