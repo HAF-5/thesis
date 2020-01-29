@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import './createProject.css'
-export default class reviewInfo extends Component {
+import { Link } from 'react-router-dom';
+import Dashboard from '../Dashboard/dashboard'
+
+export default class CreateProject extends Component {
     render() {
         return (
             <div className="continer">
@@ -9,6 +12,7 @@ export default class reviewInfo extends Component {
                    <div className="left-text">
                        Create Your Own Template
                    </div>
+                   <Link to="Dashboard" className="back">Back</Link>
                 </div>
             <div className="right">
                 right

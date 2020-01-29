@@ -7,10 +7,10 @@
     float: left;
     width: 45%;
     height: 1000px;
-    background-color: rgb(49, 86, 196);
+    background-color: rgba(0, 128, 255);
     font-family: 'IBM Plex Serif', serif;
     font-family: 'Arbutus Slab', serif;
-    font-family: 'Merriweather', serif
+    font-family: 'Merriweather', serif;
 }
 
 .right {
@@ -31,3 +31,14 @@
     font-size: 60px;
     margin: 50px;
 }
+.back {
+    margin-top: 1060px; 
+    color : white;
+}
+body {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+  }
+  
+  

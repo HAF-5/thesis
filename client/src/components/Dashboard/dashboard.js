@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import Header from './../Header/header';
 import './dashboard.css'
+import { Link } from 'react-router-dom';
+import CreateProject from './../CreateProject/createProject'
 
 class Dashboard extends Component {
   
@@ -19,7 +21,7 @@ class Dashboard extends Component {
             <h1> My Sites</h1>  
             <p className="font">Select a site to edit, view and open its dashboard</p>
              </div>
-            <a className="btn btn-outline-primary btn-create" href="#" >Create New Website</ a>
+            <Link to="CreateProject" className="btn btn-outline-primary btn-create" href="#" >Create New Website</Link>
             </div>   
             <div className="box"> 
             <p id="p"> All Sites</p>
