@@ -26,6 +26,7 @@
     "bcrypt": "^3.0.7",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.4.1",
+    "bootstrap-icons": "^1.0.0-alpha2",
     "clean-cache": "^1.0.2",
     "concurrently": "^4.1.1",
     "express": "^4.17.1",

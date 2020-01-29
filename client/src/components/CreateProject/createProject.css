@@ -8,9 +8,6 @@
     width: 45%;
     height: 1000px;
     background-color: rgba(0, 128, 255);
-    font-family: 'IBM Plex Serif', serif;
-    font-family: 'Arbutus Slab', serif;
-    font-family: 'Merriweather', serif;
 }
 
 .right {
@@ -35,12 +32,23 @@
     position: absolute;
     margin-left: 60px;
     margin-top: 20%; 
-    color : rgb(27, 17, 65);
+    color : white;
+    font-size: x-large;
+}
+
+.back:hover {
+    cursor: pointer;
 }
 body {
     width: 100%;
     height: 100%;
     position: fixed;
   }
+
+
+   .icons {
+      font-size: x-large;
+      font-weight: lighter;
+  } 
   
   
