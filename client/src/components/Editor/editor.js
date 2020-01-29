@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import SideMenu from '../SideMenu/sideMenu';
 import { element } from 'prop-types';
 import  './Editor.css';
+import FixedNavbar from '../Navbar/FixedNavbar'
+
 
 class Editor extends Component {
 
@@ -58,10 +60,13 @@ class Editor extends Component {
 
     render() {
         return (
-            <div className="row">
+            <div>
+                <FixedNavbar/>
+                    <div className="row" style={{paddingTop:"10px"}}>
                     <SideMenu />
                 <div className=" col-md-11" id="editor" >
                     <p>Panel</p>
+                </div>
                 </div>
             </div>
         )
