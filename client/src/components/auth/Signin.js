@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import Google from './Google';
 import { ToastContainer, toast } from 'react-toastify';
 import { authenticate, isAuth } from './helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -59,7 +60,7 @@ const Signin = ({ history }) => {
 
       <div className="form-group">
         <label className="text-muted">Password</label>
-        <input onChange={handelChange('password')} type="text" value={password} className="form-control" />
+        <input onChange={handelChange('password')} type="password" value={password} className="form-control" />
       </div>
 
       <div>
@@ -73,6 +74,7 @@ const Signin = ({ history }) => {
       <ToastContainer />
       <div className="col-md-6 offset-md-3">
         <h1 className="p-5 text-center">Signin</h1>
+        <Google />
         {singinForm()}
         <br />
         <Link to='/auth/password/forgot' className='btn btn-sm btn-outline-danger'>Forgot password</Link>
