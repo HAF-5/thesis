@@ -9,6 +9,7 @@ import Signin from './../components/auth/Signin';
 import Signup from './../components/auth/Signup';
 import Home from './../components/Home/home';
 import Editor from './../components/Editor/editor';
+import createProject from './../components/CreateProject/createProject'
 
 const AppRouter = () => {
   return (
@@ -20,6 +21,7 @@ const AppRouter = () => {
             <PublicRoute path = '/login' component = {Signin} />
             <PublicRoute path = '/home' component = {Home} />
             <PublicRoute path = '/dashboard' component = {Dashboard}/>
+            <PublicRoute path = '/createProject' component = {createProject}/>
             <PublicRoute path = '/editor/:title' component = {Editor}/>
             <Route>
               <div>not found</div>
