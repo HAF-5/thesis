@@ -1,24 +1,28 @@
 import React from 'react';
-import { Route, Switch, BrowserRouter as Router} from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
 import Dashboard from './../components/Dashboard/dashboard';
-import Login from './../components/Login/login';
-import Signup from './../components/Signup/signup';
+import Signin from './../components/auth/Signin';
+import Signup from './../components/auth/Signup';
 import Home from './../components/Home/home';
+import Editor from './../components/Editor/editor';
+import createProject from './../components/CreateProject/createProject'
 
 const AppRouter = () => {
-    return (
+  return (
     <Router>
         <div>
           <Switch>
             <PublicRoute path = '/' component = {Home} exact/>
             <PublicRoute path = '/signup' component = {Signup} />
-            <PublicRoute path = '/login' component = {Login} />
+            <PublicRoute path = '/login' component = {Signin} />
             <PublicRoute path = '/home' component = {Home} />
-            <PrivateRoute path = '/dashboard' component = {Dashboard}/>
+            <PublicRoute path = '/dashboard' component = {Dashboard}/>
+            <PublicRoute path = '/createProject' component = {createProject}/>
+            <PublicRoute path = '/editor/:title' component = {Editor}/>
             <Route>
               <div>not found</div>
             </Route>

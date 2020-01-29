@@ -1,0 +1,33 @@
+.continer {
+    width: 100%;
+    display: inline-flex;
+}
+
+.left {
+    float: left;
+    width: 45%;
+    height: 1000px;
+    background-color: rgb(49, 86, 196);
+    font-family: 'IBM Plex Serif', serif;
+    font-family: 'Arbutus Slab', serif;
+    font-family: 'Merriweather', serif
+}
+
+.right {
+    width: 50%;
+    background-color: white;
+}
+
+.left-text {
+    color: white;
+    font-size: 60px;
+    margin: auto;
+    width: 60%;
+    margin-top: 25%;
+} 
+.header-title {
+   
+    color: white;
+    font-size: 60px;
+    margin: 50px;
+}
