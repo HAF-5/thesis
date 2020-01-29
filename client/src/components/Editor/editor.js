@@ -62,7 +62,7 @@ class Editor extends Component {
         return (
             <div>
                 <FixedNavbar/>
-                    <div className="row">
+                    <div className="row" style={{paddingTop:"10px"}}>
                     <SideMenu />
                 <div className=" col-md-11" id="editor" >
                     <p>Panel</p>

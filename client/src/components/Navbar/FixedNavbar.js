@@ -1,15 +1,40 @@
 import React, { Component } from 'react';
-
+import './FixedNavbar.css'
 export default class FixedNavbar extends Component{
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //       toggleStateA: false
+    //     };
+    //   }
+    
+    //   handleToggleClickA = () => {
+    //     this.setState({
+    //       toggleStateA: !this.state.toggleStateA
+    //     });
+    //   };
+      
     render(){
         return(
-            <div >
-                <div className="d-flex flex-column flex-md-row align-items-center p-3 mb-3 bg-white " >
+            <div>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light navbarFixed">
                     <h5 className="my-0 mr-md-auto font-weight-normal">H A F 5</h5>
-                    <h5 className="btn btn-outline-primary" >DashBoard</h5>
-                    <div> Profile</div>
-                </div>
+                    <div id="navbarText">   
+                        <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Dashboard </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Save</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Publish</a>
+                        </li>
+                        </ul>                  
+                    </div>
+                </nav>
             </div>
+
         )
     }
 }

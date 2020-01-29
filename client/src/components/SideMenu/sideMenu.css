@@ -23,7 +23,6 @@ li {
     list-style: none;
     padding-left: 0px;
     float: left;
-    border-radius: 15px;
     z-index: 9;
 
 
@@ -31,12 +30,13 @@ li {
 .container > ul > li > ul {
     display: none;
     position: fixed;
-    left: 135px;
+    left: 140px;
     min-width: 600px;
     background-color: white;
     list-style: none;
     padding-left: 0px;
     z-index: 9;
+    top:85px;
 
 }
 .container > ul > li:hover > ul {
