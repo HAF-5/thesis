@@ -39,7 +39,6 @@ class Editor extends Component {
             <div className="row">
                     <SideMenu />
                 <div className=" col-md-11" id="editor" >
-                    <p>Panel</p>
                 </div>
             </div>
         )
