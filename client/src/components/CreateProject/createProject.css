@@ -32,8 +32,10 @@
     margin: 50px;
 }
 .back {
-    margin-top: 1060px; 
-    color : white;
+    position: absolute;
+    margin-left: 60px;
+    margin-top: 20%; 
+    color : rgb(27, 17, 65);
 }
 body {
     width: 100%;
