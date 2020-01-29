@@ -1,7 +1,7 @@
 import React from 'react';
 import GoogleLogin from 'react-google-login';
 
-const Google = () => {
+const Google = ({ informParent }) => {
   const responseGoogle = async (response) => {
     try {
       const res = await fetch(`${process.env.REACT_APP_API}/api/user/google-login`, {
@@ -12,9 +12,11 @@ const Google = () => {
         body: JSON.stringify({ idToken: response.tokenId })
       });
 
-      const response = await res.json();
-    } catch (err) {
+      const data = await res.json();
+      informParent(data);
 
+    } catch (err) {
+      console.log('Google signin error', err)
     }
   }
 

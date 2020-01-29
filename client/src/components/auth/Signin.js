@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { authenticate, isAuth } from './helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
 
+
 const Signin = ({ history }) => {
   const [values, setValues] = useState({
     email: 'amera@gmail.com',
@@ -17,6 +18,15 @@ const Signin = ({ history }) => {
   const handelChange = (target) => (event) => {
     setValues({ ...values, [target]: event.target.value });
   };
+
+  const informParent = (response) => {
+    authenticate(response, () => {
+      toast.success(`Hi ${response.user.name}, Welcome back`);
+      setTimeout(() => {
+        history.push('/')
+      }, 5000);
+    });
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -74,7 +84,7 @@ const Signin = ({ history }) => {
       <ToastContainer />
       <div className="col-md-6 offset-md-3">
         <h1 className="p-5 text-center">Signin</h1>
-        <Google />
+        <Google informParent={informParent} />
         {singinForm()}
         <br />
         <Link to='/auth/password/forgot' className='btn btn-sm btn-outline-danger'>Forgot password</Link>

@@ -2,6 +2,7 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const _ = require("lodash");
+const { OAuth2Client } = require('google-auth-library');
 
 exports.signup = async (req, res) => {
   const { name, email, password } = req.body;
@@ -203,3 +204,46 @@ exports.resetPassword = (req, res) => {
     })
   }
 };
+
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
+exports.googleLogin = async (req, res) => {
+  const { idToken } = req.body;
+  let response = await client.verifyIdToken({ idToken, audience: process.env.GOOGLE_CLIENT_ID });
+  const { email_verified, name, email } = response.payload;
+
+  if (email_verified) {
+    let user = await User.findOne({ email });
+    try {
+      if (user) {
+        const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
+        const { _id, email, name } = user;
+        return res.json({
+          token, user: { _id, email, name }
+        });
+      } else {
+        let password = email + process.env.JWT_SECRET;
+        user = new User({ name, email, password });
+        user.save((err, data) => {
+          if (err) {
+            return res.status(400).json({
+              error: 'User signup failed with google'
+            });
+          }
+          const token = jwt.sign({ _id: data._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
+          const { _id, email, name } = data;
+          return res.json({
+            token, user: { _id, email, name }
+          });
+        });
+      }
+    } catch (err) {
+      console.log('error', err)
+    }
+  } else {
+    return res.status(400).json({
+      error: 'Google login failed try again'
+    });
+  }
+
+}
