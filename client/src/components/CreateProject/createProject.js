@@ -17,7 +17,24 @@ export default class CreateProject extends Component {
                 </div>
                
             <div className="right">
-                right   
+               <div className="form-continer">
+               <form>
+                   <label>Name</label>
+                   <input type="text" />
+
+
+                   <label>Email</label>
+                   <input type="email" />
+
+                   <label>Addres</label>
+                   <input type="text" />
+
+                   <label>Description</label>
+                   <input type="text" />
+                   
+                </form>  
+                </div>
+
             </div>                
             </div>
         )
