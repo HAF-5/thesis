@@ -6,6 +6,7 @@ import Img3 from '../img/test1.png';
 import Img from '../img/example3.png';
 import {Link} from 'react-router-dom';
 import Signup from '../Signup/signup'
+
 export default class home extends Component {
     render() {
         return (
