@@ -9,7 +9,9 @@ import Signin from './../components/auth/Signin';
 import Signup from './../components/auth/Signup';
 import Home from './../components/Home/home';
 import Editor from './../components/Editor/editor';
-import Activate from './../components/auth/Activate'
+import Activate from './../components/auth/Activate';
+import Forgot from './../components/auth/Forgot';
+import Reset from './../components/auth/Reset';
 
 const AppRouter = () => {
   return (
@@ -23,6 +25,8 @@ const AppRouter = () => {
           <PublicRoute path='/dashboard' component={Dashboard} />
           <PublicRoute path='/editor/:title' component={Editor} />
           <PublicRoute path='/auth/activate/:token' component={Activate} />
+          <PublicRoute path='/auth/password/forgot' component={Forgot} />
+          <PublicRoute path='/auth/password/reset/:token' component={Reset} />
           <Route>
             <div>not found</div>
           </Route>

@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import { authenticate, isAuth } from './helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-const Signin = ({ history }) => {
+const Forgot = () => {
   const [values, setValues] = useState({
-    email: 'amera@gmail.com',
-    password: '123456',
+    email: '',
     buttonText: 'Submit'
   });
 
-  const { email, password, buttonText } = values;
+  const { email, buttonText } = values;
 
   const handelChange = (target) => (event) => {
     setValues({ ...values, [target]: event.target.value });
@@ -22,12 +19,12 @@ const Signin = ({ history }) => {
     try {
       setValues({ ...values, buttonText: 'Submitting' });
 
-      const res = await fetch(`${process.env.REACT_APP_API}/api/user/signin`, {
+      const res = await fetch(`${process.env.REACT_APP_API}/api/user/forgot-password`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email })
       });
 
       const response = await res.json();
@@ -35,13 +32,8 @@ const Signin = ({ history }) => {
         setValues({ ...values, buttonText: 'Submit' });
         toast.error(response.error);
       } else {
-        authenticate(response, () => {
-          setValues({ ...values, email: '', password: '', buttonText: 'Submitted' });
-          toast.success(`Hi ${response.user.name}, Welcome back`);
-          setTimeout(() => {
-            history.push('/')
-          }, 5000);
-        });
+        setValues({ ...values, email: '', password: '', buttonText: 'Submitted' });
+        toast.success(response.message);
       }
     } catch (err) {
       setValues({ ...values, buttonText: 'Submit' });
@@ -49,17 +41,12 @@ const Signin = ({ history }) => {
     }
   };
 
-  const singinForm = () => (
+  const passwordForgotForm = () => (
     <form onSubmit={handleSubmit}>
 
       <div className="form-group">
         <label className="text-muted">Email</label>
         <input onChange={handelChange('email')} type="email" value={email} className="form-control" />
-      </div>
-
-      <div className="form-group">
-        <label className="text-muted">Password</label>
-        <input onChange={handelChange('password')} type="text" value={password} className="form-control" />
       </div>
 
       <div>
@@ -72,13 +59,11 @@ const Signin = ({ history }) => {
     <div>
       <ToastContainer />
       <div className="col-md-6 offset-md-3">
-        <h1 className="p-5 text-center">Signin</h1>
-        {singinForm()}
-        <br />
-        <Link to='/auth/password/forgot' className='btn btn-sm btn-outline-danger'>Forgot password</Link>
+        <h1 className="p-5 text-center">Forgot password</h1>
+        {passwordForgotForm()}
       </div>
     </div>
   );
 };
 
-export default Signin;
+export default Forgot;
