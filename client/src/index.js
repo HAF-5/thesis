@@ -16,5 +16,8 @@ const App = () => {
         </Provider>
     )
 }
+if(localStorage.getItem('user')){
+    store.dispatch(me());
+}
 
 ReactDOM.render(<App />, document.getElementById('root'));

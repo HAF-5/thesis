@@ -13,7 +13,7 @@ export default class home extends Component {
             <div>
                <div className="d-flex flex-column flex-md-row align-items-center p-3 mb-3 bg-white " >
                     <h5 className="my-0 mr-md-auto font-weight-normal">H A F 5</h5>
-                    <Link to="Signup" className="btn btn-outline-primary btn-create" >Create Free Website</Link>
+                    <Link to="dashboard" className="btn btn-outline-primary btn-create" >Create Free Website</Link>
                 </div>
 
                 <div className="position-relative overflow-hidden text-center bg-light" style={{minHeight:"100vh"}}>
