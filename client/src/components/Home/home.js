@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import Signup from '../Signup/signup'
 
 export default class home extends Component {
-    
+
     render() {
         return (
             <div>
@@ -17,7 +17,7 @@ export default class home extends Component {
                     <Link to="dashboard" className="btn btn-outline-primary btn-create" >Create Free Website</Link>
                 </div>
 
-                <div className="position-relative overflow-hidden text-center bg-light" style={{minHeight:"100vh"}}>
+                <div className="position-relative overflow-hidden text-center bg-light" style={{ minHeight: "100vh" }}>
                     <div className="col-md-6 p-lg-5 mx-auto my-5">
                         <h1 className="display-4 font-weight-normal title" >Create your website</h1>
                         <p className="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple's marketing pages.</p>

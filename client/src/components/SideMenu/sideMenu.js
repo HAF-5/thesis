@@ -39,18 +39,18 @@ class sideMenu extends Component {
                 <div className=" sidebar">
                     <div className="container">
                         <ul className="sideList">
-                        {
-                            this.props.menuItems.map(item => (
-                                <li className="">
-                                    {item.title}
-                                    <ul className="">
-                                        {
-                                            this.createElement(item.elements).map(element => <li className="">{element}</li>)
-                                        }
-                                    </ul>
-                                </li>
-                            ))
-                        }
+                            {
+                                this.props.menuItems.map(item => (
+                                    <li className="">
+                                        {item.title}
+                                        <ul className="">
+                                            {
+                                                this.createElement(item.elements).map(element => <li className="">{element}</li>)
+                                            }
+                                        </ul>
+                                    </li>
+                                ))
+                            }
                         </ul>
                     </div>
                 </div>
