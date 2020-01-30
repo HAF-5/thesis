@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const _ = require("lodash");
 const { OAuth2Client } = require('google-auth-library');
+const fetch = require("node-fetch");
 
 exports.signup = async (req, res) => {
   const { name, email, password } = req.body;
@@ -245,5 +246,18 @@ exports.googleLogin = async (req, res) => {
       error: 'Google login failed try again'
     });
   }
+}
+
+exports.facebookLogin = async (req, res) => {
+  const { userID, accessToken } = req.body;
+  const url = `https://graph.facebook.com/v2.11/${userID}/?fields=id,name,email&access_token=${accessToken}`;
+
+  // return (
+  //   fetch(url, {
+  //     method: 'GET'
+  //   })
+
+
+  // )
 
 }
