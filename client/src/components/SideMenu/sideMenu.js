@@ -35,32 +35,22 @@ class sideMenu extends Component {
     render() {
         console.log(this.props.menuItems)
         return (
-            <div className=" col-md-2">
+            <div className=" col-md-1">
                 <div className=" sidebar">
                     <div className="container">
                         <ul className="sideList">
-                            {
-                                this.props.menuItems.map(item => (
-                                    <li className="">
-                                        {item.title}
-                                        <ul className="">
-                                            <li className="">Navbar 1</li>
-                                            <li className="">Navbar 2</li>
-                                            <li className="">Navbar 3</li>
-                                            <li className="">Navbar 4</li>
-                                            <li className="">NAvbar 5</li>
-                                        </ul>
-                                    </li>
-
-                                    // <div>
-                                    //     <h3>{item.title}</h3>
-                                    //     {
-                                    //         this.createElement(item.elements)
-                                    //     }
-
-                                    // </div>
-                                ))
-                            }
+                        {
+                            this.props.menuItems.map(item => (
+                                <li className="">
+                                    {item.title}
+                                    <ul className="">
+                                        {
+                                            this.createElement(item.elements).map(element => <li className="">{element}</li>)
+                                        }
+                                    </ul>
+                                </li>
+                            ))
+                        }
                         </ul>
                     </div>
                 </div>
