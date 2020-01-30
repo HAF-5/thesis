@@ -13,9 +13,12 @@ li {
     background-color: rgba(238,238,238,.5);
     padding-left: 52px;
 }
+li{
+    color: #007bff !important;
+}
 
 .container > ul {
-    background-color:#f8f9fa;
+    background-color:white;
     position:fixed;
     height: 100%;
     left: 0;
@@ -25,7 +28,6 @@ li {
     float: left;
     z-index: 9;
     cursor: pointer;
-
 }
 .container > ul > li > ul {
     display: none;
@@ -37,7 +39,6 @@ li {
     padding-left: 0px;
     z-index: 9;
     top:85px;
-
 }
 .container > ul > li:hover > ul {
     display:block;
