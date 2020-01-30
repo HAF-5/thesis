@@ -1,4 +1,3 @@
-
 #navbarResponsive > ul >  li:hover{
     color: #007bff !important;
     cursor: pointer;
@@ -8,7 +7,6 @@
 }
 #navbarResponsive > ul >  li > a{
     font-size: 17px;
-
 }
 #publish{
     background-color: #007bff;
@@ -21,4 +19,24 @@
     background-color: white;
     color: black;
     height: 67px;
-    box-shadow: 0px 0.8px 0px #9e9e9e1f}
+    box-shadow: 0px 0.8px 0px #9e9e9e1f;
+    border-bottom: 1px solid #80808033;
+}
+.NavarEdit{
+    padding-right: 10%;
+    padding-left: 7.5%;
+}
+.navedit{
+    padding: 0px 0px 0px 0px;
+}
+#navbareditor > ul > li{
+    font-size: 15px;
+    padding: 5px 5px 5px 5px;
+}
+.page-btn{
+    padding-top: 11px;
+    padding-bottom: 11px;
+    border-radius: 0px;
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+}

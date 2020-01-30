@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './FixedNavbar.css'
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+
+import './FixedNavbar.css';
 
 export default class FixedNavbar extends Component{
     // constructor(props) {
@@ -27,17 +28,9 @@ export default class FixedNavbar extends Component{
                     <div className="collapse navbar-collapse" id="navbarResponsive">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                        <a className="nav-link" href="#"></a>
+                        <Link to="/dashboard" className="nav-link" href="#">Dashboard </Link>
                         </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="#">Save</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" data-toggle="tooltip" data-placement="bottom" title="see what your site looks like before you publish it" href="#">Preview</a>
-                        </li>
-                        <li className="nav-item"id="publish">
-                        <a className="nav-link" data-toggle="tooltip" data-placement="bottom" title="click publish to go with your site live">Publish</a>
-                        </li>
+        
                         <li className="nav-item">
                         <a className="nav-link" href="#">Profile</a>
                         </li>

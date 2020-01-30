@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
+
 import FixedNavbar from '../Navbar/FixedNavbar'
-import Header from './../Header/header';
-import './dashboard.css';
-import {Link} from 'react-router-dom'
 import Footer from '../Footer/Footer';
-import Navbar from '../Navbar/Navbar';
+
+import './dashboard.css';
 
 class Dashboard extends Component {
   
@@ -15,7 +15,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <Navbar/>  
+        <FixedNavbar/>  
             <div className="box"> 
               <p id="p"> All Sites</p>
               <div className="flex-container"> 
