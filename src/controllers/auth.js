@@ -252,12 +252,41 @@ exports.facebookLogin = async (req, res) => {
   const { userID, accessToken } = req.body;
   const url = `https://graph.facebook.com/v2.11/${userID}/?fields=id,name,email&access_token=${accessToken}`;
 
-  // return (
-  //   fetch(url, {
-  //     method: 'GET'
-  //   })
 
+  let response = await fetch(url, {
+    method: 'GET'
+  });
 
-  // )
+  const data = await response.json();
+  const { email, name } = data;
 
+  let user = await User.findOne({ email });
+  try {
+    if (user) {
+      const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
+      const { _id, email, name } = user;
+      return res.json({
+        token, user: { _id, email, name }
+      });
+    } else {
+      let password = email + process.env.JWT_SECRET;
+      user = new User({ name, email, password });
+      user.save((err, data) => {
+        if (err) {
+          return res.status(400).json({
+            error: 'User signup failed with facebook'
+          });
+        }
+        const token = jwt.sign({ _id: data._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
+        const { _id, email, name } = data;
+        return res.json({
+          token, user: { _id, email, name }
+        });
+      });
+    }
+  } catch (err) {
+    res.json({
+      error: 'Facebook login failed.'
+    });
+  }
 }
