@@ -40,9 +40,10 @@ class Editor extends Component {
         return (
             <div>
                 <FixedNavbar/>
-                    <div className="row" style={{paddingTop:"10px"}}>
-                    <SideMenu />
-                <div className=" col-md-11" id="editor" >
+                <div className="row" style={{paddingTop:"10px"}}>
+                <SideMenu />
+                <div className=" col-md-11" contenteditable="true" id="editor" >
+                    
                 </div>
                 </div>
             </div>

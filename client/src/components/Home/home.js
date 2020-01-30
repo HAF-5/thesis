@@ -12,34 +12,33 @@ export default class home extends Component {
     render() {
         return (
             <div>
-
-                <div className="d-flex flex-column flex-md-row align-items-center p-3 mb-3 bg-white ">
+               <div className="d-flex flex-column flex-md-row align-items-center p-4  bg-white">
                     <h5 className="my-0 mr-md-auto font-weight-normal">H A F 5</h5>
                     <Link to="dashboard" className="btn btn-outline-primary btn-create" >Create Free Website</Link>
                 </div>
 
                 <div className="position-relative overflow-hidden text-center bg-light" style={{ minHeight: "100vh" }}>
                     <div className="col-md-6 p-lg-5 mx-auto my-5">
-                        <h1 className="display-4 font-weight-normal title">Create your website</h1>
+                        <h1 className="display-4 font-weight-normal title" >Create your website</h1>
                         <p className="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple's marketing pages.</p>
-                        <Link to="Signup" className="btn btn-outline-primary btn-create" >Create website</Link>
+                        <Link to="Signup" className="btn btn-outline-primary btn-create" style={{fontSize: "25px"}}>Create website</Link>
                     </div>
                     <div className="product-device box-shadow d-none d-md-block"></div>
                     <div className="product-device product-device-2 box-shadow d-none d-md-block"></div>
                 </div>
 
-                <div style={{ backgroundColor: "white" }}>
-                    <h6 className="display-4 text-center">Rock your website with HAF builder </h6>
-                    <div className="row pricing-header px-3 py-3 pt-md-5 pb-md-4 container mx-auto text-center">
-                        <div className="col-md-6" style={{ paddingTop: "15px" }}>
-                            <h5>Get access to customizable webpage designs and useful tools to build your website and grow your ideal business.
-                            Easily build a free website to help you get discovered and grow your customer base in style.
-                            Start today with our powerful free website builder.
-                        </h5>
-                            <p><Link to="Signup" className="btn btn-outline-primary btn-create" >Start now</Link></p>
-                        </div>
-                        <div className="col-md-6"><img className="image" src={Img} style={{ width: "100%", height: "100%" }} /></div>
+                <div  style={{backgroundColor:"white"}}>
+                <h6 className="display-4 text-center">Rock your website with HAF builder </h6>
+                <div className="row pricing-header px-3 py-3 pt-md-5 pb-md-4 container mx-auto text-center">
+                    <div className="col-md-6" style={{paddingTop:"15px"}}>
+                        <h3>Get access to customizable webpage designs and useful tools to build your website and grow your ideal business. 
+                        Easily build a free website to help you get discovered and grow your customer base in style.
+                        Start today with our powerful free website builder.
+                        </h3>
+                        <p><Link to="Signup" className="btn btn-outline-primary btn-create" >Start now</Link></p>
                     </div>
+                    <div className="col-md-6"><img className="image" src={Img} style={{width: "100%",height: "100%", marginTop: "-45px"}}/></div>
+                </div>
                 </div>
                 <div className="container-fluid marketing ">
                     <div className="container ">

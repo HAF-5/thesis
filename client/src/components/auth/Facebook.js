@@ -37,5 +37,3 @@ const Facebook = ({ informParent }) => {
 }
 
 export default Facebook;
-
-
