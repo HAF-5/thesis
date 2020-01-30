@@ -10,10 +10,7 @@ const pageSchema = mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'Website'
     },
-    element: [{
-        type: mongoose.Types.ObjectId,
-        ref: 'Element'
-    }],
+    element: [],
     createdAt: {
         type: Number,
         default: Date.now()
