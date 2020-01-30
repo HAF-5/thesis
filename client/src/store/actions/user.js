@@ -2,6 +2,12 @@
 import {LOGIN, LOGOUT} from './constants';
 
 
+export const loginDispatcher = (user) => ({
+    type: LOGIN,
+    payload: user
+});
+
+
 //updated
 export const me = () => async dispatch => {
     try{
@@ -18,17 +24,7 @@ export const logoutDispatcher = () => ({
 
 export const logout = (token) => async dispatch => {
     try{
-        let response = await fetch(`/api/user/me/logout`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'auth': token
-            }
-        });
-        if(response.status === 200){
-            dispatch(logoutDispatcher());
-            localStorage.removeItem('token');
-        }
+        localStorage.removeItem('user');
     } catch(err) {
         console.log(err)
     }
