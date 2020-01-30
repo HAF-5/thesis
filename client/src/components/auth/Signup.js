@@ -34,7 +34,6 @@ const Signup = () => {
       });
 
       const response = await res.json();
-      console.log(response.token)
       if (response.error) {
         setValues({ ...values, buttonText: 'Submit' });
         toast.error(response.error);
@@ -62,7 +61,7 @@ const Signup = () => {
 
       <div className="form-group">
         {/* <label className="text-muted">Password</label> */}
-        <input onChange={handelChange('password')} type="text" value={password} className="form-control" placeholder="Choose a password"/>
+        <input onChange={handelChange('password')} type="password" value={password} className="form-control" placeholder="Choose a password"/>
       </div>
 
       <div>

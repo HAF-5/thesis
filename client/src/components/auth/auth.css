@@ -12,11 +12,7 @@ body{
     background: #3899ec;
     line-height: 1.5;
     box-sizing: border-box;
-    white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: hidden;
-    text-align: center;
-    vertical-align: middle;
     border-radius: 999px;
     border: none;
     color: #fff;
