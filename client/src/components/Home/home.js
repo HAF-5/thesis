@@ -12,6 +12,7 @@ export default class home extends Component {
     render() {
         return (
             <div>
+
                 <div className="d-flex flex-column flex-md-row align-items-center p-3 mb-3 bg-white ">
                     <h5 className="my-0 mr-md-auto font-weight-normal">H A F 5</h5>
                     <Link to="dashboard" className="btn btn-outline-primary btn-create" >Create Free Website</Link>
