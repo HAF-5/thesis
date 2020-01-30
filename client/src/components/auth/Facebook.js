@@ -2,7 +2,7 @@ import React from 'react';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 
 const Facebook = ({ informParent }) => {
-  const responseFacebook = (response) => {
+  const responseFacebook = async (response) => {
     try {
       const res = await fetch(`${process.env.REACT_APP_API}/api/user/facebook-login`, {
         method: 'POST',
@@ -37,3 +37,5 @@ const Facebook = ({ informParent }) => {
 }
 
 export default Facebook;
+
+
