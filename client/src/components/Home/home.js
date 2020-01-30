@@ -1,71 +1,74 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
 import './home.css';
-import Img1 from '../img/templates.png';
-import Img2 from '../img/share.png';
-import Img3 from '../img/art.png';
-import Img from '../img/example3.png'
+import Img1 from '../img/test.png';
+import Img2 from '../img/test2.png';
+import Img3 from '../img/test1.png';
+import Img from '../img/example3.png';
+import {Link} from 'react-router-dom';
+import Signup from '../Signup/signup'
+
 export default class home extends Component {
     render() {
         return (
             <div>
-               <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow nav-head" >
+               <div className="d-flex flex-column flex-md-row align-items-center p-3 mb-3 bg-white " >
                     <h5 className="my-0 mr-md-auto font-weight-normal">H A F 5</h5>
+                    <Link to="dashboard" className="btn btn-outline-primary btn-create" >Create Free Website</Link>
+                </div>
 
-                    <a className="btn btn-outline-primary btn-create" href="#" >Create Free Website</a>
-                </div>
-                <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-                    <div class="col-md-6 p-lg-5 mx-auto my-5">
-                        <h1 class="display-4 font-weight-normal title">Create your website</h1>
-                        <p class="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple's marketing pages.</p>
-                        <a class="btn btn-outline-primary btn-create" href="#">Create website</a>
+                <div className="position-relative overflow-hidden text-center bg-light" style={{minHeight:"100vh"}}>
+                    <div className="col-md-6 p-lg-5 mx-auto my-5">
+                        <h1 className="display-4 font-weight-normal title">Create your website</h1>
+                        <p className="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple's marketing pages.</p>
+                        <Link to="Signup" className="btn btn-outline-primary btn-create" >Create website</Link>
                     </div>
-                    <div class="product-device box-shadow d-none d-md-block"></div>
-                    <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+                    <div className="product-device box-shadow d-none d-md-block"></div>
+                    <div className="product-device product-device-2 box-shadow d-none d-md-block"></div>
                 </div>
-                <div style={{backgroundColor:"white"}}>
-                <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 container mx-auto text-center">
-                    <h6 className="display-4">Rock your website with HAF builder </h6>
-                    
-                    <div class="div1">
-                        <h5 class="h5-div1">
-                        Get access to customizable webpage designs and useful tools to build your website and grow your ideal business. 
+
+                <div  style={{backgroundColor:"white"}}>
+                <h6 className="display-4 text-center">Rock your website with HAF builder </h6>
+                <div className="row pricing-header px-3 py-3 pt-md-5 pb-md-4 container mx-auto text-center">
+                    <div className="col-md-6" style={{paddingTop:"15px"}}>
+                        <h5>Get access to customizable webpage designs and useful tools to build your website and grow your ideal business. 
                         Easily build a free website to help you get discovered and grow your customer base in style.
-                         Start today with our powerful free website builder.
+                        Start today with our powerful free website builder.
                         </h5>
-                        <img src={Img} style={{height: "600px"}}/>
-
+                        <p><Link to="Signup" className="btn btn-outline-primary btn-create" >Start now</Link></p>
                     </div>
+                    <div className="col-md-6"><img className="image" src={Img} style={{width: "100%",height: "100%"}}/></div>
                 </div>
                 </div>
-
-                <div class="container marketing">
-                    <h1 class="div-title"> Create a website in 3 steps</h1>
-                    <div class="row">
-                        
-                        <div class="col-lg-4">
-                        <img class="img" src={Img1} alt="Generic placeholder image" />
+                <div className="container-fluid marketing ">
+                <div className="container ">
+                    <h1 className="div-title"> Create a website in 3 steps</h1>
+                    <div className="row">   
+                        <div className="col-lg-4">
+                        <img className="img image" src={Img1} alt="Generic placeholder image" />
                             <h2>Choose a template</h2>
                             <p>We offers a lot of beautiful templates based on popular topics. Choose one to start creating your website. </p>
                             
                         </div>
-                        <div class="col-lg-4">
-                            <img class="img" src={Img3} alt="Generic placeholder image" />
+                        <div className="col-lg-4">
+                            <img className="img image" src={Img3} alt="Generic placeholder image" />
                             <h2>Edit your website</h2>
                             <p>Edit and style your website the way you want. Flexible settings make web design easy for even the most novice.</p>
                             
                         </div>
-                        <div class="col-lg-4">
-                            <img  class="img" src={Img2} alt="Generic placeholder image" />
+                        <div className="col-lg-4">
+                            <img  className="img image" src={Img2} alt="Generic placeholder image" />
                             <h2>Publish easily</h2>
                             <p>Quickly publish your website, connect domain and submit to Google. Get your website online in a few clicks!</p>
                             
                         </div>
-
+                        </div>
                     </div>
                 </div>
-    
-                <footer className="pt-4 my-md-5 pt-md-5 border-top">
+
+                <div>
+
+                </div>
+                <footer className="py-5 ">
                     <div className="container">
                     <div className="row">
                     <div className="col-6 col-md">
