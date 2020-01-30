@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Google from './Google';
+import Facebook from './Facebook';
 import { ToastContainer, toast } from 'react-toastify';
 import { authenticate, isAuth } from './helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -85,6 +86,7 @@ const Signin = ({ history }) => {
       <div className="col-md-6 offset-md-3">
         <h1 className="p-5 text-center">Signin</h1>
         <Google informParent={informParent} />
+        <Facebook informParent={informParent} />
         {singinForm()}
         <br />
         <Link to='/auth/password/forgot' className='btn btn-sm btn-outline-danger'>Forgot password</Link>
