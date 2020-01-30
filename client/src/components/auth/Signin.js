@@ -5,7 +5,7 @@ import Facebook from './Facebook';
 import { ToastContainer, toast } from 'react-toastify';
 import { authenticate, isAuth } from './helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
-
+import './auth.css'
 
 const Signin = ({ history }) => {
   const [values, setValues] = useState({
@@ -84,7 +84,7 @@ const Signin = ({ history }) => {
     <div>
       <ToastContainer />
       <div className="col-md-6 offset-md-3">
-        <h1 className="p-5 text-center">Signin</h1>
+        <h1 className="p-5 text-center">Login</h1>
         <Google informParent={informParent} />
         <Facebook informParent={informParent} />
         {singinForm()}
