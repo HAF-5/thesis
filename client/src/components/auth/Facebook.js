@@ -19,7 +19,21 @@ const Facebook = ({ informParent }) => {
       console.log('Facebook signin error', err)
     }
   }
-}
 
+  return (
+    <div className="pb-3">
+      <FacebookLogin
+        appId={`${process.env.REACT_APP_FACEBOOK_APP_ID}`}
+        autoLoad={false}
+        callback={(res) => responseFacebook(res)}
+        render={renderProps => (
+          <button onClick={renderProps.onClick} className="btn btn-primary btn-lg btn-block">
+            <i className="fab fa-facebook pr-2"></i>Login with Facebook
+          </button>
+        )}
+      />
+    </div>
+  )
+}
 
 export default Facebook;
