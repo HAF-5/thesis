@@ -11,10 +11,16 @@ const websiteSchema = mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'User'
     },
-    page: [{
-        type: mongoose.Types.ObjectId,
-        ref: 'Page'
-    }],
+    description: {
+        type: String,
+    }, 
+    contact: {
+        phoneNumber: Number,
+        email: String
+    },
+    img: {
+        type: String
+    },
     createdAt: {
         type: Number,
         default: Date.now()

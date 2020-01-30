@@ -30,7 +30,11 @@
     "express": "^4.17.1",
     "express-jwt": "^5.3.1",
     "express-validator": "^6.3.1",
+<<<<<<< HEAD
     "google-auth-library": "^5.9.2",
+=======
+    "google-auth-library": "^5.9.1",
+>>>>>>> e31f0952072d0286688f79222db8be441620fe38
     "jquery": "^3.4.1",
     "js-cookie": "^2.2.1",
     "jsonwebtoken": "^8.5.1",
@@ -48,6 +52,7 @@
     "react-dom": "^16.12.0",
     "react-draggable": "^4.2.0",
     "react-router-dom": "^5.1.2",
+    "react-toastify": "^5.5.0",
     "redux": "^4.0.5",
     "validator": "^12.1.0",
     "video-react": "^0.14.1"
