@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import Google from './Google';
+import Facebook from './Facebook';
 import { ToastContainer, toast } from 'react-toastify';
 import { authenticate, isAuth } from './helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-const Signin = () => {
+
+const Signin = ({ history }) => {
   const [values, setValues] = useState({
     email: 'amera@gmail.com',
     password: '123456',
@@ -17,12 +20,21 @@ const Signin = () => {
     setValues({ ...values, [target]: event.target.value });
   };
 
+  const informParent = (response) => {
+    authenticate(response, () => {
+      toast.success(`Hi ${response.user.name}, Welcome back`);
+      setTimeout(() => {
+        history.push('/')
+      }, 5000);
+    });
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       setValues({ ...values, buttonText: 'Submitting' });
 
-      const res = await fetch(`${process.env.REACT_APP_API}/signin`, {
+      const res = await fetch(`${process.env.REACT_APP_API}/api/user/signin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,6 +50,9 @@ const Signin = () => {
         authenticate(response, () => {
           setValues({ ...values, email: '', password: '', buttonText: 'Submitted' });
           toast.success(`Hi ${response.user.name}, Welcome back`);
+          setTimeout(() => {
+            history.push('/')
+          }, 5000);
         });
       }
     } catch (err) {
@@ -56,7 +71,7 @@ const Signin = () => {
 
       <div className="form-group">
         <label className="text-muted">Password</label>
-        <input onChange={handelChange('password')} type="text" value={password} className="form-control" />
+        <input onChange={handelChange('password')} type="password" value={password} className="form-control" />
       </div>
 
       <div>
@@ -68,10 +83,13 @@ const Signin = () => {
   return (
     <div>
       <ToastContainer />
-      {isAuth() ? <Redirect to="/" /> : null}
       <div className="col-md-6 offset-md-3">
         <h1 className="p-5 text-center">Signin</h1>
+        <Google informParent={informParent} />
+        <Facebook informParent={informParent} />
         {singinForm()}
+        <br />
+        <Link to='/auth/password/forgot' className='btn btn-sm btn-outline-danger'>Forgot password</Link>
       </div>
     </div>
   );

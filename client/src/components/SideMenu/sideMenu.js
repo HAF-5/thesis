@@ -1,121 +1,80 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { setMenuElementDispatcher } from './../../store/actions/sideMenu';
+import { elementsData } from './../../sideMenuElementsData';
 import './sideMenu.css'
-import ReactDOM from 'react-dom';
-import $ from 'jquery';
 
 class sideMenu extends Component {
-  constructor(props){
-    super(props);
-      this.state = {
-        // element:[]
-      }
-    
-  }
-    render() {
-        return (
-          <div className=" col-md-2">
-          <div className=" sidebar">
-            <div className="container">
-              <ul className="sideList">
-                <li className="">
-                  Navbar
-                  <ul className="">
-                    <li className="">Navbar 1</li>
-                    <li className="">Navbar 2</li>
-                    <li className="">Navbar 3</li>
-                    <li className="">Navbar 4</li>
-                    <li className="">NAvbar 5</li>
-                  </ul>
-                </li>
-                <li className="">
-                  Header
-                  <ul className="">
-                    <li className="">Header 1</li>
-                    <li className="">Header 2</li>
-                    <li className="">Header 3</li>
-                    <li className="">Header 4</li>
-                    <li className="">Header 5</li>
-                  </ul>
-                </li>                        
-                <li className="">
-                  Section
-                  <ul className="">
-                    <li className="">Section 1</li>
-                    <li className="">Section 2</li>
-                    <li className="">Section 3</li>
-                    <li className="">Section 4</li>
-                    <li className="">Section 5</li>
-                  </ul>
-                </li>        
-                <li className="">
-                  Form
-                  <ul className="">
-                    <li className="">Form 1</li>
-                    <li className="">Form 2</li>
-                    <li className="">Form 3</li>
-                  </ul>
-                </li>                                       
-                <li className="">
-                  Contact 
-                  <ul className="">
-                    <li className="">Contact 1</li>
-                    <li className="">Contact 2</li>
-                    <li className="">Contact 3</li>
-                    <li className="">Contact 4</li>
-                    <li className="">Contact 5</li>
-                  </ul>
-                </li> 
-                <li className="">
-                  Menu 
-                  <ul className="">
-                    <li className="">Menu 1</li>
-                    <li className="">Menu 2</li>
-                    <li className="">Menu 3</li>
-                    <li className="">Menu 4</li>
-                    <li className="">Menu 5</li>
-                  </ul>
-                </li>  
-                <li className="">
-                  Team 
-                  <ul className="">
-                    <li className="">Team 1</li>
-                    <li className="">Team 2</li>
-                    <li className="">Team 3</li>
-                    <li className="">Team 4</li>
-                    <li className="">Team 5</li>
-                  </ul>
-                </li>  
-                <li className="">
-                  Timeline 
-                  <ul className="">
-                    <li className="">Timeline 1</li>
-                    <li className="">Timeline 2</li>
-                    <li className="">Timeline 3</li>
-                  </ul>
-                </li>                                                       
-                <li className="">
-                  Footer 
-                  <ul className="">
-                    <li className="">Footer 1</li>
-                    <li className="">Footer 2</li>
-                    <li className="">Footer 3</li>
-                  </ul>
-                </li>                                                                                                   
-              </ul>
-            </div>
-          </div>
-          </div> 
 
+    styles(styles) {
+        let style = {};
+        styles.forEach(element => {
+            style[`${element.property}`] = element.value;
+        });
+        return style;
+    }
+
+    createElement(elements) {
+        return elements.map(elt =>
+            React.createElement(
+                elt.element,
+                {
+                    style: this.styles(elt.style),
+                    className: elt.classList.join(' ')
+                },
+                (elt.children.length > 0) ? this.createElement(elt.children) : null,
+                elt.content
+            )
+        )
+    }
+    componentDidMount() {
+        console.log(elementsData)
+        this.props.setMenuElements(elementsData);
+    }
+
+    render() {
+        console.log(this.props.menuItems)
+        return (
+            <div className=" col-md-2">
+                <div className=" sidebar">
+                    <div className="container">
+                        <ul className="sideList">
+                            {
+                                this.props.menuItems.map(item => (
+                                    <li className="">
+                                        {item.title}
+                                        <ul className="">
+                                            <li className="">Navbar 1</li>
+                                            <li className="">Navbar 2</li>
+                                            <li className="">Navbar 3</li>
+                                            <li className="">Navbar 4</li>
+                                            <li className="">NAvbar 5</li>
+                                        </ul>
+                                    </li>
+
+                                    // <div>
+                                    //     <h3>{item.title}</h3>
+                                    //     {
+                                    //         this.createElement(item.elements)
+                                    //     }
+
+                                    // </div>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
         )
     }
 }
 
 const mapStateToProps = (state) => ({
+    menuItems: state.sideMenuElements
 })
 
-const mapDispatchToProps = {
-    
-}
+const mapDispatchToProps = (dispatch) => ({
+    setMenuElements: (payload) => dispatch(setMenuElementDispatcher(payload))
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(sideMenu)
