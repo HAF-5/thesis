@@ -3,13 +3,15 @@ import { Link, Redirect } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { isAuth } from './helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
+import './auth.css'
+import Login from './Signin'
 
 const Signup = () => {
   const [values, setValues] = useState({
-    name: 'fooz',
-    email: 'reachfooz@gmail.com',
-    password: '123456',
-    buttonText: 'Submit'
+    name: '',
+    email: '',
+    password: '',
+    buttonText: 'Register'
   });
 
   const { name, email, password, buttonText } = values;
@@ -32,7 +34,6 @@ const Signup = () => {
       });
 
       const response = await res.json();
-      console.log(response.token)
       if (response.error) {
         setValues({ ...values, buttonText: 'Submit' });
         toast.error(response.error);
@@ -47,36 +48,42 @@ const Signup = () => {
   };
 
   const singupForm = () => (
-    <form onSubmit={handleSubmit}>
+    <form class ="form-content" onSubmit={handleSubmit}>
       <div className="form-group">
-        <label className="text-muted">Name</label>
-        <input onChange={handelChange('name')} type="text" value={name} className="form-control" />
+        {/* <label className="text-muted" >Name</label> */}
+        <input onChange={handelChange('name')} type="text" value={name} className="form-control" placeholder="Name" />
       </div>
 
       <div className="form-group">
-        <label className="text-muted">Email</label>
-        <input onChange={handelChange('email')} type="email" value={email} className="form-control" />
+        {/* <label className="text-muted">Email</label> */}
+        <input onChange={handelChange('email')} type="email" value={email} className="form-control" placeholder="Email"/>
       </div>
 
       <div className="form-group">
-        <label className="text-muted">Password</label>
-        <input onChange={handelChange('password')} type="text" value={password} className="form-control" />
+        {/* <label className="text-muted">Password</label> */}
+        <input onChange={handelChange('password')} type="password" value={password} className="form-control" placeholder="Choose a password"/>
       </div>
 
       <div>
-        <button className="btn btn-primary">{buttonText}</button>
+        <button className="btn btn-primary signup-btn">{buttonText}</button>
       </div>
     </form>
   );
 
   return (
-    <div>
+    <div  className="container auth">
       <ToastContainer />
       {isAuth() ? <Redirect to="/signin" /> : null}
-      <div className="col-md-6 offset-md-3">
-        <h1 className="p-5 text-center">Signup</h1>
+      <form  className="container">
+        <div>
+        <h1 className="p-5" style={{ marginBottom: "-30px"}}> Signup</h1>
+        Already have an account? <Link to="Login"> Log In </Link>
+        </div>
+        <div className="signIn"> 
         {singupForm()}
-      </div>
+         <p class="accept-terms">* By signing up, you agree to our <a href="#">Terms of Use</a> and to receive emails & 
+           updates and acknowledge that you read our< a href="#"> Privacy Policy </a> .</p></div>
+        </form> 
     </div>
   );
 };

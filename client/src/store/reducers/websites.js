@@ -1,22 +1,12 @@
 import {SET_WEBSITES, SELECT_WEBSITE, ADD_WEBSITE} from '../actions/constants';
 
-let initialState = {
-    websites: ['portfilio'],
-    selectedWebsite: 'portfilio'
-}
-
-const websiteReducer = (state = initialState, action) => {
+const websiteReducer = (state = [], action) => {
     switch (action.type) {
         case SET_WEBSITES:
-            return {
-                ...state,
-                websites: action.payload,
-            }
+            console.log(action.payload)
+            return action.payload;
         case SELECT_WEBSITE: 
-            return {
-                ...state,
-                selectedWebsite: action.payload
-            }
+            return state;
         case ADD_WEBSITE:
             if(state.websites.contains(action.payload)){
                 alert('sorry choose another name');
