@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { authenticate, isAuth } from './helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
-
+import './auth.css'
 const Signin = () => {
   const [values, setValues] = useState({
     email: 'amera@gmail.com',
@@ -70,7 +70,7 @@ const Signin = () => {
       <ToastContainer />
       {isAuth() ? <Redirect to="/" /> : null}
       <div className="col-md-6 offset-md-3">
-        <h1 className="p-5 text-center">Signin</h1>
+        <h1 className="p-5 text-center">Login</h1>
         {singinForm()}
       </div>
     </div>

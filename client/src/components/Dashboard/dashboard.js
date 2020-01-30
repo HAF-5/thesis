@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import FixedNavbar from '../Navbar/FixedNavbar'
 import Header from './../Header/header';
 import './dashboard.css'
 
@@ -12,14 +12,14 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <Header/>
-        <div>
+        {/* <Header/> */}
+ 
             <div className="header-box">
             <div className="header-position">
             <h1> My Sites</h1>  
             <p className="font">Select a site to edit, view and open its dashboard</p>
              </div>
-            <a className="btn btn-outline-primary btn-create" href="#" >Create New Website</ a>
+            <a className="btn btn-outline-primary btn-createe" href="#" >Create New Website</ a>
             </div>   
             <div className="box"> 
             <p id="p"> All Sites</p>
@@ -66,7 +66,6 @@ class Dashboard extends Component {
                     </div>
                     </div>
                 </footer>
-        </div>
       </div>
     )
   }
