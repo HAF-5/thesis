@@ -24,18 +24,17 @@ class Dashboard extends Component {
             <Link to="CreateProject" className="btn btn-outline-primary btn-create" href="#" >Create New Website</Link>
             </div>   
             <div className="box"> 
-            <p id="p"> All Sites</p>
-                <div className="flex-container">                
-                    <div className="card container-div">  Website </div> 
-                    <div className="card container-div">  Website </div> 
-                    <div className="card container-div">  Website </div> 
-                    <div className="card container-div">  Website </div> 
-                    <div class="card container-div-create">
-                    <p className="div-text-create">Start to Create a New Templete </p>
-                    <p id="pargraph-card-craete">Start Desgin Your Sites</p>
-                    <a className="btn btn-default btn-lg btn-create-div" href="#">Create New Website</ a>
-                    </div>   
-                    </div>
+              <p id="p"> All Sites</p>
+              <div className="flex-container"> 
+              {
+                this.props.websites.map((website) => <div className="card container-div"> {website.title} </div> )
+              }               
+                <div class="card container-div-create">
+                  <p className="div-text-create">Start to Create a New Templete </p>
+                  <p id="pargraph-card-craete">Start Desgin Your Sites</p>
+                  <a className="btn btn-default btn-lg btn-create-div" href="#">Create New Website</ a>
+                </div>   
+              </div>
            </div>
            <footer className="pt-3 my-md-2 pt-md-4">
                     <div className="container">
@@ -75,6 +74,7 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  websites: state.websites
 })
 
 const mapDispatchToProps = (dispatch) => ({

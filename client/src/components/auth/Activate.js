@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import jwt from 'jsonwebtoken';
-import Layout from '../core/layout';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-const Activate = ({ match }) => {
+const Activate = ({ match, history }) => {
   const [values, setValues] = useState({
     name: '',
     token: '',
@@ -25,7 +23,7 @@ const Activate = ({ match }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const res = await fetch(`${process.env.REACT_APP_API}/account-activation`, {
+      const res = await fetch(`${process.env.REACT_APP_API}/api/user/account-activation`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,6 +36,9 @@ const Activate = ({ match }) => {
       } else {
         setValues({ ...values, show: false });
         toast.success(response.saved);
+        setTimeout(() => {
+          history.push('/login')
+        }, 5000);
       }
     } catch (err) {
       toast.error(err);
@@ -52,12 +53,12 @@ const Activate = ({ match }) => {
   )
 
   return (
-    <Layout>
+    <div>
       <ToastContainer />
       <div className="col-md-6 offset-md-3">
         {activationLink()}
       </div>
-    </Layout>
+    </div>
   );
 };
 

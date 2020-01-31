@@ -22,12 +22,14 @@
     width: 60%;
     margin-top: 25%;
 } 
+
 .header-title {
    
     color: white;
     font-size: 60px;
     margin: 50px;
 }
+
 .back {
     position: absolute;
     margin-left: 60px;
@@ -38,6 +40,13 @@
     font-family: 'Scope One', serif;
     font-weight: lighter;
 }
+.next {
+    margin-top: 15%;
+    margin-left: 85%;
+    border-radius: 2pc;
+    padding: 8px;
+    width: 100px;
+}
 
 .back:hover {
     cursor: pointer;
@@ -47,26 +56,34 @@ body {
     width: 100%;
     height: 100%;
     position: fixed;
-  }
+}
 
 
-   .icons {
+.icons {
       padding: 5px; 
       font-weight: lighter; 
-  } 
+} 
   
-  .form-continer {
-   background-color: rgb(231, 230, 228);
-   margin-left: 25px;
-   margin-top: 300px;
-   width: 85%;
+.form-position {
+   width: 100%;
    padding:10px;
-  }
+   margin-left: 25px;
+   margin-top: 250px;
+   padding-left: 90px;
+   justify-content: center;
+}
 
-  input {
-      width: 90%;
-      display: inline-block;
-  }
-  label {
-      padding: 10px;
-  }
+.input-border {
+    border: none;
+    opacity: 0.7;
+    font-size: 25px;
+    color: rgb(54, 56, 56);
+    font-variant-caps: all-petite-caps;
+}
+.label-color {
+   color: rgb(96, 99, 99);
+   font-size: 20px;
+}
+
+ 
+
