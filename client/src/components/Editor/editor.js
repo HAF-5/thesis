@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import SideMenu from '../SideMenu/sideMenu';
-import  './Editor.css';
-import FixedNavbar from '../Navbar/FixedNavbar'
+import FixedNavbar from '../Navbar/FixedNavbar';
+import Navbar from '../Navbar/Navbar';
+
 import { setPages } from './../../store/actions/pages';
+
+import  './Editor.css';
 
 class Editor extends Component {
 
@@ -41,7 +45,8 @@ class Editor extends Component {
         return (
             <div>
                 <FixedNavbar/>
-                <div className="row" style={{paddingTop:"10px"}}>
+                <Navbar/>
+                <div className="row">
                 <SideMenu />
                 <div className=" col-md-11" id="editor" >
                     
