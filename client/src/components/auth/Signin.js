@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import Google from './Google';
+import Facebook from './Facebook';
 import { ToastContainer, toast } from 'react-toastify';
 import { authenticate, isAuth } from './helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
+import './auth.css'
 
-const Signin = () => {
+const Signin = ({ history }) => {
   const [values, setValues] = useState({
     email: 'amera@gmail.com',
     password: '123456',
@@ -16,6 +19,15 @@ const Signin = () => {
   const handelChange = (target) => (event) => {
     setValues({ ...values, [target]: event.target.value });
   };
+
+  const informParent = (response) => {
+    authenticate(response, () => {
+      toast.success(`Hi ${response.user.name}, Welcome back`);
+      setTimeout(() => {
+        history.push('/')
+      }, 5000);
+    });
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -38,6 +50,9 @@ const Signin = () => {
         authenticate(response, () => {
           setValues({ ...values, email: '', password: '', buttonText: 'Submitted' });
           toast.success(`Hi ${response.user.name}, Welcome back`);
+          setTimeout(() => {
+            history.push('/')
+          }, 5000);
         });
       }
     } catch (err) {
@@ -68,10 +83,13 @@ const Signin = () => {
   return (
     <div>
       <ToastContainer />
-      {isAuth() ? <Redirect to="/" /> : null}
       <div className="col-md-6 offset-md-3">
-        <h1 className="p-5 text-center">Signin</h1>
+        <h1 className="p-5 text-center">Login</h1>
+        <Google informParent={informParent} />
+        <Facebook informParent={informParent} />
         {singinForm()}
+        <br />
+        <Link to='/auth/password/forgot' className='btn btn-sm btn-outline-danger'>Forgot password</Link>
       </div>
     </div>
   );

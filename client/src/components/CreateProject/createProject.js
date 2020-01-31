@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import './createProject.css'
+import React, { Component } from 'react';
+import './createProject.css';
+
 export default class reviewInfo extends Component {
     render() {
         return (

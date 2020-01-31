@@ -26,9 +26,9 @@ router.post('/', async (req, res) => {
 });
 
 //get page route
-router.get('/', async (req, res) => {
+router.get('/:websiteId', async (req, res) => {
     try{
-        const doc = await Page.find();
+        const doc = await Page.find({website: req.params.websiteId});
         res.status(200).json(doc);
     }catch(err){
         res.status(400).send(err);
