@@ -7,7 +7,7 @@
     float: left;
     width: 45%;
     height: 1000px;
-    background-color: rgba(0, 128, 255);
+    background-color: rgb(5, 117, 228);
 }
 
 .right {
@@ -31,21 +31,25 @@
 }
 
 .back {
+    padding-left: 57px;
     position: absolute;
-    margin-left: 60px;
-    margin-top: 20%; 
-    color : white;
-    font-size: x-large;
     font-size: 20px;
     font-family: 'Scope One', serif;
     font-weight: lighter;
+    margin-top: 19%;
+    color: white;
 }
 .next {
-    margin-top: 15%;
     margin-left: 85%;
     border-radius: 2pc;
     padding: 8px;
     width: 100px;
+}
+
+.images {
+    border-radius: 50%;
+    width: 110px;
+    height: 100px;
 }
 
 .back:hover {
@@ -67,9 +71,9 @@ body {
 .form-position {
    width: 100%;
    padding:10px;
-   margin-left: 25px;
-   margin-top: 250px;
-   padding-left: 90px;
+   padding-left: 100px;
+   padding-top: 150px;
+   padding-bottom: 90px;
    justify-content: center;
 }
 

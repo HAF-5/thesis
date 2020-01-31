@@ -21,6 +21,14 @@ export default class CreateProject extends Component {
                 </div>               
          <div className="right">    
           <form className="form-position">
+            
+          <div className="form-group row">
+            <label htmlFor="colFormLabel" className="col-sm-2 col-form-label label-color">Logo</label>
+            <div className="col-sm-10">
+            <img src=""  className="images"    placeholder="Enter Your Name" />
+            </div>
+            </div>
+
             <div className="form-group row">
             <label htmlFor="colFormLabel" className="col-sm-2 col-form-label label-color">Name</label>
             <div className="col-sm-10">
@@ -52,7 +60,8 @@ export default class CreateProject extends Component {
             <div className="form-group row">
             <label htmlFor="colFormLabel" className="col-sm-2 col-form-label label-color">Description</label>
             <div className="col-sm-10">
-            <input type="text" className="form-control input-border" id="colFormLabel"/>
+            <input type="text" className="form-control input-border" id="colFormLabel"
+            placeholder="Enter Your Description"/>
             </div>
             </div>
         </form>     
