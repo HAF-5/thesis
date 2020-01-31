@@ -5,6 +5,8 @@ import SideMenu from '../SideMenu/sideMenu';
 import FixedNavbar from '../Navbar/FixedNavbar';
 import Navbar from '../Navbar/Navbar';
 
+import { setPages } from './../../store/actions/pages';
+
 import  './Editor.css';
 
 class Editor extends Component {
@@ -33,6 +35,7 @@ class Editor extends Component {
     }
 
     componentDidMount() {
+        this.props.setPages(this.props.website._id);
         this.props.elements.map((element, i) => {
             document.getElementById("editor").appendChild(this.createElement(element));   
         });
@@ -45,7 +48,7 @@ class Editor extends Component {
                 <Navbar/>
                 <div className="row">
                 <SideMenu />
-                <div className=" col-md-11" contenteditable="true" id="editor" >
+                <div className=" col-md-11" id="editor" >
                     
                 </div>
                 </div>
@@ -54,11 +57,13 @@ class Editor extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    elements: state.elements.elements
+const mapStateToProps = (state, props) => ({
+    pages: state.pages,
+    elements: state.elements.elements,
+    website: state.websites.filter(website => website.title === props.match.params.title)[0]
 });
 const mapDispatchToProps = (dispatch) => ({
-
+    setPages: (payload) => dispatch(setPages(payload))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Editor);
