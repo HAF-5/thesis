@@ -18,42 +18,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        {/* <Navbar/>  
-          <div className="box"> 
-            <p id="p"> All Sites</p>
-            <div className="flex-container"> 
-            {
-              this.props.websites.map((website) => (
-                <div className="card container-div" key={website._id}> 
-                  <Link to = {`/editor/${website.title}`}>
-                    {website.title}
-                  </Link>
-                </div> 
-                )
-              )
-            }               
-              <div className="card container-div-create">
-                <p className="div-text-create">Start to Create a New Templete </p>
-                <p id="pargraph-card-craete">Start Desgin Your Sites</p>
-                <Link to ="/createProject" className ="btn btn-default btn-lg btn-create-div">Create New Website</ Link>
-              </div>   
-            </div>
-          </div>
-        <Footer/> */}
         <FixedNavbar/>  
-            {/* <div className="box"> 
-              <p id="p"> All Sites</p>
-              <div className="flex-container"> 
-              {
-                this.props.websites.map((website) => <div className="card container-div"> {website.title} </div> )
-              }               
-                <div class="card container-div-create">
-                  <p className="div-text-create">Start to Create a New Templete </p>
-                  <p id="pargraph-card-craete">Start Desgin Your Sites</p>
-                  <Link to ="/createProject" className="btn btn-default btn-lg btn-create-div" href="#">Create New Website</ Link>
-                </div>   
-              </div>
-           </div> */}
           <div className="box"> 
             <p id="p"> All Sites</p>
             <div className="flex-container"> 
