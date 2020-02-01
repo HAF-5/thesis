@@ -7,10 +7,6 @@ const websiteReducer = (state = [], action) => {
         // case SELECT_WEBSITE: 
         //     return state;
         case ADD_WEBSITE:
-            if(state.websites.contains(action.payload)){
-                alert('sorry choose another name');
-                return state;
-            }
             return [
                 ...state,
                 action.payload

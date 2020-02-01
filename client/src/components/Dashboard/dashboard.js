@@ -24,8 +24,13 @@ class Dashboard extends Component {
             <div className="flex-container"> 
             {
               this.props.websites.map((website) => (
-                <div className="card container-div" key={website._id}> 
-                  <Link to = {`/editor/${website.title}`}>
+                <div 
+                  className="card container-div" 
+                  key={website._id}
+                > 
+                  <Link 
+                    to = {`/editor/${website._id}`}
+                  >
                     {website.title}
                   </Link>
                 </div> 

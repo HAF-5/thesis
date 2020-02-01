@@ -5,52 +5,42 @@ import SideMenu from '../SideMenu/sideMenu';
 import FixedNavbar from '../Navbar/FixedNavbar';
 import Navbar from '../Navbar/Navbar';
 
-import { setPages } from './../../store/actions/pages';
+import { setPages, clearPages } from './../../store/actions/pages';
+import { setElements, clearElements } from './../../store/actions/elements';
 
 import  './Editor.css';
 
 class Editor extends Component {
 
-    styles(styles) {
-        return styles.map(style => `${style.property}:${style.value}`).join('; ');
+    constructor(props){
+        super(props);
+        this.myRef = React.createRef();
     }
-
-    createNode({element, content, style, classList}) {
-        let node = document.createElement(element);
-        let textNode = document.createTextNode(content);
-        node.classList = classList.join(' ');
-        node.contentEditable='true';
-        node.onInput = e => console.log('Text inside div', e.currentTarget.textContent)
-        node.setAttribute('style', this.styles(style));
-        node.appendChild(textNode);
-        return node;
-    }
-
-    createElement(element) {
-        let elt = this.createNode(element);
-        element.children.map(childNode => {
-            elt.appendChild(this.createNode(childNode));
-        });
-        return elt;
-    }
-
     componentDidMount() {
-        this.props.setPages(this.props.website._id);
-        this.props.elements.map((element, i) => {
-            document.getElementById("editor").appendChild(this.createElement(element));   
-        });
+        this.props.setPages(this.props.match.params.id);
+    }
+
+    componentWillUnmount() {
+        this.props.clearElements();
+        this.props.clearPages();
     }
 
     render() {
+        this.props.elements.length === 0 && this.props.pages[0] && this.props.setElements(this.props.pages[0]._id);
         return (
             <div>
                 <FixedNavbar/>
                 <Navbar/>
                 <div className="row">
-                <SideMenu />
-                <div className=" col-md-11" id="editor" >
-                    
-                </div>
+                    <SideMenu />  
+                    <div ref={this.myRef} className=" col-md-11" id="editor" >
+                        {
+                        this.props.elements.map((element, i) => <div
+                            dangerouslySetInnerHTML={{ __html: element.element }}
+                            contentEditable ='true'
+                        ></div>)
+                        }
+                    </div>
                 </div>
             </div>
         )
@@ -58,12 +48,15 @@ class Editor extends Component {
 }
 
 const mapStateToProps = (state, props) => ({
-    pages: state.pages,
-    elements: state.elements.elements,
-    website: state.websites.filter(website => website.title === props.match.params.title)[0]
+    elements: state.elements,
+    website: state.websites.filter(website => website._id === props.match.params.id)[0],
+    pages: state.pages
 });
 const mapDispatchToProps = (dispatch) => ({
-    setPages: (payload) => dispatch(setPages(payload))
+    setPages: (websiteId) => dispatch(setPages(websiteId)),
+    setElements: (pageId) => dispatch(setElements(pageId)),
+    clearElements: () => dispatch(clearElements()),
+    clearPages: () => dispatch(clearPages())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Editor);

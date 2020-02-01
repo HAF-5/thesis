@@ -1,70 +1,30 @@
-import {SET_ELEMENTS, SELECT_ELEMENT, ADD_ELEMENT} from '../actions/constants';
+import {SET_ELEMENTS, SELECT_ELEMENT, ADD_ELEMENT, EDIT_ELEMENT, CLEAR_ELEMENTS} from '../actions/constants';
 
-let initialState = {
-    elements: [{
-        classList: ['btn'],
-        element: 'p',
-        content: 'Hello World',
-        style: [{
-            property: 'width',
-            value: '300px'
-        }, {
-            property: 'color',
-            value: 'red'  
-        }],
-        createdAt: Date.now(),
-        children: [{
-            classList: [],
-            element: 'p',
-            content: ' !',
-            style: []
-        }]
-    },
-    {
-        classList: ['btn', 'btn-info'],
-        element: 'button',
-        content: 'click me',
-        style: [],
-        createdAt: Date.now(),
-        children: []
-    }],
-    selectedElement: {
-        classList: ['btn'],
-        element: 'p',
-        content: 'Hello World',
-        style: [{
-            property: 'width',
-            value: '300px'
-        }],
-        createdAt: Date.now(),
-        children: [{
-            classList: [],
-            element: 'p',
-            content: ' !',
-            style: []
-        }]
-    }
-}
 
-const elementReducer = (state = initialState, action) => {
+const elementReducer = (state = [], action) => {
     switch (action.type) {
         case SET_ELEMENTS:
-            return {
-                ...state,
-                pages: action.payload,
-            }
-        case SELECT_ELEMENT: 
-            return {
-                ...state,
-                selectedPage: action.payload
-            }
+            return action.payload; 
         case ADD_ELEMENT:
-            return {
+            return [
                 ...state,
-                pages: [...state.pages, action.payload]
-            }
+                {   
+                    _id: action.payload._id,
+                    type: action.payload.type,
+                    element: action.payload.element,
+                }
+            ]
+        case EDIT_ELEMENT: 
+            return state.map(element => {
+                if(element._id === action.payload._id){
+                    return action.payload;
+                }
+                return element;
+            })
+        case CLEAR_ELEMENTS:
+            return [];
       default:
-        return state
+        return state;
     }
 }
 
