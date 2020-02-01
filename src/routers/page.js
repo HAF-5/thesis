@@ -25,12 +25,12 @@ router.post('/', async (req, res) => {
     }
 });
 
-//get page route
-router.get('/:websiteId', async (req, res) => {
-    try{
-        const doc = await Page.find({website: req.params.websiteId});
+//get a specific
+router.get('/:pageId', async (req, res) => {
+    try {
+        const doc = await Page.findById(req.params.pageId);
         res.status(200).json(doc);
-    }catch(err){
+    } catch(err) {
         res.status(400).send(err);
     }
 });
