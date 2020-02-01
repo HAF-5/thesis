@@ -1,36 +1,32 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { setElements } from './../../store/actions/elements';
 
 import './FixedNavbar.css';
 
-export default class FixedNavbar extends Component{
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //       toggleStateA: false
-    //     };
-    //   }
-    
-    //   handleToggleClickA = () => {
-    //     this.setState({
-    //       toggleStateA: !this.state.toggleStateA
-    //     });
-    //   };
-      
+class FixedNavbar extends Component{
+
     render(){
         return(
             <div className="NavarEdit">
                 <nav className="navbar navbar-expand-lg navbar-ligth navedit">
-                <div class="dropdown show">
-                    <a class="btn btn-secondary dropdown-toggle page-btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Pages: HOME 
-                     </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">HOME</a>
-                        <a class="dropdown-item" href="#">About</a>
-                        <a class="dropdown-item" href="#">Offer</a>
+                    <div class="dropdown show">
+                        <a class="btn btn-secondary dropdown-toggle page-btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        pages 
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            {
+                                this.props.pages.map(page => 
+                                <button 
+                                    className="dropdown-item"
+                                    onClick= {() => {this.props.setElements(page._id)}}
+                                > {page.title} </button>
+                                )
+                            }
+                        </div>
                     </div>
-                </div>
                     <div className="collapse navbar-collapse" id="navbareditor" >
                     <ul className="navbar-nav ml-auto">
                         
@@ -51,3 +47,13 @@ export default class FixedNavbar extends Component{
         )
     }
 }
+
+const mapStateToProps = (state) => ({
+    pages: state.pages
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    setElements: (pageId) => dispatch(setElements(pageId))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FixedNavbar);

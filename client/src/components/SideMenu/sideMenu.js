@@ -1,34 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import { setMenuElementDispatcher } from './../../store/actions/sideMenu';
+import { addElementDispatcher } from './../../store/actions/elements';
+
 import { elementsData } from './../../sideMenuElementsData';
+
 import './sideMenu.css'
 
 class sideMenu extends Component {
 
-    styles(styles) {
-        let style = {};
-        styles.forEach(element => {
-            style[`${element.property}`] = element.value;
-        });
-        return style;
-    }
 
-    createElement(elements) {
-        return elements.map(elt =>
-            React.createElement(
-                elt.element,
-                {
-                    style: this.styles(elt.style),
-                    className: elt.classList.join(' ')
-                },
-                (elt.children.length > 0) ? this.createElement(elt.children) : null,
-                elt.content
-            )
-        )
-    }
     componentDidMount() {
-        console.log(elementsData)
+        console.log( elementsData )
         this.props.setMenuElements(elementsData);
     }
 
@@ -45,7 +29,9 @@ class sideMenu extends Component {
                                         {item.title}
                                         <ul className="">
                                             {
-                                                this.createElement(item.elements).map(element => <li className="">{element}</li>)
+                                                item.elements.map(element => <li onClick= {() => {
+                                                    this.props.addElement(element);
+                                                }} dangerouslySetInnerHTML={{ __html: element.element }} className=""></li>)
                                             }
                                         </ul>
                                     </li>
@@ -64,7 +50,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    setMenuElements: (payload) => dispatch(setMenuElementDispatcher(payload))
+    setMenuElements: (payload) => dispatch(setMenuElementDispatcher(payload)),
+    addElement: (payload) => dispatch(addElementDispatcher(payload))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(sideMenu)

@@ -1,56 +1,32 @@
 const express = require('express');
 
-const router = express.Router();
 const Element = require('../models/Element');
+const Page = require('../models/Page');
 
-// classList: [{
-//     type: String
-// }],
-// element: {
-//     type: String
-// },
-// content: {
-//     type: String
-// },
-// style: [{
-//     property: {
-//         type: String
-//     },
-//     value: {
-//         type: String
-//     }
-// }],
-// createdAt: {
-//     type: Number,
-//     default: Date.now()
-// },
-// children: [{
-//     classList: [{
-//         type: String
-//     }],
-//     element: {
-//         type: String
-//     },
-//     content: {
-//         type: String
-//     },
-//     style: [{
-//         property: {
-//             type: String
-//         },
-//         value: {
-//             type: String
-//         }
-//     }]
-// }]
+const { createElement } = require('./../models/Page');
+
+const router = express.Router();
 
 //create element route
 router.post('/', async (req, res) => {
-    // const { classLi } = req.body;
+    try {
+        const { pageId, element } = req.body;
+        let doc = await createElement(pageId, element);
+        res.status(201).send(doc);
+    } catch(err) {
+        res.status(400).send();
+    }
 });
 
 //get element route
-router.get('/', async (req, res) => {
+router.get('/:pageId', async (req, res) => {
+    try {
+        const doc = await Page.findById(req.params.pageId);
+        res.status(200).json(doc.element);
+    } catch(err) {
+        console.log(err)
+        res.status(400).send(err);
+    }
 });
 
 module.exports = router;
