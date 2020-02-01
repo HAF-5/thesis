@@ -1,4 +1,5 @@
-import { SET_PAGES, ADD_PAGE, CLEAR_PAGE} from './constants';
+import { SET_PAGES, ADD_PAGE, CLEAR_PAGE, SELECT_PAGE} from './constants';
+import { setElements } from './elements';
 
 export const setPagesDispatcher = (payload) => ({
     type: SET_PAGES,
@@ -11,9 +12,15 @@ export const setPages = websiteId => async dispatch => {
     console.log(data)
     if(response.status == 200){
         dispatch(setPagesDispatcher(data));
+        // dispatch(setElements(data._id));
     }
 }
 
 export const clearPages = () => ({
     type: CLEAR_PAGE
+});
+
+export const selectPage = (payload) => ({
+    type: SELECT_PAGE,
+    payload
 })

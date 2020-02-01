@@ -8,17 +8,21 @@ const { createElement } = require('./../models/Page');
 const router = express.Router();
 
 //create element route
+//POST /api/element
 router.post('/', async (req, res) => {
     try {
         const { pageId, element } = req.body;
+        console.log(req.body)
         let doc = await createElement(pageId, element);
         res.status(201).send(doc);
     } catch(err) {
+        console.log(err)
         res.status(400).send();
     }
 });
 
 //get element route
+//GET /api/element/:pageId
 router.get('/:pageId', async (req, res) => {
     try {
         const doc = await Page.findById(req.params.pageId);
