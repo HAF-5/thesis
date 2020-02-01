@@ -1,16 +1,19 @@
-import { SET_PAGES, ADD_PAGE} from './constants';
+import { SET_PAGES, ADD_PAGE, CLEAR_PAGE} from './constants';
 
 export const setPagesDispatcher = (payload) => ({
     type: SET_PAGES,
     payload
 });
 
-export const setPages = (websiteId) => async (dispatch, getState) => {
-    let response = await fetch(`${process.env.REACT_APP_API}/api/page/${websiteId}`);
+export const setPages = websiteId => async dispatch => {
+    let response = await fetch(`${process.env.REACT_APP_API}/api/website/pages/${websiteId}`);
     let data = await response.json();
     console.log(data)
     if(response.status == 200){
-        console.log(response.status)
         dispatch(setPagesDispatcher(data));
     }
 }
+
+export const clearPages = () => ({
+    type: CLEAR_PAGE
+})
