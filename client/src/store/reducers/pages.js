@@ -1,31 +1,15 @@
-import {SET_PAGES, SELECT_PAGE, ADD_PAGE} from '../actions/constants';
+import {SET_PAGES, ADD_PAGE} from '../actions/constants';
 
-let initialState = {
-    pages: ['index'],
-    selectedPage: 'index'
-}
-
-const pageReducer = (state = initialState, action) => {
+const pageReducer = (state = [], action) => {
     switch (action.type) {
         case SET_PAGES:
-            return {
-                ...state,
-                pages: action.payload,
-            }
-        case SELECT_PAGE: 
-            return {
-                ...state,
-                selectedPage: action.payload
-            }
+            return action.payload;
         case ADD_PAGE:
             if(state.pages.contains(action.payload)){
                 alert('sorry choose another name');
                 return state;
             }
-            return {
-                ...state,
-                pages: [...state.pages, action.payload]
-            }
+            return [...state.pages, action.payload]
       default:
         return state
     }

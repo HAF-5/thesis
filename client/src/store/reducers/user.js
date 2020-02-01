@@ -1,11 +1,9 @@
 import {LOGIN, LOGOUT} from '../actions/constants';
 
-const userReducer = (state = {}, {type, payload}) => {
-    switch (type) {
+const userReducer = (state = {}, action) => {
+    switch (action.type) {
       case LOGIN:
-        return {
-            _id: payload
-        }
+        return action.payload
        case LOGOUT: 
         return {}
       default:

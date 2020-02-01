@@ -7,6 +7,12 @@ import store from './store';
 import { me } from './store/actions/user';
 import { setWebsite } from './store/actions/websites';
 
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import $ from 'jquery';
+import Popper from 'popper.js'
+
 import './index.css';
 import AppRouter from './routers/AppRouter';
 
