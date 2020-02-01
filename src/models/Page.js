@@ -19,7 +19,8 @@ const pageSchema = mongoose.Schema({
 });
 
 const createElement = async function(pageId, element) {
-    let elementDoc = await Element.create(element);
+  console.log(pageId, element)
+    let elementDoc = await Element.create({type: element.type, element: element.element});
     let pageDoc = await Page.findByIdAndUpdate(
         pageId,
         {

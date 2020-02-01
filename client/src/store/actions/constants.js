@@ -6,9 +6,10 @@ export const SELECT_WEBSITE = 'SELECT_WEBSITE';
 export const ADD_WEBSITE = 'ADD_WEBSITE';
 
 export const SET_PAGES = 'SET_PAGES';
-export const SELECT_PAGE = 'SELECT_PAGE';
 export const ADD_PAGE = 'ADD_PAGE';
 export const CLEAR_PAGE = 'CLEAR_PAGE';
+
+export const SELECT_PAGE = 'SELECT_PAGE';
 
 export const SET_ELEMENTS = 'SET_ELEMENTS';
 export const SELECT_ELEMENT = 'SELECT_ELEMENT';

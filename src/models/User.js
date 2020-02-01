@@ -21,9 +21,9 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     salt: String,
-    role: {
+    image: {
         type: String,
-        default: 'subscriber'
+        default: 'https://thumbnail.imgbin.com/15/3/3/imgbin-emoticon-smiley-emoji-icon-the-head-of-the-tongue-yellow-emoji-ncHxQQBdpJ5ZMC9zex2WFaiGU_t.jpg'
     },
     resetPasswordLink: {
         data: String,
