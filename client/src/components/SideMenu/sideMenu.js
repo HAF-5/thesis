@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { setMenuElementDispatcher } from './../../store/actions/sideMenu';
-import { addElementDispatcher } from './../../store/actions/elements';
+import { addElement } from './../../store/actions/elements';
 
 import { elementsData } from './../../sideMenuElementsData';
 
 import './sideMenu.css'
 
 class sideMenu extends Component {
-
 
     componentDidMount() {
         console.log( elementsData )
@@ -19,15 +18,15 @@ class sideMenu extends Component {
     render() {
         console.log(this.props.menuItems)
         return (
-            <div className=" col-md-1">
+            <div className=" col-md-1 sideMenu">
                 <div className=" sidebar">
                     <div className="container">
                         <ul className="sideList">
                             {
                                 this.props.menuItems.map(item => (
-                                    <li className="">
+                                    <li className="sideMenuTitle">
                                         {item.title}
-                                        <ul className="">
+                                        <ul className="subMenu">
                                             {
                                                 item.elements.map(element => <li onClick= {() => {
                                                     this.props.addElement(element);
@@ -51,7 +50,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     setMenuElements: (payload) => dispatch(setMenuElementDispatcher(payload)),
-    addElement: (payload) => dispatch(addElementDispatcher(payload))
+    addElement: (payload) => dispatch(addElement(payload))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(sideMenu)
