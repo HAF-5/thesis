@@ -21,7 +21,7 @@ const Facebook = ({ informParent }) => {
   }
 
   return (
-    <div className="pb-3">
+    <div className="col-md-4">
       <FacebookLogin
         appId={`${process.env.REACT_APP_FACEBOOK_APP_ID}`}
         autoLoad={false}

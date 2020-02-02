@@ -88,7 +88,6 @@ body {
 #p {
   position: relative;
   margin-left: 90px;
-  margin-top: 100px;
   cursor: pointer;
   font-size: smaller;
   color : rgb(55, 56, 59);
@@ -100,7 +99,7 @@ body {
 
 
 .div-text-create {
-  color: rgb(128, 65, 128);
+  color: #007bff;
   font-size: 21px;
   padding-top: 25px;
   background-color: #fcf9f91c;
@@ -109,10 +108,9 @@ body {
   margin: 0;
 }
 
-
 .btn-create-div {
   border-radius: 50px;
-  background-color: rgb(128, 65, 128);
+  background-color:#007bff;
   color: white;
   width: 230px;
   margin: auto;

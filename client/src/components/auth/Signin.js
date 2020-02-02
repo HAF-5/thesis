@@ -9,8 +9,8 @@ import './auth.css'
 
 const Signin = ({ history }) => {
   const [values, setValues] = useState({
-    email: 'amera@gmail.com',
-    password: '123456',
+    email: '',
+    password: '',
     buttonText: 'Submit'
   });
 
@@ -65,13 +65,13 @@ const Signin = ({ history }) => {
     <form onSubmit={handleSubmit}>
 
       <div className="form-group">
-        <label className="text-muted">Email</label>
-        <input onChange={handelChange('email')} type="email" value={email} className="form-control" />
+        {/* <label className="text-muted">Email</label> */}
+        <input onChange={handelChange('email')} type="email" value={email} className="form-control"  placeholder="Email"/>
       </div>
 
       <div className="form-group">
-        <label className="text-muted">Password</label>
-        <input onChange={handelChange('password')} type="password" value={password} className="form-control" />
+        {/* <label className="text-muted">Password</label> */}
+        <input onChange={handelChange('password')} type="password" value={password} className="form-control"  placeholder="Type your password" />
       </div>
 
       <div>
@@ -83,14 +83,19 @@ const Signin = ({ history }) => {
   return (
     <div>
       <ToastContainer />
-      <div className="col-md-6 offset-md-3">
-        <h1 className="p-5 text-center">Login</h1>
-        <Google informParent={informParent} />
-        <Facebook informParent={informParent} />
-        {singinForm()}
-        <br />
-        <Link to='/auth/password/forgot' className='btn btn-sm btn-outline-danger'>Forgot password</Link>
-      </div>
+      {isAuth() ? <Redirect to="/dashboard" /> : null}
+      <form  className="container">
+        <h1 className="p-5" style={{ marginBottom: "-30px"}}>Login</h1>
+        <div className="row">
+          <Google informParent={informParent} />
+          <Facebook informParent={informParent} />
+          </div>  
+        <div className="signIn">
+          {singinForm()}
+          <br />
+          <Link to='/auth/password/forgot' className='btn btn-sm btn-outline-danger'>Forgot password</Link>
+        </div>
+        </form> 
     </div>
   );
 };
