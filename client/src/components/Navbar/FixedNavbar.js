@@ -5,22 +5,10 @@ import { logout } from '../../store/actions/user';
 import './FixedNavbar.css';
 
 class FixedNavbar extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //       toggleStateA: false
-    //     };
-    //   }
-
-    //   handleToggleClickA = () => {
-    //     this.setState({
-    //       toggleStateA: !this.state.toggleStateA
-    //     });
-    //   };
 
     render() {
         return (
-            <div className="Navar">
+            <div className="header Navar">
                 <nav className="navbar navbar-expand-lg navbar-ligth" style={{ height: "60px" }}>
                     <h5 className="my-0 mr-md-auto font-weight-normal">H A F 5</h5>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +19,6 @@ class FixedNavbar extends Component {
                             <li className="nav-item">
                                 <Link to="/dashboard" className="nav-link" href="#">Dashboard </Link>
                             </li>
-
                             <li className="nav-item">
                                 <div className="dropdown">
                                     <button className="btn dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ color: "#007bff" }}>

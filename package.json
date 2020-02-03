@@ -39,14 +39,6 @@
     "node-fetch": "^2.6.0",
     "nodemailer": "^6.4.2",
     "nodemon": "^1.19.1",
-    "react": "^16.12.0",
-    "react-dnd": "^10.0.2",
-    "react-dnd-html5-backend": "^10.0.2",
-    "react-dom": "^16.12.0",
-    "react-draggable": "^4.2.0",
-    "react-router-dom": "^5.1.2",
-    "react-toastify": "^5.5.0",
-    "redux": "^4.0.5",
     "validator": "^12.1.0"
   }
 }
