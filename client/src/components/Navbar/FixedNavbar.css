@@ -1,4 +1,4 @@
-#navbarResponsive > ul >  li:hover{
+/* #navbarResponsive > ul >  li:hover{
     color: #007bff !important;
     cursor: pointer;
 }
@@ -40,4 +40,9 @@
     border-radius: 0px;
     background-color: #007bff !important;
     border-color: #007bff !important;
+} */
+
+.header {
+    border-bottom: 1px solid whitesmoke;
+    height: 10vh;
 }
