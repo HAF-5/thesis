@@ -3,7 +3,7 @@ import { SET_WEBSITES, SELECT_WEBSITE, ADD_WEBSITE} from './constants';
 export const setWebsiteDispatcher = (payload) => ({
     type: SET_WEBSITES,
     payload
-});
+}); 
 
 export const setWebsite = () => async (dispatch, getState) => {
     try{
@@ -28,3 +28,20 @@ export const addWebsiteDispatcher = (payload) => ({
     payload
 });
 
+export const addWebsite = (website) => async (dispatch) => {
+    try{
+        let response = await fetch(`${process.env.REACT_APP_API}/api/website`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(website) 
+        });
+        let data = await response.json()    
+        if(response.status === 201){
+            dispatch(addWebsiteDispatcher(data))
+        }
+    } catch(err){
+        console.log(err)
+    }
+}
