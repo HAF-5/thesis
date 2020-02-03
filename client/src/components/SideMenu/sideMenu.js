@@ -1,57 +1,68 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import styled from "styled-components";
+import { Draggable, DragDropContext } from "react-beautiful-dnd";
 
-import { setMenuElementDispatcher } from './../../store/actions/sideMenu';
-import { addElementDispatcher } from './../../store/actions/elements';
+import { setMenuElementDispatcher } from "./../../store/actions/sideMenu";
+import { addElement } from "./../../store/actions/elements";
 
-import { elementsData } from './../../sideMenuElementsData';
+import { elementsData } from "./../../sideMenuElementsData";
 
-import './sideMenu.css'
+import "./sideMenu.css";
 
 class sideMenu extends Component {
+  componentDidMount() {
+    console.log(elementsData);
+    this.props.setMenuElements(elementsData);
+  }
 
+  render() {
+    return (
+      <div className=" col-md-1 sideMenu">
+        <div className=" sidebar">
+          <div className="container">
+            <ul className="sideList">
+              {this.props.menuItems.map(item => (
+                <li className="sideMenuTitle">
+                  {item.title}
 
-    componentDidMount() {
-        console.log( elementsData )
-        this.props.setMenuElements(elementsData);
-    }
-
-    render() {
-        console.log(this.props.menuItems)
-        return (
-            <div className=" col-md-1">
-                <div className=" sidebar">
-                    <div className="container">
-                        <ul className="sideList">
-                            {
-                                this.props.menuItems.map(item => (
-                                    <li className="">
-                                        {item.title}
-                                        <ul className="">
-                                            {
-                                                item.elements.map(element => <li onClick= {() => {
-                                                    this.props.addElement(element);
-                                                }} dangerouslySetInnerHTML={{ __html: element.element }} className=""></li>)
-                                            }
-                                        </ul>
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        )
-    }
+                  <Draggable draggableId={item.title}>
+                    {provided => (
+                      <ul className="subMenu">
+                        {item.elements.map(element => (
+                          <li
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            ref={provided.innerRef}
+                            onClick={() => {
+                              this.props.addElement(element);
+                            }}
+                            dangerouslySetInnerHTML={{
+                              __html: element.element
+                            }}
+                            className=""
+                          ></li>
+                        ))}
+                      </ul>
+                    )}
+                  </Draggable>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-const mapStateToProps = (state) => ({
-    menuItems: state.sideMenuElements
-})
+const mapStateToProps = state => ({
+  menuItems: state.sideMenuElements
+});
 
-const mapDispatchToProps = (dispatch) => ({
-    setMenuElements: (payload) => dispatch(setMenuElementDispatcher(payload)),
-    addElement: (payload) => dispatch(addElementDispatcher(payload))
-})
+const mapDispatchToProps = dispatch => ({
+  setMenuElements: payload => dispatch(setMenuElementDispatcher(payload)),
+  addElement: payload => dispatch(addElement(payload))
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(sideMenu)
+export default connect(mapStateToProps, mapDispatchToProps)(sideMenu);

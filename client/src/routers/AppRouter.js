@@ -3,6 +3,7 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
 
 import Dashboard from './../components/Dashboard/dashboard';
 import Signin from './../components/auth/Signin';
@@ -24,6 +25,7 @@ const AppRouter = () => {
           <PublicRoute path='/login' component={Signin} />
           <PrivateRoute path='/dashboard' component={Dashboard} />
           <PrivateRoute path='/createProject' component={createProject} />
+
           <PrivateRoute path='/editor/:id' component={Editor} />
           <PublicRoute path='/auth/activate/:token' component={Activate} />
           <PublicRoute path='/auth/password/forgot' component={Forgot} />

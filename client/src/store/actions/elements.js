@@ -26,12 +26,19 @@ export const addElementDispatcher = (payload) => ({
     payload
 });
 
-export const addElement = (pageId, element) => async dispatch => {
+export const addElement = (element) => async (dispatch, getState) => {
+    let pageId = getState().selectedPage._id;
+    console.log(pageId, element)
     try {
         let response = await fetch(`${process.env.REACT_APP_API}/api/element`, {
-            method: 'POST',
-            body: JSON.stringify({ pageId, element }),
-        });
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify({ pageId, element }) // body data type must match "Content-Type" header
+          });
+        console.log(response)
         let data = await response.json();
         if(response.status == 201){
             dispatch(addElementDispatcher(data));

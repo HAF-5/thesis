@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { setElements } from './../../store/actions/elements';
+import { selectPage } from './../../store/actions/pages';
 
 import './FixedNavbar.css';
 
@@ -21,7 +22,10 @@ class FixedNavbar extends Component{
                                 this.props.pages.map(page => 
                                 <button 
                                     className="dropdown-item"
-                                    onClick= {() => {this.props.setElements(page._id)}}
+                                    onClick= {() => {
+                                        this.props.setElements(page._id);
+                                        this.props.selectPage(page);
+                                    }}
                                 > {page.title} </button>
                                 )
                             }
@@ -53,7 +57,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    setElements: (pageId) => dispatch(setElements(pageId))
+    setElements: (pageId) => dispatch(setElements(pageId)),
+    selectPage: (page) => dispatch(selectPage(page))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FixedNavbar);
