@@ -1,4 +1,5 @@
 import { SET_WEBSITES, SELECT_WEBSITE, ADD_WEBSITE} from './constants';
+import { toast } from 'react-toastify';
 
 export const setWebsiteDispatcher = (payload) => ({
     type: SET_WEBSITES,
@@ -28,7 +29,7 @@ export const addWebsiteDispatcher = (payload) => ({
     payload
 });
 
-export const addWebsite = (website) => async (dispatch) => {
+export const addWebsite = (website,cb) => async (dispatch) => {
     try{
         let response = await fetch(`${process.env.REACT_APP_API}/api/website`, {
             method: 'POST',
@@ -40,8 +41,19 @@ export const addWebsite = (website) => async (dispatch) => {
         let data = await response.json()    
         if(response.status === 201){
             dispatch(addWebsiteDispatcher(data))
+            toast.success("website created successfully");
+            
+            setTimeout(() => {
+                cb(data._id)
+              }, 5000);
+            
+            
+        }else if(response.status === 400){
+            toast.error("website name already exist");
         }
+        
     } catch(err){
-        console.log(err)
+        // console.log(err)
+        toast.error("something went wrong");
     }
 }

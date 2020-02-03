@@ -9,35 +9,31 @@
 .create-project_left {
     float: left;
     width: 45%;
-    height: 1000px;
+    height: 100vh;
     background-color: rgb(5, 117, 228);
     box-sizing: border-box
 }
 .create-project_title {
     color: white;
-    font-size: 60px;
+    font-size: 35px;
     margin: 50px;
 }
 .create-project_left-text {
     color: white;
     font-size: 60px;
-    width: 40%;
-    font-weight: normal;
-    font-family: 'Roboto Slab', serif;
     font-weight: bold;
-    margin-left: 10%;
-    margin-right: 0;
+    margin: 18vh;
+    line-height: 72px;
+    letter-spacing: 3.4px;
+    padding-bottom: 25vh;
+    padding-top: 10vh;
 
 }
 .create-project_back {
     color: white;
-    margin-top: 15%;
-    padding-top: 150px;
-    padding-left: 3%;
-    position: fixed;
     font-size: 20px;
-    font-family:Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-weight:150;
+    margin: 5vh;
+    padding-top: 55px;
 }
 
 .create-project_back:hover {
@@ -47,45 +43,63 @@
 
 .create-project_right {
     width: 50%;
+    height: 100vh;
     background-color: white;
 } 
 
 .create-project_form {
     width: 100%;
-    padding:10px;
-    padding-left: 100px;
-    padding-top: 150px;
-    padding-bottom: 90px;
+    padding-left: 20%;
+    padding-right: 10%;
+    padding-top: 20vh;
     justify-content: center;
  }
 
 
 .create-Project_nextPage {
     color: white;
-    margin-left: 45%;
-    margin-top: 6%;
     border-radius: 2pc;
-    padding: 8px;
     position: absolute;
-    width: 90px;
+    display: flex;
+    right: 42px;
+    bottom: 42px;
+    width:75px;
     font-size: 20px;
-    font-family:Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-weight:320;
     background-color: rgb(5, 117, 228);
+    margin: 4vh;
+}
+
+.create-Project_nextPage:hover{
+    background-color: #458fff;
+    color:white;
 }
 
 .create_form-input {
     border: none;
-    opacity: 0.7;
-    font-size: 25px;
+    opacity: 0.5;
+    font-size: 20px;
     color: rgb(54, 56, 56);
-    font-variant-caps: all-petite-caps;
 }
+.create_form-input:hover{
+    border-bottom:3px solid rgb(5, 117, 228);
+    border-radius: 0px;
+}
+.create_form-input:focus{
+    box-shadow: none;
+    border-bottom:2px solid rgb(5, 117, 228);
+    border-radius: 0px;
+    
+}
+
 .create_project_labal_form {
-    color: rgb(167, 170, 170);
+    color: gray;
    font-size: 20px;
 }
-
-
+.col-sm-8{
+    padding-bottom: 20px;
+}
+.col-md-4{
+    padding-bottom: 20px;
+}
 
 
