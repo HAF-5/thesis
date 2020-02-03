@@ -22,9 +22,9 @@ const AppRouter = () => {
           <Route path='/' component={Home} exact />
           <PublicRoute path='/signup' component={Signup} />
           <PublicRoute path='/login' component={Signin} />
-          <PublicRoute path='/dashboard' component={Dashboard} />
-          <PublicRoute path='/createProject' component={createProject} />
-          <PublicRoute path='/editor/:id' component={Editor} />
+          <PrivateRoute path='/dashboard' component={Dashboard} />
+          <PrivateRoute path='/createProject' component={createProject} />
+          <PrivateRoute path='/editor/:id' component={Editor} />
           <PublicRoute path='/auth/activate/:token' component={Activate} />
           <PublicRoute path='/auth/password/forgot' component={Forgot} />
           <PublicRoute path='/auth/password/reset/:token' component={Reset} />
