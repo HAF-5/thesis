@@ -3,6 +3,7 @@ import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props
 
 const Facebook = ({ informParent }) => {
   const responseFacebook = async (response) => {
+    console.log(response)
     try {
       const res = await fetch(`${process.env.REACT_APP_API}/api/user/facebook-login`, {
         method: 'POST',
@@ -21,7 +22,7 @@ const Facebook = ({ informParent }) => {
   }
 
   return (
-    <div className="pb-3">
+    <div className="col-md-4">
       <FacebookLogin
         appId={`${process.env.REACT_APP_FACEBOOK_APP_ID}`}
         autoLoad={false}

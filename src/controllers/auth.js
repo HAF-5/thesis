@@ -212,19 +212,20 @@ exports.googleLogin = async (req, res) => {
   const { idToken } = req.body;
   let response = await client.verifyIdToken({ idToken, audience: process.env.GOOGLE_CLIENT_ID });
   const { email_verified, name, email } = response.payload;
+  const image = response.payload.picture;
 
   if (email_verified) {
     let user = await User.findOne({ email });
     try {
       if (user) {
         const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
-        const { _id, email, name } = user;
+        const { _id, email, name, image } = user;
         return res.json({
-          token, user: { _id, email, name }
+          token, user: { _id, email, name, image }
         });
       } else {
         let password = email + process.env.JWT_SECRET;
-        user = new User({ name, email, password });
+        user = new User({ name, email, password, image });
         user.save((err, data) => {
           if (err) {
             return res.status(400).json({
@@ -232,9 +233,9 @@ exports.googleLogin = async (req, res) => {
             });
           }
           const token = jwt.sign({ _id: data._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
-          const { _id, email, name } = data;
+          const { _id, email, name, image } = data;
           return res.json({
-            token, user: { _id, email, name }
+            token, user: { _id, email, name, image }
           });
         });
       }
@@ -251,7 +252,6 @@ exports.googleLogin = async (req, res) => {
 exports.facebookLogin = async (req, res) => {
   const { userID, accessToken } = req.body;
   const url = `https://graph.facebook.com/v2.11/${userID}/?fields=id,name,email&access_token=${accessToken}`;
-
 
   let response = await fetch(url, {
     method: 'GET'
