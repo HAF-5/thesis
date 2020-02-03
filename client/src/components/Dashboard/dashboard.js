@@ -12,8 +12,7 @@ import './dashboard.css';
 
 class Dashboard extends Component {
   
-  componentDidMount(){
-  }
+
 
   render() {
     return (

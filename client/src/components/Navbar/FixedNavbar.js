@@ -9,9 +9,11 @@ export default class FixedNavbar extends Component{
         return(
             <div className="header Navar">
                 <nav className="navbar navbar-expand-lg navbar-ligth"  style={{height:"60px"}}>
-                    <h5 className="my-0 mr-md-auto font-weight-normal">H A F 5</h5>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
+                    <Link to="/" ><h5 className="my-0 mr-md-auto font-weight-normal">H A F 5</h5></Link>
+                    <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon">   
+                        <i className="fas fa-bars" style={{color:"black", fontSize:"28px"}}></i>
+                    </span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarResponsive">
                     <ul className="navbar-nav ml-auto">
