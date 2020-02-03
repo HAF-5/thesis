@@ -1,5 +1,6 @@
 #editor{
-    width: 90%;
     right: 0;
+    overflow-y: scroll;
+    height: 80vh;
 }
 
