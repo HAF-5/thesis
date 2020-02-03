@@ -1,33 +1,91 @@
-.continer {
+.create-project_container {
     width: 100%;
     display: inline-flex;
+    width: 100%;
+    height: 100%;
+    position: fixed;
 }
 
-.left {
+.create-project_left {
     float: left;
     width: 45%;
     height: 1000px;
-    background-color: rgb(49, 86, 196);
-    font-family: 'IBM Plex Serif', serif;
-    font-family: 'Arbutus Slab', serif;
-    font-family: 'Merriweather', serif
+    background-color: rgb(5, 117, 228);
+    box-sizing: border-box
 }
-
-.right {
-    width: 50%;
-    background-color: white;
-}
-
-.left-text {
-    color: white;
-    font-size: 60px;
-    margin: auto;
-    width: 60%;
-    margin-top: 25%;
-} 
-.header-title {
-   
+.create-project_title {
     color: white;
     font-size: 60px;
     margin: 50px;
 }
+.create-project_left-text {
+    color: white;
+    font-size: 60px;
+    width: 60%;
+    font-weight: normal;
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+    margin-left: 10%;
+    margin-right: 0;
+
+}
+.create-project_back {
+    color: white;
+    margin-top: 15%;
+    padding-top: 150px;
+    padding-left: 3%;
+    position: fixed;
+    font-size: 20px;
+    font-family:Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight:150;
+}
+
+.create-project_back:hover {
+    text-decoration-line: none;
+    color:white;
+}
+
+.create-project_right {
+    width: 50%;
+    background-color: white;
+} 
+
+.create-project_form {
+    width: 100%;
+    padding:10px;
+    padding-left: 100px;
+    padding-top: 150px;
+    padding-bottom: 90px;
+    justify-content: center;
+ }
+
+
+.create-Project_nextPage {
+    color: white;
+    margin-left: 45%;
+    margin-top: 6%;
+    border-radius: 2pc;
+    padding: 8px;
+    position: absolute;
+    width: 90px;
+    font-size: 20px;
+    font-family:Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight:320;
+    background-color: rgb(5, 117, 228);
+}
+
+.create_form-input {
+    border: none;
+    opacity: 0.7;
+    font-size: 25px;
+    color: rgb(54, 56, 56);
+    font-variant-caps: all-petite-caps;
+}
+.create_project_labal_form {
+    color: rgb(167, 170, 170);
+   font-size: 20px;
+}
+
+
+
+
