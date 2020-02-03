@@ -32,8 +32,8 @@ li{
 .container > ul > li > ul {
     display: none;
     position: fixed;
-    left: 140px;
-    min-width: 600px;
+    /* left: 140px;
+    min-width: 600px; */
     background-color: white;
     list-style: none;
     padding-left: 0px;
@@ -56,6 +56,19 @@ li{
 .container > ul > li > ul > li:hover {
     display:block;
     background-color: rgba(238,238,238,.5);
+}
+
+.sideMenu {
+    width: 10%;
+}
+
+.sideMenuTitle {
+    width: 100%;
+}
+
+.subMenu {
+    left: 10%;
+    width: 50%;
 }
 
 

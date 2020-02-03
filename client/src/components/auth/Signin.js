@@ -5,7 +5,7 @@ import Facebook from './Facebook';
 import { ToastContainer, toast } from 'react-toastify';
 import { authenticate, isAuth } from './helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
-import './auth.css'
+import './auth.css';
 
 const Signin = ({ history }) => {
   const [values, setValues] = useState({
