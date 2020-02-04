@@ -29,8 +29,40 @@ body{
     width:50vh;
     display: inline-block;
     margin-top: 40px;
+    
 }
 .accept-terms{
     margin-top: 0px;
     color:gray;
+}
+.signin-btn{
+    height: 50px;
+    margin-bottom: -5px;
+    margin-top: 5px;
+    background: #3899ec;
+    line-height: 1.5;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    border-radius: 999px;
+    border: none;
+    color: #fff;
+    font-family: HelveticaNeueW01-55Roma,HelveticaNeueW02-55Roma,HelveticaNeueW10-55Roma,sans-serif;
+    padding: 0 24px;
+    cursor: pointer;
+    outline: 0;
+    -webkit-font-smoothing: antialiased;
+}
+.signin-btn:hover{
+    background: #4eb7f5;
+}
+.social-log{
+    padding-bottom: 20px;
+}
+.forget-psw{
+    border:none;
+}
+.forget-psw:hover{
+    border:none;
+    background-color: white;
+    color:red
 }

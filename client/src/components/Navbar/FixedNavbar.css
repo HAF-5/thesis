@@ -46,3 +46,7 @@
     border-bottom: 1px solid whitesmoke;
     height: 10vh;
 }
+.fixed-style{
+    box-shadow: 0 1px 5px 0 rgba(41,85,115,.21);
+    height:60px;
+}

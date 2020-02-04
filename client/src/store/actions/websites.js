@@ -42,11 +42,9 @@ export const addWebsite = (website,cb) => async (dispatch) => {
         if(response.status === 201){
             dispatch(addWebsiteDispatcher(data))
             toast.success("website created successfully");
-            
             setTimeout(() => {
                 cb(data._id)
               }, 5000);
-            
             
         }else if(response.status === 400){
             toast.error("website name already exist");
