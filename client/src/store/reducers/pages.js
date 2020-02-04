@@ -5,11 +5,11 @@ const pageReducer = (state = [], action) => {
         case SET_PAGES:
             return action.payload;
         case ADD_PAGE:
-            if(state.pages.contains(action.payload)){
-                alert('sorry choose another name');
-                return state;
-            }
-            return [...state.pages, action.payload];
+            // if(state.pages.contains(action.payload)){
+            //     alert('sorry choose another name');
+            //     return state;
+            // }
+            return [...state, action.payload];
         case CLEAR_PAGE:
             return [];
       default:
