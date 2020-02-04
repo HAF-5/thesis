@@ -9,8 +9,8 @@ import './auth.css';
 
 const Signin = ({ history }) => {
   const [values, setValues] = useState({
-    email: 'amera@gmail.com',
-    password: '123456',
+    email: '',
+    password: '',
     buttonText: 'Submit'
   });
 

@@ -4,6 +4,7 @@ const nodemailer = require('nodemailer');
 const _ = require("lodash");
 const { OAuth2Client } = require('google-auth-library');
 const fetch = require("node-fetch");
+const expressJwt = require('express-jwt');
 
 exports.signup = async (req, res) => {
   const { name, email, password } = req.body;
@@ -289,4 +290,8 @@ exports.facebookLogin = async (req, res) => {
       error: 'Facebook login failed.'
     });
   }
-}
+};
+
+exports.auth = expressJwt({
+  secret: process.env.JWT_SECRET
+});

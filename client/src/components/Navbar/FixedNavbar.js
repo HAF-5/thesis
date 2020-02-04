@@ -20,6 +20,9 @@ class FixedNavbar extends Component {
                                 <Link to="/dashboard" className="nav-link" href="#">Dashboard </Link>
                             </li>
                             <li className="nav-item">
+                                <img src={this.props.user.image} className="rounded-circle" style={{ width: "30px", height: "30px" }}></img>
+                            </li>
+                            <li className="nav-item">
                                 <div className="dropdown">
                                     <button className="btn dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ color: "#007bff" }}>
                                         {this.props.user.name}
@@ -30,10 +33,6 @@ class FixedNavbar extends Component {
                                         >Logout</div>
                                     </div>
                                 </div>
-                            </li>
-
-                            <li className="nav-item">
-                                <img src={this.props.user.image} className="rounded-circle" style={{ width: "30px", height: "30px" }}></img>
                             </li>
                         </ul>
                     </div>
