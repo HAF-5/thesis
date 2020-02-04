@@ -9,7 +9,6 @@ li {
 .sideMenu {
     position: fixed;
     bottom: 0vh;
-    left: 0px;
     max-height: 75vh;
     z-index: 998;
     margin-bottom: 5vh;
@@ -17,18 +16,14 @@ li {
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-end;
-    padding: 15px 15px 15px 15px;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 200px;
+    padding: 15px 10px 15px 5px;
     margin: auto;
 }
 
 .btn-rounded-purble {
     background-color: #990066;
     color: whitesmoke;
-    width: 130px;
+    width: 100px;
     border-radius: 25px;
 }
 

@@ -17,7 +17,7 @@ class FixedNavbar extends Component{
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav mr-auto">
+                    <ul className="navbar-nav">
                         <li className="editor-nav-item nav-item">
                             <a className="nav-link editor-nav-link" href= "#">Save</a>
                         </li>

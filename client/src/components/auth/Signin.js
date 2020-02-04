@@ -75,25 +75,25 @@ const Signin = ({ history }) => {
       </div>
 
       <div>
-        <button className="btn btn-primary">{buttonText}</button>
+        <button className="btn btn-primary signin-btn">{buttonText}</button>
       </div>
     </form>
   );
 
   return (
-    <div>
+    <div className="container auth">
       <ToastContainer />
       {isAuth() ? <Redirect to="/dashboard" /> : null}
       <form  className="container">
         <h1 className="p-5" style={{ marginBottom: "-30px"}}>Login</h1>
-        <div className="row">
+        <div className="signIn">
+          <div className="row social-log">
           <Google informParent={informParent} />
           <Facebook informParent={informParent} />
-          </div>  
-        <div className="signIn">
+          </div>
           {singinForm()}
-          <br />
-          <Link to='/auth/password/forgot' className='btn btn-sm btn-outline-danger'>Forgot password</Link>
+          <br />Forget your password ?
+          <Link to='/auth/password/forgot' className='btn btn-sm btn-outline-danger forget-psw'>click here</Link>
         </div>
         </form> 
     </div>

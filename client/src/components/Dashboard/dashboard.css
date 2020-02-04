@@ -1,22 +1,20 @@
-body {
-    font-family: "HelveticaNeueW01-45Ligh","HelveticaNeueW02-45Ligh","HelveticaNeueW10-45Ligh","Helvetica Neue","Helvetica","Arial"
-}
+
 .box {
-  /* display: flex; */
   flex-wrap: wrap;
   box-sizing: border-box;
   margin: auto;
   background-color:  rgb(240, 242, 243);
   padding-bottom: 100px;
-  padding-left: 0;
   color : rgb(55, 56, 59);
   font-size: x-large;
 }
 
 .flex-container {
-   display: flex;
-   flex-wrap: wrap;
-   margin-left: 90px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  margin-left: 20vh;
+  padding-top: 10vh;
 }
 
 .container-div { 
@@ -26,22 +24,21 @@ body {
   padding-top: 70px;
   text-align: center;
   line-height: 70px;
-  font-family: 'Roboto', sans-serif;
-  margin-bottom: 1.875rem;
   border: none;
   background-color: white;
-
+  border-radius: 20px;
 }
+
 
 .container-div-create {
   width: 340px;
   height: 250px;
   text-align: center;
   margin: 15px;
-  font-family: 'Roboto', sans-serif;
   border: none;
   background-color: white;  
   box-sizing: border-box;
+  border-radius: 20px;
 
 }
 
@@ -85,18 +82,25 @@ body {
 
 }
 
-#p {
-  position: relative;
-  margin-left: 90px;
-  cursor: pointer;
-  font-size: smaller;
-  color : rgb(55, 56, 59);
+.dashboard-title{
+  padding-left: 15vh;
+  padding-bottom: 20px;
+  color: #162d3d;
+  padding-top: 10vh;
+  line-height: 18px;
+  background-color: white;
 }
 
-#p:hover {
+.dashboard-title > span{
+ font-size: 20px;
+ font-weight: 100;
+}
+
+.dashboard-title > h1{
   font-weight: bold;
+  font-size: 30px;
+  color: #990066;
 }
-
 
 .div-text-create {
   color: #007bff;
@@ -110,10 +114,18 @@ body {
 
 .btn-create-div {
   border-radius: 50px;
-  background-color:#007bff;
-  color: white;
-  width: 230px;
+  background-color: #990066;  color: white;
+  width: 250px;
   margin: auto;
+  color: white;
+  right: 42px;
+  bottom: 42px;
+  font-size: 20px;
+}
+
+.btn-create-div:hover {
+  background-color: #458fff;
+  color: white;
 }
 
 #pargraph-card-craete {
@@ -121,17 +133,4 @@ body {
   padding-top: 0;
 }
 
-.font {
-
-  font-family: 'Noto Sans TC', sans-serif;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: smaller;
-  padding-left: 2px;
-  padding-top: 2px;
-}
-
-footer {
-  padding-top: 0;
-  background-color: white;
-}
 
