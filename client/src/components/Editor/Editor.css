@@ -1,4 +1,6 @@
 #editor{
-    position: relative;
-    min-height: 100vh;
+    right: 0;
+    overflow-y: scroll;
+    height: 80vh;
 }
+
