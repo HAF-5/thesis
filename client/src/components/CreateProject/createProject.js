@@ -53,7 +53,7 @@ class CreateProject extends Component {
                     <div className="create-project_left-text">
                         Review and Edit your informations  
                     </div> 
-                    <Link to="Dashboard" className="create-project_back">Back</Link>
+                    <Link to="Dashboard" type="submit" className=" btn create-project_back">Back</Link>
                 </div>               
                 <div className="create-project_right">    
                     <form onSubmit={this.submitForm} className="create-project_form">

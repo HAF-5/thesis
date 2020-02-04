@@ -21,14 +21,14 @@ const Google = ({ informParent }) => {
   }
 
   return (
-    <div className="col-md-4">
+    <div className="col-md-6">
       <GoogleLogin
         clientId={`${process.env.REACT_APP_GOOGLE_CLIENT_ID}`}
         onSuccess={(res) => responseGoogle(res)}
         onFailure={(res) => responseGoogle(res)}
         render={renderProps => (
           <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="btn btn-danger btn-lg btn-block">
-            <i className="fab fa-google pr-2"></i>Login with Google
+            <i className="fab fa-google pr-2"></i>Google
           </button>
         )}
         cookiePolicy={'single_host_origin'}
