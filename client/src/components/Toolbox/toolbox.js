@@ -70,12 +70,6 @@ export default class Toolbox extends Component {
             </li>
           </ul>
         </div>
-        <div className="main_content">
-          <div className="header">Welcome!!</div>
-          <div className="info">
-            <div>lorem</div>
-          </div>
-        </div>
       </div>
     );
   }

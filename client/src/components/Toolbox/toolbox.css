@@ -15,15 +15,16 @@ body {
   display: flex;
   position: relative;
   float: right;
-  left: -60px;
+  left: -110px;
   z-index: 1;
 }
 
 .wrapper .sidebar {
-  width: 100px;
+  width: 95px;
   height: 80%;
-  background: #ffffff;
+  background: #ececec;
   padding: 30px 0px;
+  padding-top: 30px;
   position: fixed;
   box-sizing: border-box;
   box-shadow: 0 15px 5px #4d4c4c;
@@ -42,6 +43,7 @@ body {
   border-bottom: 1px solid #bdb8d7;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: #fff;
 }
 
 .wrapper .sidebar ul li a {
@@ -58,14 +60,12 @@ body {
   background-color: #d7e6fd;
 }
 
-.wrapper .sidebar ul li:hover a {
-  color: rgb(13, 1, 65);
-}
-
 .wrapper .sidebar ul li a {
   color: rgb(13, 1, 65);
 }
 
 .position-flex {
   display: inline-flex;
+  width: 95px;
+  z-index: 1;
 }
