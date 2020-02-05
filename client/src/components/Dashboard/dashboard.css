@@ -7,6 +7,7 @@
   padding-bottom: 100px;
   color : rgb(55, 56, 59);
   font-size: x-large;
+  min-height: 80vh;
 }
 
 .flex-container {
@@ -99,15 +100,13 @@
 .dashboard-title > h1{
   font-weight: bold;
   font-size: 30px;
-  color: #990066;
+  
 }
 
 .div-text-create {
-  color: #007bff;
-  font-size: 21px;
-  padding-top: 25px;
-  background-color: #fcf9f91c;
-  font-family:Cambria, Georgia, serif;  
+  font-size: 18px;
+  padding-top: 40px;
+  font-weight: bold;
   padding-bottom: 0;
   margin: 0;
 }
@@ -124,12 +123,13 @@
 }
 
 .btn-create-div:hover {
-  background-color: #458fff;
+  background-color: #990066;
   color: white;
 }
 
-#pargraph-card-craete {
-  padding: 25px;
+.pargraph-card-craete {
+  padding: 18px;
+  font-weight: 100;
   padding-top: 0;
 }
 
