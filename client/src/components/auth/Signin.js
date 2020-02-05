@@ -11,7 +11,7 @@ const Signin = ({ history }) => {
   const [values, setValues] = useState({
     email: '',
     password: '',
-    buttonText: 'Submit'
+    buttonText: 'Log In'
   });
 
   const { email, password, buttonText } = values;
@@ -32,7 +32,7 @@ const Signin = ({ history }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      setValues({ ...values, buttonText: 'Submitting' });
+      setValues({ ...values, buttonText: 'loggin in' });
 
       const res = await fetch(`${process.env.REACT_APP_API}/api/user/signin`, {
         method: 'POST',
@@ -44,11 +44,11 @@ const Signin = ({ history }) => {
 
       const response = await res.json();
       if (response.error) {
-        setValues({ ...values, buttonText: 'Submit' });
+        setValues({ ...values, buttonText: 'Log In' });
         toast.error(response.error);
       } else {
         authenticate(response, () => {
-          setValues({ ...values, email: '', password: '', buttonText: 'Submitted' });
+          setValues({ ...values, email: '', password: '', buttonText: 'logged in' });
           toast.success(`Hi ${response.user.name}, Welcome back`);
           setTimeout(() => {
             history.push('/')
@@ -56,46 +56,52 @@ const Signin = ({ history }) => {
         });
       }
     } catch (err) {
-      setValues({ ...values, buttonText: 'Submit' });
+      setValues({ ...values, buttonText: 'Log In' });
       toast.error(err);
     }
   };
 
   const singinForm = () => (
-    <form onSubmit={handleSubmit}>
-
+    <form className="signin" onSubmit={handleSubmit}>
       <div className="form-group">
         {/* <label className="text-muted">Email</label> */}
-        <input onChange={handelChange('email')} type="email" value={email} className="form-control"  placeholder="Email"/>
+        <input onChange={handelChange('email')} type="email" value={email} className="form-control signup-input"  placeholder="Email"/>
       </div>
-
       <div className="form-group">
         {/* <label className="text-muted">Password</label> */}
-        <input onChange={handelChange('password')} type="password" value={password} className="form-control"  placeholder="Type your password" />
+        <input onChange={handelChange('password')} type="password" value={password} className="form-control signup-input"  placeholder="Type your password" />
       </div>
-
       <div>
+        <Link to='/auth/password/forgot' className='btn btn-sm btn-outline-danger forget-psw'>Forget password ?</Link>
         <button className="btn btn-primary signin-btn">{buttonText}</button>
       </div>
     </form>
   );
 
   return (
-    <div className="container auth">
+    <div className="auth">
       <ToastContainer />
       {isAuth() ? <Redirect to="/dashboard" /> : null}
-      <form  className="container">
-        <h1 className="p-5" style={{ marginBottom: "-30px"}}>Login</h1>
-        <div className="signIn">
-          <div className="row social-log">
-          <Google informParent={informParent} />
-          <Facebook informParent={informParent} />
+      <form className="conatiner login-form">
+        <h1 className="p-5 login-title">Log In </h1>
+        <div className="redirect-text">New to our website? <Link to="/Signup">Sign Up</Link></div>
+        <div style={{display:" flex" }}>
+          <div className=" form-login ">
+            {singinForm()}
+            
           </div>
-          {singinForm()}
-          <br />Forget your password ?
-          <Link to='/auth/password/forgot' className='btn btn-sm btn-outline-danger forget-psw'>click here</Link>
+          <div className="devider">
+
+          </div>
+          <div className=" social-log">
+            <Google informParent={informParent} />
+            <Facebook informParent={informParent} />
+          </div>
         </div>
-        </form> 
+        <p class="accept-terms-login">* By signing up, you agree to our <a href="#">Terms of Use</a> and to receive emails & 
+           updates and acknowledge that you read our< a href="#"> Privacy Policy </a> .</p>
+      </form>
+      
     </div>
   );
 };

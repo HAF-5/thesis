@@ -30,18 +30,26 @@ li {
 .subMenu {
     position: fixed;
     top: 20vh;
-    left: 155px;
+    left: 15vh;
     height: 75vh;
     display: none;
-    width: 40vw;
+    width: 50vw;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 .subMenu:hover {
     display: block;
 }
+.subMenu:active {
+    display: block;
+}
 .sideMenu > ul > li > button:hover > ul {
     display:block;
+    visibility: visible;
+}
+.sideMenu > ul > li > button:focus-within > ul {
+    display:block;
+    visibility: visible;
 }
 
 .sideMenu > ul > li > button > ul > li {
