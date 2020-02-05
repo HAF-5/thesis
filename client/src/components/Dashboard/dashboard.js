@@ -35,6 +35,7 @@ class Dashboard extends Component {
                     to = {`/editor/${website._id}`}
                   >
                     {website.title}
+                    
                   </Link>
                 </div> 
                 )
@@ -43,7 +44,7 @@ class Dashboard extends Component {
               <div className="card container-div-create">
 
                 <p className="div-text-create">Start to Create a New Templete </p>
-                <p id="pargraph-card-craete">Start Desgin Your Sites</p>
+                <p className="pargraph-card-craete">Start Desgin Your Sites</p>
                 <Link to ="/createProject" className ="btn btn-default btn-lg btn-create-div">Create New Website</ Link>
               </div>   
             </div>

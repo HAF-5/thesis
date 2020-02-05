@@ -65,6 +65,10 @@ class CreateProject extends Component {
                                 </div>
                             </div>
                         </div> */}
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile"/>
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
 
                         <div className="form-group row">
                             <label htmlFor="colFormLabel" className="col-sm-4 col-form-label create_project_labal_form">Website Name</label>
