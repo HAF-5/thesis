@@ -16,16 +16,11 @@ import Popper from "popper.js";
 import "./index.css";
 import AppRouter from "./routers/AppRouter";
 
-import { DragDropContext } from "react-beautiful-dnd";
-
-const onDragEnd = result => {};
 const App = () => {
   return (
-    <DragDropContext onDragEnd={this.onDragEnd}>
-      <Provider store={store}>
-        <AppRouter />
-      </Provider>
-    </DragDropContext>
+    <Provider store={store}>
+      <AppRouter />
+    </Provider>
   );
 };
 if (localStorage.getItem("user")) {

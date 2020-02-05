@@ -4,7 +4,7 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import SideMenu from "../SideMenu/sideMenu";
 import FixedNavbar from "../Navbar/FixedNavbar";
 import Navbar from "../Navbar/Navbar";
-
+import Toolbox from "../Toolbox/toolbox";
 import { setPages, clearPages } from "./../../store/actions/pages";
 import { setElements, clearElements } from "./../../store/actions/elements";
 
@@ -30,29 +30,19 @@ class Editor extends Component {
       <div>
         <FixedNavbar />
         <Navbar />
+        <Toolbox />
         <div className="row">
-        <DragDropContext>
           <SideMenu />
-            <Droppable droppableId="element" direction="horizontal">
-              {provided => (
-                <div
-                  ref={provided.innerRef}
-                  {...provided.droppableProps}
-                  className=" col-md-11 editor"
-                  id="editor"
-                >
-                  {/* style="position: fixed; min-height: 100vh; width: 86%; right: 0;" > */}
-                  {this.props.elements.map((element, i) => (
-                    <div
-                      dangerouslySetInnerHTML={{ __html: element.element }}
-                      contentEditable="true"
-                    ></div>
-                  ))}
-                  {provided.placeholder}
-                </div>
-              )}
-            </Droppable>
-          </DragDropContext>
+
+          <div className=" col-md-11 editor" id="editor">
+            {/* style="position: fixed; min-height: 100vh; width: 86%; right: 0;" > */}
+            {this.props.elements.map((element, i) => (
+              <div
+                dangerouslySetInnerHTML={{ __html: element.element }}
+                contentEditable="true"
+              ></div>
+            ))}
+          </div>
         </div>
       </div>
     );

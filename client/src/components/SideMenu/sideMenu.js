@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import { Draggable, DragDropContext } from "react-beautiful-dnd";
 
 import { setMenuElementDispatcher } from "./../../store/actions/sideMenu";
 import { addElement } from "./../../store/actions/elements";
@@ -26,26 +25,19 @@ class sideMenu extends Component {
                 <li className="sideMenuTitle">
                   {item.title}
 
-                  <Draggable draggableId={item.title}>
-                    {provided => (
-                      <ul className="subMenu">
-                        {item.elements.map(element => (
-                          <li
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            ref={provided.innerRef}
-                            onClick={() => {
-                              this.props.addElement(element);
-                            }}
-                            dangerouslySetInnerHTML={{
-                              __html: element.element
-                            }}
-                            className=""
-                          ></li>
-                        ))}
-                      </ul>
-                    )}
-                  </Draggable>
+                  <ul className="subMenu">
+                    {item.elements.map(element => (
+                      <li
+                        onClick={() => {
+                          this.props.addElement(element);
+                        }}
+                        dangerouslySetInnerHTML={{
+                          __html: element.element
+                        }}
+                        className=""
+                      ></li>
+                    ))}
+                  </ul>
                 </li>
               ))}
             </ul>
