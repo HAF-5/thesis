@@ -51,17 +51,17 @@ const Signup = () => {
     <form class ="form-content" onSubmit={handleSubmit}>
       <div className="form-group">
         {/* <label className="text-muted" >Name</label> */}
-        <input onChange={handelChange('name')} type="text" value={name} className="form-control" placeholder="Name" />
+        <input onChange={handelChange('name')} type="text" value={name} className="form-control signup-input" placeholder="Name" />
       </div>
 
       <div className="form-group">
         {/* <label className="text-muted">Email</label> */}
-        <input onChange={handelChange('email')} type="email" value={email} className="form-control" placeholder="Email"/>
+        <input onChange={handelChange('email')} type="email" value={email} className="form-control signup-input" placeholder="Email"/>
       </div>
 
       <div className="form-group">
         {/* <label className="text-muted">Password</label> */}
-        <input onChange={handelChange('password')} type="password" value={password} className="form-control" placeholder="Choose a password"/>
+        <input onChange={handelChange('password')} type="password" value={password} className="form-control signup-input" placeholder="Choose a password"/>
       </div>
 
       <div>
