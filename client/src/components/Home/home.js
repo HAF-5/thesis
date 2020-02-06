@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import "./home.css";
+import { Link } from "react-router-dom";
+
 import Img1 from "../img/test.png";
 import Img2 from "../img/test2.png";
 import Img3 from "../img/test1.png";
 import Img from "../img/example3.png";
-import { Link } from "react-router-dom";
 import Signup from "../Signup/signup";
+
+import "./home.css";
 
 export default class home extends Component {
   render() {
@@ -27,8 +29,9 @@ export default class home extends Component {
               Create your website
             </h1>
             <p className="lead font-weight-normal">
-              And an even wittier subheading to boot. Jumpstart your marketing
-              efforts with this example based on Apple's marketing pages.
+              We includes everything you need to start your website today.
+              <br></br>You create , design, manage and develop your free website
+              exactly you way you want.{" "}
             </p>
             <Link
               to="Signup"
@@ -38,8 +41,6 @@ export default class home extends Component {
               Create website
             </Link>
           </div>
-          <div className="product-device box-shadow d-none d-md-block"></div>
-          <div className="product-device product-device-2 box-shadow d-none d-md-block"></div>
         </div>
 
         <div style={{ backgroundColor: "white" }}>
@@ -73,6 +74,7 @@ export default class home extends Component {
             </div>
           </div>
         </div>
+
         <div className="container-fluid marketing ">
           <div className="container ">
             <h1 className="div-title"> Create a website in 3 steps</h1>
@@ -117,7 +119,6 @@ export default class home extends Component {
           </div>
         </div>
 
-        <div></div>
         <footer className="py-5 ">
           <div className="container">
             <div className="row">

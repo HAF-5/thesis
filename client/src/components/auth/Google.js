@@ -1,6 +1,8 @@
 import React from 'react';
 import GoogleLogin from 'react-google-login';
 
+import './auth.css'
+
 const Google = ({ informParent }) => {
   const responseGoogle = async (response) => {
     try {
@@ -21,14 +23,15 @@ const Google = ({ informParent }) => {
   }
 
   return (
-    <div className="pb-3">
+    <div>
       <GoogleLogin
         clientId={`${process.env.REACT_APP_GOOGLE_CLIENT_ID}`}
         onSuccess={(res) => responseGoogle(res)}
         onFailure={(res) => responseGoogle(res)}
         render={renderProps => (
-          <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="btn btn-danger btn-lg btn-block">
-            <i className="fab fa-google pr-2"></i>Login with Google
+          <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="btn btn-loginn">
+            <div class="buttonIconn"><div class="buttonSvgImagee"></div></div>
+            <span>Continue with Google</span>
           </button>
         )}
         cookiePolicy={'single_host_origin'}

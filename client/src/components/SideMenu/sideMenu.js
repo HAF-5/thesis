@@ -10,6 +10,9 @@ import { elementsData } from "./../../sideMenuElementsData";
 import "./sideMenu.css";
 
 class sideMenu extends Component {
+  state = {
+    display: false
+  };
   componentDidMount() {
     console.log(elementsData);
     this.props.setMenuElements(elementsData);
@@ -17,32 +20,46 @@ class sideMenu extends Component {
 
   render() {
     return (
-      <div className=" col-md-1 sideMenu">
-        <div className=" sidebar">
-          <div className="container">
-            <ul className="sideList">
-              {this.props.menuItems.map(item => (
-                <li className="sideMenuTitle">
-                  {item.title}
+      <div
+        className="sideMenu"
+        onMouseOver={() => this.setState(() => ({ display: true }))}
+        onMouseLeave={() => this.setState(() => ({ display: false }))}
+      >
+        <button
+          className="btn btn-rounded-purble"
+          onMouseOver={() => this.setState(() => ({ display: true }))}
+          onMouseLeave={() => this.setState(() => ({ display: false }))}
+        >
+          <i className="fas fa-pencil-alt"></i>
+        </button>
 
-                  <ul className="subMenu">
-                    {item.elements.map(element => (
-                      <li
-                        onClick={() => {
-                          this.props.addElement(element);
-                        }}
-                        dangerouslySetInnerHTML={{
-                          __html: element.element
-                        }}
-                        className=""
-                      ></li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <ul
+          className={
+            this.state.display
+              ? "list-unstyled sideMenu-menu display"
+              : "list-unstyled sideMenu-menu"
+          }
+        >
+          {this.props.menuItems.map(item => (
+            <li>
+              <button className="btn btn-rounded-purble">
+                {item.title}
+                <ul className="list-unstyled subMenu">
+                  {/* li >> element */}
+                  {item.elements.map(element => (
+                    <li
+                      onClick={() => {
+                        this.props.addElement(element);
+                      }}
+                      dangerouslySetInnerHTML={{ __html: element.element }}
+                      className=""
+                    ></li>
+                  ))}
+                </ul>
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }
