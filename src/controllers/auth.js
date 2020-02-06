@@ -103,10 +103,10 @@ exports.signin = async (req, res) => {
 
   // generate a token and send to client
   const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
-  var { _id, name, email, role } = user;
+  var { _id, name, email, image } = user;
   return res.json({
     token,
-    user: { _id, name, email, role }
+    user: { _id, name, email, image }
   });
 }
 
@@ -266,7 +266,7 @@ exports.facebookLogin = async (req, res) => {
       const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
       const { _id, email, name } = user;
       return res.json({
-        token, user: { _id, email, name }
+        token, user: { _id, email, name, image }
       });
     } else {
       let password = email + process.env.JWT_SECRET;
@@ -280,7 +280,7 @@ exports.facebookLogin = async (req, res) => {
         const token = jwt.sign({ _id: data._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
         const { _id, email, name } = data;
         return res.json({
-          token, user: { _id, email, name }
+          token, user: { _id, email, name, image }
         });
       });
     }

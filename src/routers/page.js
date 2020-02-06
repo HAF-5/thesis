@@ -8,7 +8,9 @@ const Website = require('../models/Website');
 //POST /api/page/
 router.post('/', async (req, res) => {
     const {title, website} = req.body;
+    console.log(req.body)
     try{
+        console.log(title, website)
         const pageExist = await Page.findOne({title, website});
         if(!pageExist){
             const page = new Page({title, website});
