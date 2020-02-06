@@ -12,16 +12,19 @@ import './mySites.css';
 
 class MySites extends Component {
   
-  componentDidMount(){
-  }
+
 
   render() {
     return (
       <div>
         <FixedNavbar/>  
           <div className="box"> 
-            <p id="p"> All Sites</p>
-            <div className="flex-container"> 
+            <div className="container-fluid dashboard-title">
+              <h1> My Sites </h1> 
+              <span>Select a site to edit, view and open its dashboard.</span>
+            </div>
+          
+            <div className="container flex-container"> 
             {
               this.props.websites.map((website) => (
                 <div 
@@ -32,14 +35,16 @@ class MySites extends Component {
                     to = {`/editor/${website._id}`}
                   >
                     {website.title}
+                    
                   </Link>
                 </div> 
                 )
               )
             }               
               <div className="card container-div-create">
+
                 <p className="div-text-create">Start to Create a New Templete </p>
-                <p id="pargraph-card-craete">Start Desgin Your Sites</p>
+                <p className="pargraph-card-craete">Start Desgin Your Sites</p>
                 <Link to ="/createProject" className ="btn btn-default btn-lg btn-create-div">Create New Website</ Link>
               </div>   
             </div>

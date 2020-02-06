@@ -14,6 +14,7 @@ router.post('/', async (req, res) => {
         await page.save();
         res.status(201).json(doc);
     }catch(err){
+        console.log(err)
         res.status(400).send(err);
     }
 });
