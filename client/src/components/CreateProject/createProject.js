@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './createProject.css'
 import { Link } from 'react-router-dom';
-import Dashboard from '../Dashboard/dashboard';
 
 
 // import '../../../node_modules/font-awesome/css/font-awesome.min.xss'
@@ -17,7 +16,7 @@ export default class CreateProject extends Component {
                     <div className="create-project_left-text">
                         Review and edit your info  
                     </div> 
-                    <Link to="Dashboard" className="create-project_back">Back</Link>
+                    <Link to="sites" className="create-project_back">Back</Link>
                 </div>               
                 <div className="create-project_right">    
                     <form className="create-project_form">

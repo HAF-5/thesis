@@ -8,9 +8,9 @@ import Footer from '../Footer/Footer';
 
 import { selectWebsite } from '../../store/actions/websites';
 
-import './dashboard.css';
+import './mySites.css';
 
-class Dashboard extends Component {
+class MySites extends Component {
   
   componentDidMount(){
   }
@@ -59,5 +59,5 @@ const mapDispatchToProps = (dispatch) => ({
   selectWebsite: (payload) => dispatch(selectWebsite(payload))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(MySites)
 
