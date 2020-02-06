@@ -5,7 +5,7 @@ import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 
-import Dashboard from './../components/Dashboard/dashboard';
+import MySites from './../components/MySites/mySites';
 import Signin from './../components/auth/Signin';
 import Signup from './../components/auth/Signup';
 import Home from './../components/Home/home';
@@ -13,7 +13,9 @@ import Editor from './../components/Editor/editor';
 import Activate from './../components/auth/Activate';
 import Forgot from './../components/auth/Forgot';
 import Reset from './../components/auth/Reset';
-import createProject from './../components/CreateProject/createProject'
+import createProject from './../components/CreateProject/createProject';
+
+import Dahboard from './../components/Dashboard/Dahboard'
 
 const AppRouter = () => {
   return (
@@ -23,7 +25,9 @@ const AppRouter = () => {
           <Route path='/' component={Home} exact />
           <PublicRoute path='/signup' component={Signup} />
           <PublicRoute path='/login' component={Signin} />
-          <PrivateRoute path='/dashboard' component={Dashboard} />
+          <PrivateRoute path='/sites' component={MySites} />
+         
+          <PrivateRoute path='/dashboard' component={Dahboard} />
           <PrivateRoute path='/createProject' component={createProject} />
 
           <PrivateRoute path='/editor/:id' component={Editor} />

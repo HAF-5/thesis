@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 
-import Dashboard from '../Dashboard/dashboard';
 import './createProject.css'
 import {addWebsite} from '../../store/actions/websites'
 // import '../../../node_modules/font-awesome/css/font-awesome.min.xss'
@@ -53,7 +52,7 @@ class CreateProject extends Component {
                     <div className="create-project_left-text">
                         Review and Edit your informations  
                     </div> 
-                    <Link to="Dashboard" type="submit" className=" btn create-project_back">Back</Link>
+                    <Link to="sites" className="create-project_back">Back</Link>
                 </div>               
                 <div className="create-project_right">    
                     <form onSubmit={this.submitForm} className="create-project_form">
@@ -65,10 +64,6 @@ class CreateProject extends Component {
                                 </div>
                             </div>
                         </div> */}
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile"/>
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                        </div>
 
                         <div className="form-group row">
                             <label htmlFor="colFormLabel" className="col-sm-4 col-form-label create_project_labal_form">Website Name</label>
