@@ -252,13 +252,14 @@ exports.googleLogin = async (req, res) => {
 
 exports.facebookLogin = async (req, res) => {
   const { userID, accessToken } = req.body;
-  const url = `https://graph.facebook.com/v2.11/${userID}/?fields=id,name,email&access_token=${accessToken}`;
+  const url = `https://graph.facebook.com/v2.11/${userID}/?fields=id,name,email,picture&access_token=${accessToken}`;
 
   let response = await fetch(url, {
     method: 'GET'
   });
 
   const data = await response.json();
+  console.log(data);
   const { email, name } = data;
 
   let user = await User.findOne({ email });

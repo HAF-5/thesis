@@ -1,24 +1,20 @@
 const User = require('../models/User');
 
 exports.read = async (req, res) => {
-  const userId = req.params.id;
+  const userId = req.user._id;
   try {
     let user = await User.findById(userId);
     if (!user) {
-      throw new Error('user not found')
+      throw new Error('Not Authenticated !')
     }
-    user.hashed_password = undefined;
-    user.salt = undefined;
     return res.json(user);
   } catch (err) {
-    return res.status(400).json({
-      error: 'User not found'
-    });
+    return res.status(401).json('Not Authenticated !');
   }
 };
 
 exports.update = async (req, res) => {
-  const { name, password } = req.body;
+  const { name, password, image } = req.body;
   try {
     let user = await User.findById(req.user._id);
     if (!user) {
@@ -32,6 +28,7 @@ exports.update = async (req, res) => {
       });
     } else {
       user.name = name;
+      user.image = image;
     }
 
     if (password) {

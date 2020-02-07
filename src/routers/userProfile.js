@@ -6,7 +6,7 @@ const { auth } = require('../controllers/auth');
 const { read, update } = require('../controllers/userProfile');
 
 
-router.get('/user/:id', auth, read);
+router.get('/user/me', auth, read);
 router.post('/user/update', auth, update);
 
 module.exports = router;

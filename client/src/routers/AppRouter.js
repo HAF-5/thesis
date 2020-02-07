@@ -12,7 +12,8 @@ import Editor from './../components/Editor/editor';
 import Activate from './../components/auth/Activate';
 import Forgot from './../components/auth/Forgot';
 import Reset from './../components/auth/Reset';
-import createProject from './../components/CreateProject/createProject'
+import createProject from './../components/CreateProject/createProject';
+import Profile from './../components/Profile/profile';
 
 const AppRouter = () => {
   return (
@@ -28,6 +29,7 @@ const AppRouter = () => {
           <PublicRoute path='/auth/activate/:token' component={Activate} />
           <PublicRoute path='/auth/password/forgot' component={Forgot} />
           <PublicRoute path='/auth/password/reset/:token' component={Reset} />
+          <PrivateRoute path='/profile' component={Profile} />
           <Route>
             <div>not found</div>
           </Route>

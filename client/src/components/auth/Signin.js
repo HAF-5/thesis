@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import Google from './Google';
 import Facebook from './Facebook';
 import { ToastContainer, toast } from 'react-toastify';
-import { authenticate, isAuth } from './helpers';
+import { authenticate, isAuth, getCookie } from './helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
 import './auth.css';
 
@@ -15,7 +15,7 @@ const Signin = ({ history }) => {
   });
 
   const { email, password, buttonText } = values;
-
+  const token = getCookie('token');
   const handelChange = (target) => (event) => {
     setValues({ ...values, [target]: event.target.value });
   };
@@ -38,6 +38,7 @@ const Signin = ({ history }) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': token
         },
         body: JSON.stringify({ email, password })
       });
