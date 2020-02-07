@@ -1,10 +1,95 @@
-body{
-    font-family: HelveticaNeueW01-45Ligh,HelveticaNeueW02-45Ligh,HelveticaNeueW10-45Ligh,sans-serif;
-}
 .auth{
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue"; 
+    font-weight: 300;
     margin-top: 50px;
     margin-bottom: 50px;
+    padding-left: 10%;
+    padding-right: 10%;
 }
+/* social login */
+.social-log{
+    padding-bottom: 30px;
+    padding-top: 100px;
+    display: grid;
+    width: 50%;
+    padding-left: 30px;
+}
+/* facebook button */
+.btn-login{
+    display: block;
+    cursor: pointer;
+    padding: 0;
+    background-color: #3b5998;
+    border: 1px solid transparent;
+    color: #fff;
+    display: flex;
+    width: 50%;;
+}
+.btn-login>span{
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: .21px;
+    margin-left: 10%;
+    margin-right: 6px;
+    vertical-align: top;
+    line-height: 48px;
+}
+.btn-login>span:hover{
+   color:white
+}
+.buttonIcon{
+    background-color: #fff;
+    border-radius: 1px;
+    padding: 12px 15px 11px 16px;
+}
+.buttonSvgImage{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../img/fb-logo.png);
+    width: 15px;
+    height: 23px;
+}
+/* google login */
+/* google button */
+.btn-loginn{
+    display: block;
+    cursor: pointer;
+    padding: 0;
+    background-color: #4285f4;
+    border: 1px solid transparent;
+    color: #fff;
+    display: flex;
+    width: 50%;;
+}
+.btn-loginn>span{
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: .21px;
+    margin-left: 10%;
+    margin-right: 6px;
+    vertical-align: top;
+    line-height: 48px;
+}
+.btn-loginn>span:hover{
+    color:white
+}
+.buttonIconn{
+    background-color: #fff;
+    border-radius: 1px;
+    padding: 12px 15px 11px 16px;
+}
+.buttonSvgImagee{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../img/google-logo.jfif);
+    width: 15px;
+    height: 23px;
+}
+
+
+/* signup */
 .signup-btn{
     height: 50px;
     margin-bottom:-5px;
@@ -25,12 +110,110 @@ body{
 .signup-btn:hover{
     background: #4eb7f5;
 }
+/* signin css */
+.login-title{
+    text-align: center;
+    font-size: 56px;
+    margin-bottom: 17px;
+    color: #20303c; 
+}
+.signin{
+    padding-top: 5%;
+    margin-left: 25%;
+}
+.form-login{
+    width: 50%;
+    padding-left: 10%;
+    padding-right: 5%;
+    padding-top: 2%
+}
 .signIn{
     width:50vh;
     display: inline-block;
-    margin-top: 40px;
+    margin-top: 40px;  
 }
+/* accept term */
 .accept-terms{
+    text-align: center;
+    margin-top: 15px;
+    color:gray;
+}
+.accept-terms-login{
+    text-align: center;
     margin-top: 0px;
     color:gray;
+    padding-top: 50px;
+    padding-left: 30%;
+    padding-right: 30%;
+}
+
+.redirect-text{
+    padding-bottom: 50px;
+    text-align: center;
+    margin-top: -30px;
+}
+/* signin button */
+.signin-btn{
+    height: 50px;
+    margin-bottom: -5px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 999px;
+    border: 1px solid #4eb7f5;
+    color: #4eb7f5;
+    width: 150px;
+    cursor: pointer;
+    font-size: 16px;
+    height: 43px;
+    padding-top: 8px;
+}
+.signin-btn:hover{
+    background-color: #4eb7f5;
+    color:white;
+    border: 1px solid #4eb7f5;
+}
+/* devidr line */
+.devider{
+    width: 1px;
+    opacity: .8;
+    background-color: #858f96;
+    margin: 0 40px;
+}
+/*forget password login  */
+.forget-psw{
+    border:none;
+    float: right;
+   
+}
+.forget-psw:hover{
+    border:none;
+    background-color: white;
+    color:red
+}
+/* signup css */
+.signup-input{
+    border: none;
+    border-radius: 0px;
+    background-color: white !important;
+    font-size: 20px;
+    padding-bottom: 6px;
+    padding-left: 5px;
+    border: none;
+    height: 60px;
+    border-bottom: 2px solid #ced4da;
+}
+.signup-input:focus{
+    border:none;
+    box-shadow: none;
+    border-bottom: 2px solid #4eb7f5;
+    background-color: white !important;
+}
+.signup-input:hover{
+    border-bottom: 1px solid #162d31;
+}
+
+/* social button login*/
+.google-log{
+    width: 200px;
+    float: right;
 }

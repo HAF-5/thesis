@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 
-import Dashboard from '../Dashboard/dashboard';
 import './createProject.css'
 import {addWebsite} from '../../store/actions/websites'
 // import '../../../node_modules/font-awesome/css/font-awesome.min.xss'
@@ -53,7 +52,7 @@ class CreateProject extends Component {
                     <div className="create-project_left-text">
                         Review and Edit your informations  
                     </div> 
-                    <Link to="Dashboard" className="create-project_back">Back</Link>
+                    <Link to="sites" className="create-project_back">Back</Link>
                 </div>               
                 <div className="create-project_right">    
                     <form onSubmit={this.submitForm} className="create-project_form">

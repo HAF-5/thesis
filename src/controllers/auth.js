@@ -4,6 +4,7 @@ const nodemailer = require('nodemailer');
 const _ = require("lodash");
 const { OAuth2Client } = require('google-auth-library');
 const fetch = require("node-fetch");
+const expressJwt = require('express-jwt');
 
 exports.signup = async (req, res) => {
   const { name, email, password } = req.body;
@@ -251,13 +252,14 @@ exports.googleLogin = async (req, res) => {
 
 exports.facebookLogin = async (req, res) => {
   const { userID, accessToken } = req.body;
-  const url = `https://graph.facebook.com/v2.11/${userID}/?fields=id,name,email&access_token=${accessToken}`;
+  const url = `https://graph.facebook.com/v2.11/${userID}/?fields=id,name,email,picture&access_token=${accessToken}`;
 
   let response = await fetch(url, {
     method: 'GET'
   });
 
   const data = await response.json();
+  console.log(data);
   const { email, name } = data;
 
   let user = await User.findOne({ email });
@@ -289,4 +291,8 @@ exports.facebookLogin = async (req, res) => {
       error: 'Facebook login failed.'
     });
   }
-}
+};
+
+exports.auth = expressJwt({
+  secret: process.env.JWT_SECRET
+});

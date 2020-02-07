@@ -1,6 +1,6 @@
 import React from 'react';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-
+import './auth.css'
 const Facebook = ({ informParent }) => {
   const responseFacebook = async (response) => {
     console.log(response)
@@ -22,15 +22,17 @@ const Facebook = ({ informParent }) => {
   }
 
   return (
-    <div className="col-md-4">
+    <div className="facebook-log" >
       <FacebookLogin
         appId={`${process.env.REACT_APP_FACEBOOK_APP_ID}`}
         autoLoad={false}
         callback={(res) => responseFacebook(res)}
         render={renderProps => (
-          <button onClick={renderProps.onClick} className="btn btn-primary btn-lg btn-block">
-            <i className="fab fa-facebook pr-2"></i>Login with Facebook
+          <button onClick={renderProps.onClick} className="btn btn-login ">
+            <div class="buttonIcon"><div class="buttonSvgImage"></div></div>
+            <span>Continue with Facebook</span>
           </button>
+          
         )}
       />
     </div>
