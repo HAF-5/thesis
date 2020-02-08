@@ -19,16 +19,22 @@ class CreateProject extends Component {
 
 				},
 			isSubmitting: false,
-    	isError: false
+            isError: false,
+            isLoading: true 
 			};
-		}
+        }
+         
+    componentDidMount() {
+            this.setState({isLoading: false})
+        }
 		 
 	 handleInputChange =  event =>{
 	 	this.setState({
 	 	values: { ...this.state.values, [event.target.name]: event.target.value }
 	 	});
-}
- 	submitForm = event => {
+    }
+    
+ 	submitForm = event =>{
 		 event.preventDefault();
 		 let data ={
 			user:this.props.user,

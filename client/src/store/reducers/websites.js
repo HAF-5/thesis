@@ -1,4 +1,4 @@
-import {SET_WEBSITES, SELECT_WEBSITE, ADD_WEBSITE} from '../actions/constants';
+import {SET_WEBSITES, SELECT_WEBSITE, ADD_WEBSITE, DELETE_WEBSITE} from '../actions/constants';
 
 const websiteReducer = (state = [], action) => {
     switch (action.type) {
@@ -11,6 +11,9 @@ const websiteReducer = (state = [], action) => {
                 ...state,
                 action.payload
             ]
+        case DELETE_WEBSITE:
+            return state.filter((website) => website._id !== action.payload._id);
+               
       default:
         return state;
     }
