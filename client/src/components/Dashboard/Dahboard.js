@@ -1,19 +1,13 @@
 import React, { Component } from "react";
 import "./dashboard.css";
-import Site from "../Sites/site";
-import { connect } from "react-redux";
-
+import DahboardWebsite from "../DashboardWebsite/dashboardWebsite";
 import { Link } from "react-router-dom";
 
-class Dahboard extends Component {
+export default class Dahboard extends Component {
   render() {
     return (
       <div>
-        <div style={{ display: "inline-flex" }}>
-          {this.props.websites.map(website => (
-            <Site website={website} key={website._id} />
-          ))}
-        </div>
+        <DahboardWebsite />
         <div className="sideBar_nav_continer">
           <input type="checkbox" id="check" />
           <label className="sidebar_lable" htmlFor="check">
@@ -91,8 +85,3 @@ class Dahboard extends Component {
     );
   }
 }
-
-const mapStateToProps = state => ({
-  websites: state.websites
-});
-export default connect(mapStateToProps)(Dahboard);

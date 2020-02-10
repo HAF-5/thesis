@@ -16,7 +16,7 @@
 .img-container:hover .overlay {
   opacity: 0.9;
 }
-.overlay span {
+.overlay .span1 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -42,4 +42,7 @@
 .btn-view:hover {
   background-color: #0869c4;
   color: white;
+}
+.avatar-pic {
+  width: 100px;
 }

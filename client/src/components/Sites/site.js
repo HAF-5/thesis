@@ -44,17 +44,136 @@ class Site extends Component {
               </div>
             </div>
             <div className="overlay">
-              <span>
+              <span className="span1">
                 <button className="btn btn-view" style={{ display: "block" }}>
                   View
                 </button>
-                <button className="btn btn-edit " style={{ display: "block" }}>
+                <button
+                  className="btn btn-edit "
+                  data-toggle="modal"
+                  data-target="#modalCart"
+                  style={{ display: "block" }}
+                >
                   Edit
                 </button>
               </span>
             </div>
           </div>
         </section>
+        {/* popup form */}
+        <div
+          className="modal fade"
+          id="modalCart"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              {/* <!--Header--> */}
+              <div className="modal-header">
+                <h4 className="modal-title" id="myModalLabel">
+                  Edit
+                </h4>
+
+                <button
+                  type="button"
+                  className="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              {/* <!--Body--> */}
+              <div className="modal-body">
+                <div className="md-form input-group mb-3">
+                  <div className="input-group-prepend">
+                    <span
+                      className="input-group-text md-addon"
+                      style={{ backgroundColor: "#dadfe3" }}
+                      id="inputGroupMaterial-sizing-default"
+                    >
+                      Website Name
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    className="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroupMaterial-sizing-default"
+                    defaultValue={this.props.website.title}
+                  />
+                </div>
+                <div className="md-form input-group mb-3">
+                  <div className="input-group-prepend">
+                    <span
+                      className="input-group-text md-addon"
+                      style={{ backgroundColor: "#dadfe3" }}
+                      id="inputGroupMaterial-sizing-default"
+                    >
+                      Email
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    className="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroupMaterial-sizing-default"
+                    defaultValue={this.props.website.contact.email}
+                  />
+                </div>
+                <div className="md-form input-group mb-3">
+                  <div className="input-group-prepend">
+                    <span
+                      className="input-group-text md-addon"
+                      style={{ backgroundColor: "#dadfe3" }}
+                      id="inputGroupMaterial-sizing-default"
+                    >
+                      Phone Number
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    className="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroupMaterial-sizing-default"
+                    defaultValue={this.props.website.contact.phoneNumber}
+                  />
+                </div>
+                <div className="md-form input-group mb-3">
+                  <div className="input-group-prepend">
+                    <span
+                      className="input-group-text md-addon"
+                      style={{ backgroundColor: "#dadfe3" }}
+                      id="inputGroupMaterial-sizing-default"
+                    >
+                      Description
+                    </span>
+                  </div>
+                  <textarea
+                    className="md-textarea form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="inputGroupMaterial-sizing-default"
+                    defaultValue={this.props.website.description}
+                  ></textarea>
+                </div>
+              </div>
+              {/* <!--Footer--> */}
+              <div className="modal-footer  d-flex justify-content-center">
+                <button
+                  type="button"
+                  className="btn btn-outline-primary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button class="btn btn-primary">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
