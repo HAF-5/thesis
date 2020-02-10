@@ -2,6 +2,7 @@
     right: 0;
     overflow-y: scroll;
     height: 80vh;
+    position: relative;
 }
 
 .editor_inform-page-section {
@@ -18,3 +19,14 @@
     height: 45px;
     color: #BBBBBB;
 }
+
+
+.selected {
+    border: 1px solid blue;
+    padding: 10px;
+}
+
+[contenteditable] {
+    outline: 0px solid transparent;
+  }
+  

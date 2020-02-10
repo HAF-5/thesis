@@ -16,7 +16,7 @@ class FixedNavbar extends Component{
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav">
                         <li className="editor-nav-item nav-item">
-                            <a className="nav-link editor-nav-link" href= "#">Save</a>
+                            <a className="nav-link editor-nav-link" onClick= {this.props.save}>Save</a>
                         </li>
                         <li className="editor-nav-item nav-item">
                             <a className="nav-link editor-nav-link" href= "#">Undo</a>
