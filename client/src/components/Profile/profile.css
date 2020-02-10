@@ -38,7 +38,7 @@
 
 .profile-ImageContiner-div {
     display: flex;
-    margin-top: 30px;
+    margin-top: 50px;
     flex-direction: column;
     box-sizing: border-box;
     /* background-color: cadetblue; */
@@ -69,7 +69,7 @@
     border: none;
     opacity: 0.5;
     font-size: 20px;
-    color: rgb(134, 146, 146);
+    /* color: rgb(134, 146, 146); */
     margin: 6px;
     padding: 10px;
     width: 78%;
@@ -93,13 +93,11 @@
 .input-email {
     margin:auto;
     border: none;
-    background-color: hidden;
-    /* padding-top: 25px; */
-    font-weight: 100;
-    /* padding-bottom: 50px; */
+    font-weight: 400;
     text-align: center;
     font-size: xx-large;
-    font-family: 'Open Sans', sans-serif;
+    background-color: hidden;
+    font-family: 'Roboto Condensed', sans-serif;
     color: rgb(42, 80, 111);
 }
 
@@ -109,6 +107,9 @@
     font-size: 17px;
     font-weight: 100;
 }
-.input-password{
-    padding-right: 40px; 
+
+.input-password {
+    padding-right: 36px; 
 }
+
+

@@ -5,6 +5,7 @@ import { isAuth, getCookie, signout } from '../auth/helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
 import './profile.css';
 
+
 const Profile = ({ history }) => {
   const [values, setValues] = useState({
     name: '',
@@ -98,11 +99,9 @@ const Profile = ({ history }) => {
         <input className="profile-input-style input-email"  onChange={handelChange('email')} type="email" defaultValue={email}  placeholder="Email" disabled />
       </div>
 
-      
-
             <div>
               <label className="profile-input-label" htmlFor="colFormLabel"> Name   </label>
-                <input className="profile-input-style" onChange={handelChange('name')} type="text" value={name}  placeholder="Name" /> 
+                <input className="profile-input-style input-name" onChange={handelChange('name')} type="text" value={name}  placeholder="Name" /> 
             </div>
 
             <div>
@@ -114,10 +113,17 @@ const Profile = ({ history }) => {
               <button className="btn btn-outline-primary btn-create">{buttonText}</button>
             </div>
 
-            <div className="profile-ImageContiner-div">
+            <div className="custom-file profile-ImageContiner-div">
                 <img src={image} className="rounded-circle profile-image " alt="" />
-                <input className="btn btn-outline-primary btn-create btn-create-UploadImage" type="file" name="file" placeholder="Upload one or more files" onChange={uploadImage} />
+                <input className="btn btn-outline-primary btn-create btn-create-UploadImage" type="file"   onChange={uploadImage} />
+                {/* <label className="custom-file-label" htmlFor="customFile">Choose file</label> */}
             </div>
+
+            {/* <div className="custom-file profile-ImageContiner-div">
+            <img src={image} className="rounded-circle profile-image " alt="" />
+                  <input type="file" className="btn btn-outline-primary btn-create btn-create-UploadImage" id="customFile" onChange={uploadImage} />
+                  <label className="custom-file-label lable-image-upload" htmlFor="customFile">Choose file</label>
+            </div> */}
 
       </div>
     </form>
@@ -127,14 +133,16 @@ const Profile = ({ history }) => {
   return (
     <div className="profile-continer-main">  
       <ToastContainer />
-  
+     
       <form>
         <div>
         <h1 id="profile-h1-text"> Update Name or Profile Image</h1>
            {profileForm()}
         </div>
       </form>
+      
     </div>
+    
   );
 };
 
