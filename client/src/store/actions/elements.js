@@ -1,5 +1,5 @@
 import { ADD_ELEMENT, SELECT_ELEMENT, EDIT_ELEMENT, SET_ELEMENTS, CLEAR_ELEMENTS } from './constants';
-
+ 
 export const setElementsDispatcher = (payload) => ({
     type: SET_ELEMENTS,
     payload
@@ -13,7 +13,7 @@ export const setElements = pageId => async dispatch => {
             dispatch(setElementsDispatcher(data));
         }
     } catch( err ) {
-
+        console.log(err)
     }
 }
 
@@ -31,12 +31,11 @@ export const addElement = (element) => async (dispatch, getState) => {
     console.log(pageId, element)
     try {
         let response = await fetch(`${process.env.REACT_APP_API}/api/element`, {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            method: 'POST',
             headers: {
             'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: JSON.stringify({ pageId, element }) // body data type must match "Content-Type" header
+            body: JSON.stringify({ pageId, element })
           });
         console.log(response)
         let data = await response.json();
@@ -48,12 +47,32 @@ export const addElement = (element) => async (dispatch, getState) => {
     }
 }
 
-export const selectElementDispatcher = (payload) => ({
-    type: SELECT_ELEMENT,
+export const editElementDispatcher = (payload) => ({
+    type: EDIT_ELEMENT,
     payload
 });
 
-export const editElementDispatcher = (payload) => ({
-    type: EDIT_ELEMENT,
+export const editElement = (element) => async (dispatch, getState) => {
+    let pageId = getState().selectedPage._id;
+    try {
+        let response = await fetch(`${process.env.REACT_APP_API}/api/element/edit/${element._id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({pageId, element})
+        });
+        console.log(response)
+        let data = await response.json();
+        if(response.status == 200){
+            dispatch(editElementDispatcher(data));
+        }
+    } catch(err) {
+        console.log(err);
+    }
+}
+
+export const selectElementDispatcher = (payload) => ({
+    type: SELECT_ELEMENT,
     payload
 });
