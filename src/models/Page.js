@@ -37,8 +37,23 @@ const createElement = async function(pageId, element) {
     return elementDoc;
 };
 
+const editElement = async function(pageId, element) {
+    let elementDoc = await Element.findByIdAndUpdate(element._id, element);
+    let pageDoc = await Page.findByIdAndUpdate(pageId);
+
+    pageDoc.element = pageDoc.element.map((elem) => {
+      if(element._id == elem._id) {
+        return {...elem, ...element};
+      }
+      return elem;
+    });
+    pageDoc.save();
+    return {...elementDoc, ...element};
+};
+
 const Page = mongoose.model('Page', pageSchema);
 
 
 module.exports = Page;
 module.exports.createElement = createElement;
+module.exports.editElement = editElement;
