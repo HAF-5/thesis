@@ -3,10 +3,13 @@
     color: black;
     margin: 5px 10%;
 }
+
+
 .add-page-modal_subtitle {
     font-size: 18px;
     margin: 5px 10%;
 }
+
 .add-page-modal_input {
     width: 80%;
     margin: 20px 10%;
@@ -16,8 +19,10 @@
     margin: 0 10%;
 }
 
+
 .add-page-modal_button {
     background-color: #990066;
     color: whitesmoke;
     margin-right: 15px;
 }
+

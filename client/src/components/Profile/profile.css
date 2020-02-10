@@ -1,0 +1,114 @@
+.profile-continer-main {
+    background-color:#e3edf9;
+    /* #eceff3 */
+    box-sizing: border-box;
+    height:100vh;
+    width: 100%;
+    padding-top: 15px;
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(42, 80, 111);
+}
+
+
+
+.profile-container {
+    width: 55%;
+    height: 70vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 33px;
+    border-radius: 1.5ch;
+    box-sizing: border-box;
+    background-color:white;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+
+
+
+       
+}
+
+.profile-continer-input {
+    /* background-color: rgb(193, 197, 206); */
+    padding-left: 30px;
+    margin: auto;
+    width: 84%;
+    height: 97%;
+}
+
+.profile-ImageContiner-div {
+    display: flex;
+    margin-top: 30px;
+    flex-direction: column;
+    box-sizing: border-box;
+    /* background-color: cadetblue; */
+}
+
+.profile-image {
+    width: 15%;
+}
+
+
+.btn-create {
+    width: 20%;
+    margin-top: 10px;
+    border-radius: 50px;
+    background-color: #fcf9f91c;
+    font-family:Cambria, Georgia, serif; 
+    box-shadow: 0 0.4306rem 0.08rem rgba(0, 0, 0, 0.03);
+}
+
+.btn-create-UploadImage {
+    width:35%;
+    margin-top: 21px;
+    font-size: 17px;
+    font-weight: 100;
+}
+
+.profile-input-style {
+    border: none;
+    opacity: 0.5;
+    font-size: 20px;
+    color: rgb(134, 146, 146);
+    margin: 6px;
+    padding: 10px;
+    width: 78%;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    border-radius: 1ch;
+    border: 1px solid rgb(98, 151, 208);
+} 
+
+#profile-h1-text {
+    font-weight: 100;
+    padding-bottom: 50px;
+    text-align: center;
+    font-size: xx-large;
+    padding-top: 25px;
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(42, 80, 111);
+}
+
+.input-email {
+    margin:auto;
+    border: none;
+    background-color: hidden;
+    /* padding-top: 25px; */
+    font-weight: 100;
+    /* padding-bottom: 50px; */
+    text-align: center;
+    font-size: xx-large;
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(42, 80, 111);
+}
+
+.profile-input-label {
+    padding-right: 65px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 100;
+}
+.input-password{
+    padding-right: 40px; 
+}

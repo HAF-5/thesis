@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { isAuth, getCookie, signout } from '../auth/helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
+import './profile.css';
 
 const Profile = ({ history }) => {
   const [values, setValues] = useState({
@@ -83,47 +84,60 @@ const Profile = ({ history }) => {
 
     setValues({ ...values, loading: false, image: file.secure_url });
   }
-
+   
   const profileForm = () => (
-    <form className="form-content" onSubmit={handleSubmit}>
-      <div className="form-group">
-        <img src={image} className="rounded-circle" alt="" />
-        <input type="file" name="file" onChange={uploadImage} />
-      </div>
+   
+    <form className="profile-container" onSubmit={handleSubmit}>
+    
 
-      <div className="form-group">
-        <input onChange={handelChange('name')} type="text" value={name} className="form-control" placeholder="Name" />
-      </div>
+      <div className="profile-continer-input">
 
-      <div className="form-group">
-        <input onChange={handelChange('email')} type="email" defaultValue={email} className="form-control" placeholder="Email" disabled />
-      </div>
-
-      <div className="form-group">
-        <input onChange={handelChange('password')} type="password" value={password} className="form-control" placeholder="Choose a password" />
-      </div>
-
+           
       <div>
-        <button className="btn btn-primary signup-btn">{buttonText}</button>
+        
+        <input className="profile-input-style input-email"  onChange={handelChange('email')} type="email" defaultValue={email}  placeholder="Email" disabled />
+      </div>
+
+      
+
+            <div>
+              <label className="profile-input-label" htmlFor="colFormLabel"> Name   </label>
+                <input className="profile-input-style" onChange={handelChange('name')} type="text" value={name}  placeholder="Name" /> 
+            </div>
+
+            <div>
+              <label className="profile-input-label input-password" htmlFor="colFormLabel">   Password   </label>
+                <input className="profile-input-style"  onChange={handelChange('password')} type="password" value={password} placeholder="Choose a password" />
+            </div>
+
+            <div>
+              <button className="btn btn-outline-primary btn-create">{buttonText}</button>
+            </div>
+
+            <div className="profile-ImageContiner-div">
+                <img src={image} className="rounded-circle profile-image " alt="" />
+                <input className="btn btn-outline-primary btn-create btn-create-UploadImage" type="file" name="file" placeholder="Upload one or more files" onChange={uploadImage} />
+            </div>
+
       </div>
     </form>
+   
   );
 
   return (
-    <div className="container auth">
+    <div className="profile-continer-main">  
       <ToastContainer />
-      <form className="container">
+  
+      <form>
         <div>
-          <h1 className="p-5" style={{ marginBottom: "-30px" }}>profile</h1>
-        </div>
-        <div className="signIn">
-          {profileForm()}
+        <h1 id="profile-h1-text"> Update Name or Profile Image</h1>
+           {profileForm()}
         </div>
       </form>
     </div>
   );
 };
 
-
 export default Profile;
+
 
