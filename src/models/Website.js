@@ -22,7 +22,7 @@ const websiteSchema = mongoose.Schema({
         type: String
     },
     createdAt: {
-        type: Number,
+        type: Date,
         default: Date.now()
     }
 });

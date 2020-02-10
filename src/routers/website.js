@@ -6,14 +6,14 @@ const Page = require('../models/Page');
 
 //create website route
 router.post('/', async (req, res) => {
-    const {title, user, description, contact} = req.body;
-    try{
-        const website = new Website({title, user, description, contact});
+    const { title, user, description, contact, img } = req.body;
+    try {
+        const website = new Website({ title, user, description, contact, img });
         const doc = await website.save();
-        const page = new Page({title: 'home', website: doc._id});
+        const page = new Page({ title: 'home', website: doc._id });
         await page.save();
         res.status(201).json(doc);
-    }catch(err){
+    } catch (err) {
         console.log(err)
         res.status(400).send(err);
     }
@@ -21,22 +21,32 @@ router.post('/', async (req, res) => {
 
 //get websites route
 router.get('/:id', async (req, res) => {
-    try{
-        const doc = await Website.find({user: req.params.id});
+    try {
+        const doc = await Website.find({ user: req.params.id });
         res.status(200).json(doc);
-    }catch(err){
+    } catch (err) {
         res.status(400).send(err);
     }
 });
 
 //get website pages route
 router.get('/pages/:websiteId', async (req, res) => {
-    try{
-        const doc = await Page.find({website: req.params.websiteId});
+    try {
+        const doc = await Page.find({ website: req.params.websiteId });
         res.status(200).json(doc);
-    }catch(err){
+    } catch (err) {
         res.status(400).send(err);
     }
 });
+
+//delete website route
+router.get('/delete/:id', async (req, res) => {
+    try {
+        const doc = await Website.findByIdAndDelete(req.params.id);
+        res.status(200).json(doc);
+    }catch (err) {
+        res.status(400).send(err)
+    }
+})
 
 module.exports = router;
