@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import Google from './Google';
 import Facebook from './Facebook';
 import { ToastContainer, toast } from 'react-toastify';
-import { authenticate, isAuth } from './helpers';
+import { authenticate, isAuth, getCookie } from './helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
 import './auth.css';
 
@@ -15,7 +15,7 @@ const Signin = ({ history }) => {
   });
 
   const { email, password, buttonText } = values;
-
+  const token = getCookie('token');
   const handelChange = (target) => (event) => {
     setValues({ ...values, [target]: event.target.value });
   };
@@ -38,6 +38,7 @@ const Signin = ({ history }) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': token
         },
         body: JSON.stringify({ email, password })
       });
@@ -65,11 +66,11 @@ const Signin = ({ history }) => {
     <form className="signin" onSubmit={handleSubmit}>
       <div className="form-group">
         {/* <label className="text-muted">Email</label> */}
-        <input onChange={handelChange('email')} type="email" value={email} className="form-control signup-input"  placeholder="Email"/>
+        <input onChange={handelChange('email')} type="email" value={email} className="form-control signup-input" placeholder="Email" />
       </div>
       <div className="form-group">
         {/* <label className="text-muted">Password</label> */}
-        <input onChange={handelChange('password')} type="password" value={password} className="form-control signup-input"  placeholder="Type your password" />
+        <input onChange={handelChange('password')} type="password" value={password} className="form-control signup-input" placeholder="Type your password" />
       </div>
       <div>
         <Link to='/auth/password/forgot' className='btn btn-sm btn-outline-danger forget-psw'>Forget password ?</Link>
@@ -85,10 +86,10 @@ const Signin = ({ history }) => {
       <form className="conatiner login-form">
         <h1 className="p-5 login-title">Log In </h1>
         <div className="redirect-text">New to our website? <Link to="/Signup">Sign Up</Link></div>
-        <div style={{display:" flex" }}>
+        <div style={{ display: " flex" }}>
           <div className=" form-login ">
             {singinForm()}
-            
+
           </div>
           <div className="devider">
 
@@ -98,10 +99,10 @@ const Signin = ({ history }) => {
             <Facebook informParent={informParent} />
           </div>
         </div>
-        <p class="accept-terms-login">* By signing up, you agree to our <a href="#">Terms of Use</a> and to receive emails & 
+        <p class="accept-terms-login">* By signing up, you agree to our <a href="#">Terms of Use</a> and to receive emails &
            updates and acknowledge that you read our< a href="#"> Privacy Policy </a> .</p>
       </form>
-      
+
     </div>
   );
 };

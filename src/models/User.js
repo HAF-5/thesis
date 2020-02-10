@@ -44,6 +44,16 @@ userSchema.virtual('password')
 
 // methods
 userSchema.methods = {
+    toJSON: function () {
+        let user = this;
+        let userObject = user.toObject();
+        return {
+            _id: userObject._id,
+            name: userObject.name,
+            email: userObject.email,
+            image: userObject.image
+        }
+    },
     authenticate: function (plainText) {
         return this.encryptPassword(plainText) === this.hashed_password;
     },
