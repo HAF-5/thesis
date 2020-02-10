@@ -1,0 +1,45 @@
+.img-container {
+  position: relative;
+  display: inline-block;
+}
+.img-container .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(243, 243, 243);
+  opacity: 0;
+  transition: opacity 600ms ease-in-out;
+  border: solid 1px rgb(216, 214, 214);
+}
+.img-container:hover .overlay {
+  opacity: 0.9;
+}
+.overlay span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.btn-view {
+  border-radius: 50px;
+  border: 1px solid #0869c4;
+  color: #0869c4;
+  margin: 10px;
+  width: 150px;
+}
+.btn-edit {
+  border-radius: 50px;
+  border: 1px solid #0869c4;
+  background-color: #0869c4;
+  color: white;
+  margin: 10px;
+  width: 150px;
+}
+.btn-view:hover {
+  background-color: #0869c4;
+  color: white;
+}
