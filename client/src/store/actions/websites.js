@@ -1,4 +1,4 @@
-import { SET_WEBSITES, SELECT_WEBSITE, ADD_WEBSITE} from './constants';
+import { SET_WEBSITES, SELECT_WEBSITE, ADD_WEBSITE, DELETE_WEBSITE} from './constants';
 import { toast } from 'react-toastify';
 
 export const setWebsiteDispatcher = (payload) => ({
@@ -55,3 +55,26 @@ export const addWebsite = (website,cb) => async (dispatch) => {
         toast.error("something went wrong");
     }
 }
+
+    export const deleteWebsiteDispatcher = (payload) => ({
+        type: DELETE_WEBSITE,
+        payload
+    })
+
+    export const deleteWebsite = (id) => async (dispatch, getState) => {
+
+        try{
+            let response = await fetch(`${process.env.REACT_APP_API}/api/website/delete/${id}`, {
+                method: 'GET',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+            });
+            let data = await response.json();
+            if(response.status == 200){
+                dispatch(deleteWebsiteDispatcher(data));
+            }
+        } catch(err) {
+            console.log(err)
+        }
+    }
