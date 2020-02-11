@@ -11,6 +11,7 @@ import { setPages, clearPages, selectPage } from './../../store/actions/pages';
 import { setElements, clearElements } from './../../store/actions/elements';
 
 import  './Editor.css';
+import Loader from '../Loader/Loader';
 
 class Editor extends Component {
 
@@ -18,7 +19,8 @@ class Editor extends Component {
         super(props);
         this.myRef = React.createRef();
         this.state = {
-            addPageModalIsOpen: false
+            addPageModalIsOpen: false,
+            loading: true
         }
     }
 
@@ -37,9 +39,27 @@ class Editor extends Component {
         this.props.clearElements();
         this.props.clearPages();
     }
+    //load spinner 
+    sleep = milliseconds => {
+      return new Promise(resolve => setTimeout(resolve, milliseconds));
+    };
+  
+    wait = async (milliseconds = 2000) => {
+      await this.sleep(milliseconds);
+      this.setState({
+        loading: false
+      });
+    };
+    
+    componentDidMount() {
+      this.wait(2000);
+      
+    }
 
     render() {
+        if (this.state.loading)  return <Loader/ > 
         return (
+            
             <div>
                 <AddPageModal 
                     addPageModalIsOpen= {this.state.addPageModalIsOpen}

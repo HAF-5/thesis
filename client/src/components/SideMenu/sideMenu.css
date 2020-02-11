@@ -193,19 +193,32 @@ svg:hover{
     visibility: inherit;
      opacity: 1;
 }
+
 .sideMenu-list{
     left: 120px;
-    top: 280px;
+    top: 250px;
     position: fixed;
-    width: 500px;
     min-height: 270px;
     overflow-x: hidden;
     overflow-y: scroll;
     padding: 17px 0 17px 6px;
+    box-sizing: border-box;
     box-shadow: 0 0 14px 0 rgba(22, 45, 61, 0.36);
-    color:red;
+    color:#fff;
     max-height: calc(100vh - 112px);
     box-sizing: border-box;
     border-radius: 5px;
-    background-color: #fff;
+    background: #00aaaf;
+    visibility: inherit;
+    opacity: 1;
+    
+    }
+    .left-bar-items.menu-collapsed svg.ear.ear-top {
+        top: -4px;
+        left: -5px;
+    }
+    .left-bar-items.menu-collapsed svg.ear {
+        top: -20px;
+        position: absolute;
+        left: -9px;
     }

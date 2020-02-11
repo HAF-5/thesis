@@ -10,7 +10,7 @@ class FixedNavbar extends Component {
         return (
             <div className="header Navar">
                 <nav className="navbar navbar-expand-lg navbar-ligth fixed-nav">
-                    <h5 className="my-0 mr-md-auto font-weight-normal">H A F 5</h5>
+                    <h5 className="my-0 mr-md-auto font-weight-normal navbar-brand"><Link className="logo" to="/"> H A F 5</Link></h5>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         Menu
                     </button>

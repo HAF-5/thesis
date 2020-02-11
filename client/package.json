@@ -17,8 +17,10 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.0.1",
     "react-toastify": "^5.5.0",
-    "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "react-videoplayer": "^0.6.4",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "video-react": "^0.14.1"
   },
   "scripts": {
     "start": "react-scripts start",

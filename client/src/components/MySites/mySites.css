@@ -17,7 +17,7 @@
   flex-wrap: wrap;
   height: 100%;
   margin-left: 15%;
-  padding-top:5%;
+  padding-top:8%;
   padding-bottom: 10vh;
 }
 
@@ -150,7 +150,6 @@
 }
 .filter{
   padding-top: 1%;
-  float: right;
 }
 .filter-grid{
   border: 1px solid white;
@@ -160,10 +159,12 @@
 }
 .filter-view > svg{
  padding-top: 0px;
+ 
 }
 .filter-view {
   padding-top: 5%;
   padding-bottom: 5%;
+  float: right;
  }
 
 .table-title-bar{
@@ -270,5 +271,5 @@
   width: 100%;
 }
 .list-view{
-  padding-top: 200px;
+  padding-top: 10%;
 }
