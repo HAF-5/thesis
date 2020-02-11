@@ -4,6 +4,7 @@ export const LOGOUT = 'LOGOUT';
 export const SET_WEBSITES = 'SET_WEBSITES';
 export const SELECT_WEBSITE = 'SELECT_WEBSITE';
 export const ADD_WEBSITE = 'ADD_WEBSITE';
+export const DELETE_WEBSITE = 'DELETE_WEBSITE';
 
 export const SET_PAGES = 'SET_PAGES';
 export const ADD_PAGE = 'ADD_PAGE';

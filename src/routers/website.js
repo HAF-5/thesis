@@ -39,4 +39,14 @@ router.get('/pages/:websiteId', async (req, res) => {
     }
 });
 
+//delete website route
+router.get('/delete/:id', async (req, res) => {
+    try {
+        const doc = await Website.findByIdAndDelete(req.params.id);
+        res.status(200).json(doc);
+    }catch (err) {
+        res.status(400).send(err)
+    }
+})
+
 module.exports = router;
