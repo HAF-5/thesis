@@ -52,7 +52,6 @@ router.get("/delete/:id", async (req, res) => {
 router.post("/update/:id", async (req, res) => {
   const { img, title, description } = req.body;
   const { email, phoneNumber } = req.body.contact;
-  console.log(req.body);
   try {
     const website = await Website.findById(req.params.id);
     if (!website) {
