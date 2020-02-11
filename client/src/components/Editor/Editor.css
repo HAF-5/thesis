@@ -1,0 +1,20 @@
+#editor {
+    right: 0;
+    overflow-y: scroll;
+    height: 80vh;
+}
+
+.editor_inform-page-section {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 25vh;
+    color: #BBBBBB;
+}
+
+.editor_add-page-section_button {
+    height: 45px;
+    color: #BBBBBB;
+}

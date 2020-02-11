@@ -1,17 +1,8 @@
 const mongoose = require('mongoose');
 
 const elementSchema = mongoose.Schema({
-    classList: [{
-        type: String
-    }],
-    children: [{
-        type: mongoose.Types.ObjectId,
-        ref: 'Element'
-    }],
-    createdAt: {
-        type: Number,
-        default: Date.now()
-    }
+    type: String,
+    element: String
 });
 
 const Element = mongoose.model('Element', elementSchema);

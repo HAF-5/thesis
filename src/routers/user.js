@@ -1,51 +1,32 @@
 const express = require('express');
-const User = require('../models/User');
-const auth = require('../middleware/auth');
-
 const router = express.Router();
 
-//user signup route
-router.post('/', async (req, res) => {
-    try{
-        const user = new User(req.body);
-        await user.save();
-        const token = await user.generateAuthToken();
-        res.status(201).json({user, token});
-    }catch(err){
-        res.status(400).send(err);
-    }
-});
+// import controllrs
+const {
+  signup,
+  accountActivation,
+  signin,
+  forgotPassword,
+  resetPassword,
+  googleLogin,
+  facebookLogin } = require('../controllers/auth');
 
-//user login route
-router.post('/login', async (req, res) => {
-    try {
-        const { email, password } = req.body;
-        const user = await User.findByCredentials(email, password);
-        if(!user) {
-            return res.status(401).send({error: 'Sorry You are not Authenticated'});
-        }
-        const token = await user.generateAuthToken();
-        res.send({user, token});
-    } catch (err) {
-        res.status(400).send();
-    }
-});
+// import validators
+const {
+  ueserSignupValidator,
+  ueserSigninValidator,
+  forgotPasswordValidator,
+  resetPasswordValidator } = require('../middleware/auth');
 
-router.get('/me', auth, async (req, res) => {
-    res.send(req.user);
-});
+const { runValidation } = require('../middleware');
 
-router.post('/me/logout', auth, async (req, res) => {
-    try {
-        let user = User.findById(req.user._id);
-        user.tokens = user.tokens.filter((token) => {
-            return token.token != req.token;
-        });
-        await user.save();
-        res.send();
-    } catch(error) {
-        res.status(500).send();
-    }
-});
+
+router.post('/signup', ueserSignupValidator, runValidation, signup);
+router.post('/account-activation', accountActivation);
+router.post('/signin', ueserSigninValidator, runValidation, signin);
+router.post('/forgot-password', forgotPasswordValidator, runValidation, forgotPassword);
+router.post('/reset-password', resetPasswordValidator, runValidation, resetPassword);
+router.post('/google-login', googleLogin);
+router.post('/facebook-login', facebookLogin);
 
 module.exports = router;
