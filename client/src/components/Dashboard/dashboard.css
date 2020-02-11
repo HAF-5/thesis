@@ -177,5 +177,7 @@
   .edit-icons-space {
     padding-right: 5px;;
   }
-
-
+ .my-page{
+   display: flex;
+   align-items: center;
+ }
