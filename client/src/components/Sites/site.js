@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import moment from "moment";
 import { connect } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
+
 import { updateWebsite } from "../../store/actions/websites";
 
 import "./site.css";
@@ -39,6 +41,10 @@ class Site extends Component {
     const data = { id: id, website: website };
     this.props.updateWebsite(data);
   }
+
+  viewWebsite = (e, id) => {
+    e.preventDefault();
+  };
 
   render() {
     return (
@@ -82,9 +88,14 @@ class Site extends Component {
             </div>
             <div className="overlay">
               <span className="span1">
-                <button className="btn btn-view" style={{ display: "block" }}>
+                <Link
+                  to={`/editor/${this.props.website._id}/`}
+                  className="btn btn-view"
+                  style={{ display: "block" }}
+                  // onClick={e => this.viewWebsite(e, this.props.website._id)}
+                >
                   View
-                </button>
+                </Link>
                 <button
                   className="btn btn-edit "
                   data-toggle="modal"
