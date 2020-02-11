@@ -28,5 +28,7 @@
 
 [contenteditable] {
     outline: 0px solid transparent;
+    width: 0;
+    height: 0;
   }
   

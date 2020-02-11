@@ -44,8 +44,8 @@ class Editor extends Component {
     handleOnDrop(e) {
         let id = e.dataTransfer.getData("id");
         let element = document.getElementById(id);
-        $(`#${id}`).removeClass('selected');
-        element.style.position = "absolute" ;
+        $(`#${id}`) && $(`#${id}`).removeClass('selected');
+        element.style.position = "absolute";
         element.style.left = e.clientX + 'px';
         element.style.top = e.clientY + 'px';
         let stringHTML = element.outerHTML;
@@ -57,19 +57,27 @@ class Editor extends Component {
         return dom.outerHTML
     }
 
-    createElement = (e) => {
-        let target = e.target;
+    createElement = (e, type) => {
+        let target = e.target.cloneNode(true);
+        target.style.position = "absolute" ;
+        if(type === 'navbar'){
+            target.style.left = '0' ;
+            target.style.top = '0' ;
+        } else {
+            target.style.left = '50vw' ;
+            target.style.top = '50vh' ;
+        }
         let element = {
-            type: 'button',
+            type,
             element: this.domToString(target)
         };
+        
         this.props.addElement(element);
+        console.log('test create element 123456')
     }
 
     save = () => {
-        // this.props.elements.map((element) => {
-            console.log(document.getElementById(this.props.elements[this.props.elements.length-1]._id))
-        // })
+        console.log(document.getElementById(this.props.elements[this.props.elements.length-1]._id))
     }
 
     componentWillUnmount() {
@@ -92,8 +100,8 @@ class Editor extends Component {
                     openAddPageModal= {this.openAddPageModal}
                     save= {this.save}
                 />
-                <SideMenu/> 
-                <ElementCreator createElement={(e) => this.createElement(e)}/>
+                <SideMenu createElement={(e, type) => this.createElement(e, type)}/> 
+                {/* <ElementCreator createElement={(e) => this.createElement(e)}/> */}
                 <div 
                     id="editor" 
                     ref= {this.editor} 
@@ -103,12 +111,8 @@ class Editor extends Component {
                     { 
                         this.props.elements.map(element => {
                             element.element = element.element.split('>').map((val, i) => {
-
                                 if(i === 0){
-                                    if(!val.includes('id')){
-                                        val += ` id= "${element._id}"` 
-                                    }
-                                    // val +=  "class=" + if(this.state.selectedElement === element._id ) return "selected2"  else return "";
+                                    val += ` id= "${element._id}"` 
                                 }
                                 return val;
                             }).join('>');
@@ -124,12 +128,12 @@ class Editor extends Component {
                                 contentEditable= {true}
                                 onClick= {(e) => {
                                     let id = e.target.id;
+                                    console.log(this.state.selectedElemen)
                                     if(this.state.selectedElement){
                                         $(`#${this.state.selectedElement._id}`).removeClass('selected');
                                     }
                                     this.setState(() => ({selectedElement: element}), () => console.log(this.state.selectedElement));
                                     $(`#${id}`).addClass('selected');
-                                    
                                 }}
                             />
                         })  
