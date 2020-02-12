@@ -17,16 +17,27 @@ class sideMenu extends Component {
 	}
 	elements = {
 		'button': [
-		  <button style= {{backgroundColor: 'blue'}} onClick= {(e) => this.createElement(e, 'button')}>ok</button>,
-		  <button  onClick= {(e) => this.createElement(e, 'button')}>no</button>,
-		  <button   className= 'btn btn-primary' onClick= {(e) => this.createElement(e, 'button')}>no</button>,
+			<button style= {{backgroundColor: 'blue'}} onClick= {(e) => this.createElement(e, 'button')}>ok</button>,
+			<button  onClick= {(e) => this.createElement(e, 'button')}>no</button>,
+			<button type="button" className= 'btn btn-primary' onClick= {(e) => this.createElement(e, 'button')}>no</button>,
+			<button type="button" className="btn btn-primary"  onClick= {(e) => this.createElement(e, 'button')}>Primary</button>,
+			<button type="button" className="btn btn-secondary"  onClick= {(e) => this.createElement(e, 'button')}>Secondary</button>,
+			<button type="button" className="btn btn-success"  onClick= {(e) => this.createElement(e, 'button')}>Success</button>,
+			<button type="button" className="btn btn-danger"  onClick= {(e) => this.createElement(e, 'button')}>Danger</button>,
+			<button type="button" className="btn btn-warning"  onClick= {(e) => this.createElement(e, 'button')}>Warning</button>,
+			<button type="button" className="btn btn-info"  onClick= {(e) => this.createElement(e, 'button')}>Info</button>,
+			<button type="button" className="btn btn-light"  onClick= {(e) => this.createElement(e, 'button')}>Light</button>,
+			<button type="button" className="btn btn-dark"  onClick= {(e) => this.createElement(e, 'button')}>Dark</button>
 		],
 		'navbar': [
 		<nav 
 			style= {{width: '100%', backgroundColor: 'red'}}
 			onClick= {(e) => this.createElement(e, 'navbar')}
 		>
-			<a href= '#'>home</a>
+			{
+				this.props.pages.map(page => <a href= '#'>{page.title}</a>)
+			}
+			
 		  </nav>,
 		  <nav 
 		  style= {{width: '100%', backgroundColor: 'red'}}
@@ -114,7 +125,8 @@ class sideMenu extends Component {
 }
 
 const mapStateToProps = state => ({
-  menuItems: state.sideMenuElements
+  menuItems: state.sideMenuElements,
+  pages: state.pages
 });
 
 const mapDispatchToProps = dispatch => ({
