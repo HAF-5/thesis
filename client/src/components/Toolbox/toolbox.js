@@ -13,7 +13,6 @@ class Toolbox extends Component {
     }
     let stringHTML = domElement.outerHTML;
     this.props.editElement({ _id: element._id, element: stringHTML });
-    // console.log(stringHTML, style)
   }
 
   render() {
@@ -22,69 +21,57 @@ class Toolbox extends Component {
         <div className="sidebar">
           <ul>
             <div className="position-flex">
-              <li>
                 <a href="#">
                   {" "}
                   <i className="fas fa-copy"> </i>
                 </a>
-              </li>
-              <li>
                 <a href="#">
                   <i className="fas fa-paste"></i>
                 </a>
-              </li>
-            </div>
-            <div className="position-flex">
-              <li
-                onClick= {() => this.changeStyle(this.props.element, {color: 'yellow'})}
-              >
-                <a href="#">
+                <a 
+                  href="#"
+                  onClick= {() => this.changeStyle(this.props.element, {color: 'yellow'})}
+                >
                   {" "}
                   <i className="fas fa-home"> </i>
                 </a>
-              </li>
-              <li>
                 <a href="#">
                   <i className="fas fa-trash-alt"></i>
                 </a>
-              </li>
             </div>
-            <li>
-              <a href="#">
-                {" "}
-                <i className="fas fa-user"> </i>
-              </a>
+            <li className="position-flex">
+              <label>color</label>
+              <input type= 'color'/>
             </li>
-            <li>
-              <a href="#">
-                {" "}
-                <i className="fas fa-address-card"> </i>
-              </a>
+            <li className="position-flex">
+              <label>width</label>
+              <input className= "number-inpt" type= 'number'/>
+              <input className= "number-inpt" type= 'number'/>
+              <input className= "number-inpt" type= 'number'/>
+              <input className= "number-inpt" type= 'number'/>
             </li>
-            <li>
-              <a href="#">
-                {" "}
-                <i className="fas fa-project-diagram"> </i>
-              </a>
+            <li className="position-flex">
+              <label>height</label>
+              <input className= "number-inpt" type= 'number'/>
+              <input className= "number-inpt" type= 'number'/>
+              <input className= "number-inpt" type= 'number'/>
+              <input className= "number-inpt" type= 'number'/>
             </li>
-            <li>
-              <a href="#">
-                {" "}
-                <i className="fas fa-blog"> </i>
-              </a>
+            <li className="position-flex">
+              <label>padding</label>
+              <input className= "number-inpt" type= 'number'/>
+              <input className= "number-inpt" type= 'number'/>
+              <input className= "number-inpt" type= 'number'/>
+              <input className= "number-inpt" type= 'number'/>
             </li>
-            <li>
-              <a href="#">
-                {" "}
-                <i className="fas fa-address-book"> </i>
-              </a>
+            <li className="position-flex">
+              <label>margin</label>
+              <input className= "number-inpt" type= 'number'/>
+              <input className= "number-inpt" type= 'number'/>
+              <input className= "number-inpt" type= 'number'/>
+              <input className= "number-inpt" type= 'number'/>
             </li>
-            <li>
-              <a href="#">
-                {" "}
-                <i className="fas fa-map-pin"> </i>
-              </a>
-            </li>
+
           </ul>
         </div>
       </div>
