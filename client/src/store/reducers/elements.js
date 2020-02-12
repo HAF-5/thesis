@@ -1,6 +1,6 @@
 import {SET_ELEMENTS, SELECT_ELEMENT, ADD_ELEMENT, EDIT_ELEMENT, CLEAR_ELEMENTS} from '../actions/constants';
 
-
+ 
 const elementReducer = (state = [], action) => {
     switch (action.type) {
         case SET_ELEMENTS:
@@ -17,7 +17,10 @@ const elementReducer = (state = [], action) => {
         case EDIT_ELEMENT: 
             return state.map(element => {
                 if(element._id === action.payload._id){
-                    return action.payload;
+                    return {
+                        ...element,
+                        ...action.payload
+                    };
                 }
                 return element;
             })
