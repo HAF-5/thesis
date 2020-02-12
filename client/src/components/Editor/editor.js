@@ -100,7 +100,7 @@ class Editor extends Component {
                     openAddPageModal= {this.openAddPageModal}
                     save= {this.save}
                 />
-                <Toolbox />
+                <Toolbox element= {this.state.selectedElement}/>
                 <SideMenu createElement={(e, type) => this.createElement(e, type)}/> 
                 {/* <ElementCreator createElement={(e) => this.createElement(e)}/> */}
                 <div 
