@@ -2,7 +2,7 @@
     right: 0;
     overflow-y: scroll;
     height: 80vh;
-    position: relative;
+    /* position: relative; */
 }
 
 .editor_inform-page-section {
@@ -24,6 +24,7 @@
 .selected {
     border: 1px solid blue;
     padding: 10px;
+    color: white;
 }
 
 [contenteditable] {

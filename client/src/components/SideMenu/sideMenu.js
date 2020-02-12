@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import styled from "styled-components";
 
-import { setMenuElementDispatcher } from './../../store/actions/sideMenu';
-import { addElement } from './../../store/actions/elements';
+import { setMenuElementDispatcher } from "./../../store/actions/sideMenu";
+import { addElement } from "./../../store/actions/elements";
 
-import { elementsData } from './../../sideMenuElementsData';
+import { elementsData } from "./../../sideMenuElementsData";
 
-import './sideMenu.css'
+import "./sideMenu.css";
 
 class sideMenu extends Component {
 	
@@ -112,13 +113,13 @@ class sideMenu extends Component {
 	}
 }
 
-const mapStateToProps = (state) => ({
-    menuItems: state.sideMenuElements
-})
+const mapStateToProps = state => ({
+  menuItems: state.sideMenuElements
+});
 
-const mapDispatchToProps = (dispatch) => ({
-    setMenuElements: (payload) => dispatch(setMenuElementDispatcher(payload)),
-    addElement: (payload) => dispatch(addElement(payload))
-})
+const mapDispatchToProps = dispatch => ({
+  setMenuElements: payload => dispatch(setMenuElementDispatcher(payload)),
+  addElement: payload => dispatch(addElement(payload))
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(sideMenu)
+export default connect(mapStateToProps, mapDispatchToProps)(sideMenu);

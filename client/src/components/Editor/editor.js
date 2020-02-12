@@ -11,8 +11,9 @@ import ElementCreator from './ElementCreator/elementCreator';
 
 import { setPages, clearPages, selectPage } from './../../store/actions/pages';
 import { setElements, clearElements, addElement, editElement } from './../../store/actions/elements';
+import Toolbox from './../Toolbox/toolbox';
 
-import  './Editor.css';
+import "./Editor.css";
 
 class Editor extends Component {
 
@@ -24,10 +25,9 @@ class Editor extends Component {
             selectedElement: null
         }
     }
-
     openAddPageModal = () => {
-        this.setState({addPageModalIsOpen: true});
-    }
+        this.setState({ addPageModalIsOpen: true });
+    };
 
     closeAddPageModal = () => {
         this.setState({addPageModalIsOpen: false});
@@ -100,6 +100,7 @@ class Editor extends Component {
                     openAddPageModal= {this.openAddPageModal}
                     save= {this.save}
                 />
+                <Toolbox />
                 <SideMenu createElement={(e, type) => this.createElement(e, type)}/> 
                 {/* <ElementCreator createElement={(e) => this.createElement(e)}/> */}
                 <div 
@@ -124,15 +125,15 @@ class Editor extends Component {
                                 key= {element._id}
                                 onDragStart= {(e) => {
                                     e.dataTransfer.setData("id", element._id);
+                                    e.dataTransfer.effectAllowed = 'move';
                                 }}
                                 contentEditable= {true}
                                 onClick= {(e) => {
                                     let id = e.target.id;
-                                    console.log(this.state.selectedElemen)
                                     if(this.state.selectedElement){
                                         $(`#${this.state.selectedElement._id}`).removeClass('selected');
                                     }
-                                    this.setState(() => ({selectedElement: element}), () => console.log(this.state.selectedElement));
+                                    this.setState(() => ({selectedElement: element}), () => console.log('ll', this.state.selectedElement));
                                     $(`#${id}`).addClass('selected');
                                 }}
                             />
@@ -159,15 +160,16 @@ class Editor extends Component {
                     }
                 </div>
             </div>
-        )
-    }
+          )}
 }
 
 const mapStateToProps = (state, props) => ({
-    elements: state.elements,
-    website: state.websites.filter(website => website._id === props.match.params.id)[0],
-    pages: state.pages,
-    selectedPage: state.selectedPage
+  elements: state.elements,
+  website: state.websites.filter(
+    website => website._id === props.match.params.id
+  )[0],
+  pages: state.pages,
+  selectedPage: state.selectedPage
 });
 
 const mapDispatchToProps = (dispatch) => ({
