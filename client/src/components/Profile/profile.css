@@ -1,5 +1,5 @@
 .profile-continer-main {
-    background-color:#e3edf9;
+    /* background-color:#e3edf9; */
     /* #eceff3 */
     box-sizing: border-box;
     height:100vh;
@@ -14,10 +14,10 @@
 .profile-container {
     width: 55%;
     height: 70vh;
-    margin: auto;
+    margin-left: 5%;
     display: flex;
     flex-direction: column;
-    padding-top: 33px;
+    padding-top: 10px;
     border-radius: 1.5ch;
     box-sizing: border-box;
     background-color:white;
@@ -29,7 +29,6 @@
 }
 
 .profile-continer-input {
-    /* background-color: rgb(193, 197, 206); */
     padding-left: 30px;
     margin: auto;
     width: 84%;
@@ -41,11 +40,15 @@
     margin-top: 50px;
     flex-direction: column;
     box-sizing: border-box;
-    /* background-color: cadetblue; */
 }
 
 .profile-image {
-    width: 15%;
+    width: 25%;
+    margin-left: 63%;
+    position: absolute;
+    margin-top: 41px;
+    border-radius: 3ch;
+    border: 1px solid rgb(162, 160, 160);
 }
 
 
@@ -72,7 +75,7 @@
     /* color: rgb(134, 146, 146); */
     margin: 6px;
     padding: 10px;
-    width: 78%;
+    width: 50%;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
@@ -82,12 +85,13 @@
 
 #profile-h1-text {
     font-weight: 100;
-    padding-bottom: 50px;
-    text-align: center;
+    padding-bottom: 40px;
+    margin-left: 70px;
     font-size: xx-large;
     padding-top: 25px;
-    font-family: 'Open Sans', sans-serif;
-    color: rgb(42, 80, 111);
+    font-family: 'Arvo', serif;
+    font-family: 'Bree Serif', serif;
+    color: rgb(7, 92, 162);
 }
 
 .input-email {
@@ -110,6 +114,14 @@
 
 .input-password {
     padding-right: 36px; 
+}
+
+.profile-pragraph-text {
+    position: absolute;
+    margin-left: 70px;
+    margin-top: -38px;
+    font-size: smaller;
+    color: rgb(55, 56, 59);
 }
 
 

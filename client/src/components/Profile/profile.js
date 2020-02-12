@@ -5,6 +5,9 @@ import { isAuth, getCookie, signout } from '../auth/helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
 import './profile.css';
 
+import FixedNavbar from './../Navbar/FixedNavbar';
+
+
 
 const Profile = ({ history }) => {
   const [values, setValues] = useState({
@@ -90,15 +93,15 @@ const Profile = ({ history }) => {
    
     <form className="profile-container" onSubmit={handleSubmit}>
     
-
+    <img src={image} className="profile-image center"  alt="" />
       <div className="profile-continer-input">
 
-           
       <div>
         
-        <input className="profile-input-style input-email"  onChange={handelChange('email')} type="email" defaultValue={email}  placeholder="Email" disabled />
+        <lable  onChange={handelChange('email')}>{name}  </lable>
       </div>
 
+           
             <div>
               <label className="profile-input-label" htmlFor="colFormLabel"> Name   </label>
                 <input className="profile-input-style input-name" onChange={handelChange('name')} type="text" value={name}  placeholder="Name" /> 
@@ -114,17 +117,10 @@ const Profile = ({ history }) => {
             </div>
 
             <div className="custom-file profile-ImageContiner-div">
-                <img src={image} className="rounded-circle profile-image " alt="" />
+                
                 <input className="btn btn-outline-primary btn-create btn-create-UploadImage" type="file"   onChange={uploadImage} />
                 {/* <label className="custom-file-label" htmlFor="customFile">Choose file</label> */}
             </div>
-
-            {/* <div className="custom-file profile-ImageContiner-div">
-            <img src={image} className="rounded-circle profile-image " alt="" />
-                  <input type="file" className="btn btn-outline-primary btn-create btn-create-UploadImage" id="customFile" onChange={uploadImage} />
-                  <label className="custom-file-label lable-image-upload" htmlFor="customFile">Choose file</label>
-            </div> */}
-
       </div>
     </form>
    
@@ -132,15 +128,18 @@ const Profile = ({ history }) => {
 
   return (
     <div className="profile-continer-main">  
+      <FixedNavbar/> 
       <ToastContainer />
      
+
       <form>
         <div>
-        <h1 id="profile-h1-text"> Update Name or Profile Image</h1>
+        <h1 id="profile-h1-text"> Account Settings </h1>
+        <p className="profile-pragraph-text"> View and update your account details, profile and more. </p>
            {profileForm()}
         </div>
       </form>
-      
+     
     </div>
     
   );
