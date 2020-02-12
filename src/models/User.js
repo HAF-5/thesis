@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
     salt: String,
     image: {
         type: String,
-        default: 'https://thumbnail.imgbin.com/15/3/3/imgbin-emoticon-smiley-emoji-icon-the-head-of-the-tongue-yellow-emoji-ncHxQQBdpJ5ZMC9zex2WFaiGU_t.jpg'
+        default: 'https://lh6.googleusercontent.com/proxy/CZRKWpd4BjXGy7yOapnD4OXrRqMczjfyGqg3A85IpMA_Hq61yO3c6bUBBMtoWKMYEJZJSE5FA3rVHff8IktGgCRGxvQPuV3N8bX0wcYz1CdzQKVOweiKQHr9'
     },
     resetPasswordLink: {
         data: String,
@@ -44,6 +44,16 @@ userSchema.virtual('password')
 
 // methods
 userSchema.methods = {
+    toJSON: function () {
+        let user = this;
+        let userObject = user.toObject();
+        return {
+            _id: userObject._id,
+            name: userObject.name,
+            email: userObject.email,
+            image: userObject.image
+        }
+    },
     authenticate: function (plainText) {
         return this.encryptPassword(plainText) === this.hashed_password;
     },
