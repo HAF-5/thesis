@@ -1,6 +1,21 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+
+import { editElement } from './../../store/actions/elements';
+
 import "./toolbox.css";
-export default class Toolbox extends Component {
+class Toolbox extends Component {
+
+  changeStyle = (element, style) => {
+    let domElement = document.getElementById(element._id);
+    for(let key in style){
+      domElement.style[key] = style[key];
+    }
+    let stringHTML = domElement.outerHTML;
+    this.props.editElement({ _id: element._id, element: stringHTML });
+    // console.log(stringHTML, style)
+  }
+
   render() {
     return (
       <div className="wrapper">
@@ -20,7 +35,9 @@ export default class Toolbox extends Component {
               </li>
             </div>
             <div className="position-flex">
-              <li>
+              <li
+                onClick= {() => this.changeStyle(this.props.element, {color: 'yellow'})}
+              >
                 <a href="#">
                   {" "}
                   <i className="fas fa-home"> </i>
@@ -74,3 +91,8 @@ export default class Toolbox extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  editElement: (element) => dispatch(editElement(element))
+})
+export default connect(null, mapDispatchToProps)(Toolbox);
