@@ -13,7 +13,7 @@ const websiteSchema = mongoose.Schema({
     },
     description: {
         type: String,
-    }, 
+    },
     contact: {
         phoneNumber: Number,
         email: String
@@ -22,7 +22,7 @@ const websiteSchema = mongoose.Schema({
         type: String
     },
     createdAt: {
-        type: Number,
+        type: Date,
         default: Date.now()
     }
 });
