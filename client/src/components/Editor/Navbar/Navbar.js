@@ -22,7 +22,7 @@ class FixedNavbar extends Component{
                             <a className="nav-link editor-nav-link" href= "#">Undo</a>
                         </li>
                         <li className="editor-nav-item nav-item">
-                            <a className="nav-link editor-nav-link" href= "#">Preview</a>
+                            <a className="nav-link editor-nav-link" onClick={this.goFull}>Preview</a>
                         </li>
                         <li className="editor-nav-item nav-item">
                             <a className="nav-link editor-nav-link" href= "#">Publish</a>

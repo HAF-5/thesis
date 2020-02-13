@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import $ from 'jquery';
+import Fullscreen from "react-full-screen";
 
 import SideMenu from '../SideMenu/sideMenu';
 import FixedNavbar from '../Navbar/FixedNavbar';
@@ -16,6 +17,7 @@ import Toolbox from './../Toolbox/toolbox';
 import  './Editor.css';
 import Loader from '../Loader/Loader';
 
+
 class Editor extends Component {
 
     constructor(props){
@@ -23,9 +25,14 @@ class Editor extends Component {
         this.editor = React.createRef();
         this.state = {
             addPageModalIsOpen: false,
-            loading: true
+            loading: true,
+            isFull: false
         }
     }
+    goFull = () => {
+        this.setState({ isFull: true });
+      }
+
     openAddPageModal = () => {
         this.setState({ addPageModalIsOpen: true });
     };
@@ -122,7 +129,11 @@ class Editor extends Component {
                 <Toolbox element= {this.state.selectedElement}/>
                 <SideMenu createElement={(e, type) => this.createElement(e, type)}/> 
                 {/* <ElementCreator createElement={(e) => this.createElement(e)}/> */}
-                <div class="droptarget"
+                <Fullscreen 
+                    enable={this.state.isFull}
+                    onChange={isFull => this.setState({isFull})}
+                    >
+                <div className="droptarget"
                     id="editor" 
                     ref= {this.editor} 
                     onDragOver= {(e) => this.handleOnDragOver(e)}
@@ -138,7 +149,7 @@ class Editor extends Component {
                             }).join('>');
                             let xmlString = element.element;
                             return <div 
-                                className= 'selector'
+                                classNameName= 'selector'
                                 dangerouslySetInnerHTML={{ __html: xmlString }}
                                 draggable 
                                 key= {element._id}
@@ -150,34 +161,35 @@ class Editor extends Component {
                                 onClick= {(e) => {
                                     let id = e.target.id;
                                     if(this.state.selectedElement){
-                                        $(`#${this.state.selectedElement._id}`).removeClass('selected');
+                                        $(`#${this.state.selectedElement._id}`).removeClassNAmeclassName('selected');
                                     }
                                     this.setState(() => ({selectedElement: element}), () => console.log('ll', this.state.selectedElement));
-                                    $(`#${id}`).addClass('selected');
+                                    $(`#${id}`).addClassNAmeclassName('selected');
                                 }}
                             />
                         })  
                     }
                     {
                         !this.props.pages.length && 
-                        <div className= "editor_inform-page-section">
+                        <div classNameName= "editor_inform-page-section">
                             <h3>There is no page in your website.</h3>
                             <button 
-                                className= "btn editor_add-page-section_button"
+                                classNameName= "btn editor_add-page-section_button"
                                 onClick= {this.openAddPageModal}
                             >
-                                <i class="fas fa-plus"></i> Add Page
+                                <i className="fas fa-plus"></i> Add Page
                             </button>
                         </div>
                     }
                     {
                         !this.props.elements.length && 
                         this.props.pages.length &&
-                        <div className= "editor_inform-page-section">
+                        <div classNameName= "editor_inform-page-section">
                             <h3>{this.props.selectedPage.title} page is empty, create some elements.</h3>
                         </div>
                     }
                 </div>
+                </Fullscreen>
             </div>
           )}
 }
