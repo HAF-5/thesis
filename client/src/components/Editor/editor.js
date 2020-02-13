@@ -62,7 +62,7 @@ class Editor extends Component {
         target.style.position = "absolute" ;
         if(type === 'navbar'){
             target.style.left = '0' ;
-            target.style.top = '0' ;
+            target.style.top = '14vh' ;
         } else {
             target.style.left = '50vw' ;
             target.style.top = '50vh' ;
