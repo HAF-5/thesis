@@ -16,7 +16,7 @@ import Reset from './../components/auth/Reset';
 import createProject from './../components/CreateProject/createProject';
 import Profile from './../components/Profile/profile';
 import dashboardWebsite from './../components/DashboardWebsite/dashboardWebsite';
-import Dahboard from './../components/Dashboard/Dahboard';
+
 
 const AppRouter = () => {
   return (
@@ -28,7 +28,6 @@ const AppRouter = () => {
           <PublicRoute path='/login' component={Signin} />
           <PrivateRoute path='/sites' component={MySites} />
 
-          <PrivateRoute path='/dashboard' component={Dahboard} exact />
           <PrivateRoute path='/createProject' component={createProject} />
 
           <PrivateRoute path='/editor/:id' component={Editor} />
