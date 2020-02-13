@@ -13,7 +13,7 @@ const websiteSchema = mongoose.Schema({
     },
     description: {
         type: String,
-    }, 
+    },
     contact: {
         phoneNumber: Number,
         email: String
