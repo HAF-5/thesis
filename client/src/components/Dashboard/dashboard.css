@@ -28,11 +28,12 @@
   }
   
   .sidebar_Header_h1 {
-    font-size: 16px;
+    font-size: 18px;
     color: white;
     padding-left: 10px;
     margin-top: 39%;
     padding-bottom: 12px;
+    margin-left: 20%;
   }
   
   .sidebar_Header_p {
