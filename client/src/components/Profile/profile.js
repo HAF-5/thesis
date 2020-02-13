@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { getCookie, signout } from '../auth/helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
+import Dashboard from "../Dashboard/Dahboard";
 
 const Profile = ({ history }) => {
   const [values, setValues] = useState({
@@ -110,6 +111,7 @@ const Profile = ({ history }) => {
 
   return (
     <div className="container auth">
+      <Dashboard />
       <ToastContainer />
       <form className="container">
         <div>

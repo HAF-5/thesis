@@ -5,7 +5,6 @@ import Img1 from "../img/test.png";
 import Img2 from "../img/test2.png";
 import Img3 from "../img/test1.png";
 import Img from "../img/example3.png";
-import Signup from "../Signup/signup";
 
 import "./home.css";
 
@@ -15,7 +14,7 @@ export default class home extends Component {
       <div>
         <div className="d-flex flex-column flex-md-row align-items-center p-4  bg-white">
           <h5 className="my-0 mr-md-auto font-weight-normal">H A F 5</h5>
-          <Link to="dashboard" className="btn btn-outline-primary btn-create">
+          <Link to="/sites" className="btn btn-outline-primary btn-create">
             Create Free Website
           </Link>
         </div>

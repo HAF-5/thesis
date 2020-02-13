@@ -48,7 +48,7 @@ class Site extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ marginTop: "15px" }}>
         <section>
           <div className="img-container">
             <div className="card " style={{ width: "22rem", height: "30rem" }}>
@@ -94,7 +94,7 @@ class Site extends Component {
                   to={`/editor/${this.props.website._id}/`}
                   className="btn btn-view"
                   style={{ display: "block" }}
-                  // onClick={e => this.viewWebsite(e, this.props.website._id)}
+                // onClick={e => this.viewWebsite(e, this.props.website._id)}
                 >
                   View
                 </Link>
