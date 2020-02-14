@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import { editElement } from './../../store/actions/elements';
+import { editElement } from "./../../store/actions/elements";
 
 import "./toolbox.css";
 class Toolbox extends Component {
@@ -47,12 +47,12 @@ class Toolbox extends Component {
 
   changeStyle = (element, style) => {
     let domElement = document.getElementById(element._id);
-    for(let key in style){
+    for (let key in style) {
       domElement.style[key] = style[key];
     }
     let stringHTML = domElement.outerHTML;
     this.props.editElement({ _id: element._id, element: stringHTML });
-  }
+  };
 
   onWidthChangeHandler = (e) => {
     let width = e.target.value;
@@ -142,151 +142,227 @@ class Toolbox extends Component {
     return (
       <div className="wrapper">
         <div className="sidebar">
-          <ul>
-            <div className="position-flex">
-                <a href="#">
-                  {" "}
-                  <i className="fas fa-copy"> </i>
-                </a>
-                <a href="#">
-                  <i className="fas fa-paste"></i>
-                </a>
-                <a 
-                  href="#"
-                  onClick= {() => this.changeStyle(this.props.element, {color: 'yellow'})}
+          <div className="henry">
+            <ul className="myUl">
+              <div className="position-flex">
+                <li className="myLi">
+                  <a className="myA" href="#">
+                    {" "}
+                    <i className="fas fa-copy"> </i>
+                  </a>
+                </li>
+                <li className="myLi">
+                  <a className="myA" href="#">
+                    <i className="fas fa-paste"></i>
+                  </a>
+                </li>
+
+                <li className="myLi">
+                  <a className="myA" href="#">
+                    <i className="fas fa-trash-alt"></i>
+                  </a>
+                </li>
+              </div>
+              <li className=" myLi">
+                <label className="input-number-label">color</label>
+                <input type="color" />
+              </li>
+              <div className="width-hieght">
+                <div>
+                  <li className="position-flex myLi">
+                    <label className="input-number-label">W:</label>
+                    <input
+                      className=" number-inptw"
+                      type="number"
+                      placeholder="0"
+                      value={this.state.width} 
+                      onChange= {(e) => this.onWidthChangeHandler(e)}
+                      disabled= {!this.props.element}
+                    />
+                    <label className="input-number-label">H:</label>
+                    <input
+                      className=" number-inptw"
+                      type="number"
+                      placeholder="0"
+                      disabled= {!this.props.element}
+                      value= {this.state.height}
+                      onChange= {this.onHeightChangeHandler}
+                    />
+                  </li>
+                </div>
+                <li
+                  className="position-flex myLi"
+                  style={{ position: "relative", top: "30px" }}
                 >
-                  {" "}
-                  <i className="fas fa-home"> </i>
-                </a>
-                <a href="#">
-                  <i className="fas fa-trash-alt"></i>
-                </a>
-            </div>
-            <li className="position-flex">
-              <label>color</label>
-              <input disabled= {!this.props.element} type= 'color'/>
-            </li>
-            <li className="position-flex">
-              <label>width</label>
-              <input 
-                value={this.state.width} 
-                onChange= {(e) => this.onWidthChangeHandler(e)}
-                className= "number-inpt" 
-                type= 'number'
-                disabled= {!this.props.element}
-              />
-            </li>
-            <li className="position-flex">
-              <label>height</label>
-              <input 
-                className= "number-inpt" 
-                type= 'number'
-                disabled= {!this.props.element}
-                value= {this.state.height}
-                onChange= {this.onHeightChangeHandler}
-              />
-            </li>
-            <li className="position-flex">
-              <label>padding</label>
-              <input 
-                className= "number-inpt" 
-                type= 'number'
-                disabled= {!this.props.element}
-                value= {this.state.paddingTop} // padding top
-                onChange= {this.onPaddingTopChangeHandler}
-              />
-              <input 
-                className= "number-inpt" 
-                type= 'number'
-                disabled= {!this.props.element}
-                value= {this.state.paddingRight} // padding right
-                onChange= {this.onPaddingRightChangeHandler}
-              />
-              <input 
-                className= "number-inpt" 
-                type= 'number'
-                disabled= {!this.props.element}
-                value= {this.state.paddingBottom} // padding bottom
-                onChange= {this.onPaddingBottomChangeHandler}
-              />
-              <input 
-                className= "number-inpt" 
-                type= 'number'
-                disabled= {!this.props.element}
-                value= {this.state.paddingLeft} // padding left
-                onChange= {this.onPaddingLeftChangeHandler}
-              />
-            </li>
-            <li className="position-flex">
-              <label>margin</label>
-              <input 
-                className= "number-inpt" 
-                type= 'number'
-                disabled= {!this.props.element}
-                value= {this.state.marginTop}
-                onChange= {this.onMarginTopChangeHandler}
-              />
-              <input 
-                className= "number-inpt" 
-                type= 'number'
-                disabled= {!this.props.element}
-                value= {this.state.marginRight}
-                onChange= {this.onMarginRightChangeHandler}
-              />
-              <input 
-                className= "number-inpt" 
-                type= 'number'
-                disabled= {!this.props.element}
-                value= {this.state.marginBottom}
-                onChange= {this.onMarginBottomChangeHandler}
-              />
-              <input 
-                className= "number-inpt" 
-                type= 'number'
-                disabled= {!this.props.element}
-                value= {this.state.marginLeft}
-                onChange= {this.onMarginLeftChangeHandler}
-              />
-            </li>
-            <li className="position-flex">
-              <label>position</label>
-              <input 
-                className= "number-inpt" 
-                type= 'number'
-                disabled= {!this.props.element}
-                value= {this.state.positionTop}
-                onChange= {this.onPositionTopChangeHandler}
-              />
-              <input 
-                className= "number-inpt" 
-                type= 'number'
-                disabled= {!this.props.element}
-                value= {this.state.positionRight}
-                onChange= {this.onPositionRightChangeHandler}
-              />
-              <input 
-                className= "number-inpt" 
-                type= 'number'
-                disabled= {!this.props.element}
-                value= {this.state.positionBottom}
-                onChange= {this.onPositionBottomChangeHandler}
-              />
-              <input 
-                className= "number-inpt" 
-                type= 'number'
-                disabled= {!this.props.element}
-                value= {this.state.positionLeft}
-                onChange= {this.onPositionLeftChangeHandler}
-              />
-            </li>
-          </ul>
+                  <label
+                    style={{
+                      position: "relative",
+                      right: "-50px",
+                      top: "-10px"
+                    }}
+                  >
+                    padding
+                  </label>
+                  <input
+                    className="number-inpt" //top
+                    type="number"
+                    placeholder="0"
+                    style={{
+                      position: "relative",
+                      top: "-40px",
+                      left: "4px"
+                    }}
+                    disabled= {!this.props.element}
+                    value= {this.state.paddingTop} // padding top
+                    onChange= {this.onPaddingTopChangeHandler}
+                  />
+                  <input
+                    className="number-inpt" //bottom
+                    type="number"
+                    placeholder="0"
+                    style={{
+                      position: "relative",
+                      bottom: "-20px",
+                      left: "-26px"
+                    }}
+                    disabled= {!this.props.element}
+                    value= {this.state.paddingBottom} // padding bottom
+                    onChange= {this.onPaddingBottomChangeHandler}
+                  />
+                  <input
+                    className="number-inpt" //right
+                    type="number"
+                    placeholder="0"
+                    style={{
+                      position: "relative",
+                      top: "-10px"
+                    }}
+                    disabled= {!this.props.element}
+                    value= {this.state.paddingRight} // padding right
+                    onChange= {this.onPaddingRightChangeHandler}
+                  />
+                  <input 
+                    className="number-inpt" //left
+                    type="number"
+                    placeholder="0"
+                    style={{
+                      position: "relative",
+                      top: "-10px",
+                      left: "-140px"
+                    }}
+                    disabled= {!this.props.element}
+                    value= {this.state.paddingLeft} // padding left
+                    onChange= {this.onPaddingLeftChangeHandler}
+                  />
+                </li>
+                <li
+                  className="position-flex myLi"
+                  style={{ position: "relative", top: "70px" }}
+                >
+                  <label
+                    style={{
+                      position: "relative",
+                      right: "-55px",
+                      top: "-10px"
+                    }}
+                  >
+                    margin
+                  </label>
+                  <input
+                    className="number-inpt" //top
+                    type="number"
+                    placeholder="0"
+                    style={{
+                      position: "relative",
+                      top: "-40px",
+                      left: "12px"
+                    }}
+                    disabled= {!this.props.element}
+                    value= {this.state.marginTop}
+                    onChange= {this.onMarginTopChangeHandler}
+                  />
+                  <input
+                    className="number-inpt" //bottom
+                    type="number"
+                    placeholder="0"
+                    style={{
+                      position: "relative",
+                      bottom: "-20px",
+                      left: "-18px"
+                    }}
+                    disabled= {!this.props.element}
+                    value= {this.state.marginBottom}
+                    onChange= {this.onMarginBottomChangeHandler}
+                  />
+                  <input
+                    className="number-inpt" //right
+                    type="number"
+                    placeholder="0"
+                    style={{
+                      position: "relative",
+                      top: "-10px",
+                      right: "-6px"
+                    }}
+                    disabled= {!this.props.element}
+                    value= {this.state.marginRight}
+                    onChange= {this.onMarginRightChangeHandler}
+                  />
+                  <input
+                    className="number-inpt" //left
+                    type="number"
+                    placeholder="0"
+                    style={{
+                      position: "relative",
+                      top: "-10px",
+                      left: "-130px"
+                    }}
+                    disabled= {!this.props.element}
+                    value= {this.state.marginLeft}
+                    onChange= {this.onMarginLeftChangeHandler}
+                  />
+                </li>
+                 
+                <li className="position-flex">
+                  <label>position</label>
+                  <input 
+                    className= "number-inpt" 
+                    type= 'number'
+                    disabled= {!this.props.element}
+                    value= {this.state.positionTop}
+                    onChange= {this.onPositionTopChangeHandler}
+                  />
+                  <input 
+                    className= "number-inpt" 
+                    type= 'number'
+                    disabled= {!this.props.element}
+                    value= {this.state.positionRight}
+                    onChange= {this.onPositionRightChangeHandler}
+                  />
+                  <input 
+                    className= "number-inpt" 
+                    type= 'number'
+                    disabled= {!this.props.element}
+                    value= {this.state.positionBottom}
+                    onChange= {this.onPositionBottomChangeHandler}
+                  />
+                  <input 
+                    className= "number-inpt" 
+                    type= 'number'
+                    disabled= {!this.props.element}
+                    value= {this.state.positionLeft}
+                    onChange= {this.onPositionLeftChangeHandler}
+                  />
+                </li>
+              </div>
+            </ul>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  editElement: (element) => dispatch(editElement(element))
-})
+const mapDispatchToProps = dispatch => ({
+  editElement: element => dispatch(editElement(element))
+});
 export default connect(null, mapDispatchToProps)(Toolbox);
