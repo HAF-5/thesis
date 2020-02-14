@@ -88,60 +88,64 @@ const Profile = ({ history }) => {
 
     setValues({ ...values, loading: false, image: file.secure_url });
   }
-   
+ 
   const profileForm = () => (
    
     <form className="profile-container" onSubmit={handleSubmit}>
     
-    <img src={image} className="profile-image center"  alt="" />
-      <div className="profile-continer-input">
+   
+      <div className="profile-continer-input">  
 
-      <div>
-        
-        <lable  onChange={handelChange('email')}>{name}  </lable>
-      </div>
-
-           
-            <div>
-              <label className="profile-input-label" htmlFor="colFormLabel"> Name   </label>
+      <div className="image-div-container">
+         <p className="image-Pragraph-p"> Profile Image </p>
+       <p>  <img src={image} className="rounded-circle profile-image"  alt="" />
+       <span class="btn btn-primary btn-file">
+                <i className="fa fa-camera" aria-hidden="true"></i><input type="file"  onChange={uploadImage}/>
+          </span></p>
+      </div>         
+      
+     
+            <div className="input-email-div-continer hrozinatal-bottom"> 
+            <p className="profile-basic-Infotext">Basic Info</p>
+              <label className="profile-input-label" htmlFor="colFormLabel"> Name   </label> 
                 <input className="profile-input-style input-name" onChange={handelChange('name')} type="text" value={name}  placeholder="Name" /> 
             </div>
 
-            <div>
+            <div className="input-email-div-continer hrozinatal-bottom">
               <label className="profile-input-label input-password" htmlFor="colFormLabel">   Password   </label>
                 <input className="profile-input-style"  onChange={handelChange('password')} type="password" value={password} placeholder="Choose a password" />
-            </div>
-
-            <div>
-              <button className="btn btn-outline-primary btn-create">{buttonText}</button>
-            </div>
-
-            <div className="custom-file profile-ImageContiner-div">
                 
-                <input className="btn btn-outline-primary btn-create btn-create-UploadImage" type="file"   onChange={uploadImage} />
-                {/* <label className="custom-file-label" htmlFor="customFile">Choose file</label> */}
+                <div>
+              <button className="btn btn-outline-primary btn-create button-style-forCreate">{buttonText}</button>
             </div>
+            </div>
+       
       </div>
+
+      <lable className="input-email"  onChange={handelChange('email')}>
+          Email :- {email}  </lable>
+
     </form>
    
   );
 
   return (
-    <div className="profile-continer-main">  
-      <FixedNavbar/> 
+    // <div className="profile-continer-main">  
+    <div>
+      <FixedNavbar/>
       <ToastContainer />
-     
-
-      <form>
-        <div>
-        <h1 id="profile-h1-text"> Account Settings </h1>
-        <p className="profile-pragraph-text"> View and update your account details, profile and more. </p>
+      
+      <div className="profile-continer-main"> 
+        <div className="background-profile-color">
+        <div id="profile-h1-text"> Account Settings
+        <p className="pragraph-profile-setting">View and update your account details, profile and more.</p>
+        </div>
            {profileForm()}
         </div>
-      </form>
-     
+      
+      
     </div>
-    
+    </div>
   );
 };
 
