@@ -9,15 +9,18 @@ class FixedNavbar extends Component {
     render() {
         return (
             <div className="header Navar">
-                <nav className="navbar navbar-expand-lg navbar-ligth" style={{ height: "60px" }}>
+                <nav className="navbar navbar-expand-lg navbar-ligth fixed-nav">
                     <h5 className="my-0 mr-md-auto font-weight-normal">H A F 5</h5>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
+                        Menu
                     </button>
                     <div className="collapse navbar-collapse" id="navbarResponsive">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <Link to="/dashboard" className="nav-link" href="#">Dashboard </Link>
+                                <Link to="/sites" className="nav-link" href="#">My Sites </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/dashboard/edit-website" className="nav-link" href="#">Dashboard </Link>
                             </li>
                             <span className="bord"></span>
                             <li className="nav-item user-info">
@@ -27,6 +30,9 @@ class FixedNavbar extends Component {
                                         {this.props.user.name}
                                     </span>
                                     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <div className="dropdown-item"
+                                        > <Link to="/dashboard/profile" style={{ textDecoration: "none", color: "black" }}>Settings</Link>
+                                        </div>
                                         <div className="dropdown-item"
                                             onClick={this.props.logout}
                                         >Logout</div>
