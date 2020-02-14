@@ -28,7 +28,6 @@ export const addElementDispatcher = (payload) => ({
 
 export const addElement = (element) => async (dispatch, getState) => {
     let pageId = getState().selectedPage._id;
-    console.log(pageId, element)
     try {
         let response = await fetch(`${process.env.REACT_APP_API}/api/element`, {
             method: 'POST',
@@ -37,7 +36,6 @@ export const addElement = (element) => async (dispatch, getState) => {
             },
             body: JSON.stringify({ pageId, element })
           });
-        console.log(response)
         let data = await response.json();
         if(response.status == 201){
             dispatch(addElementDispatcher(data));
@@ -62,7 +60,6 @@ export const editElement = (element) => async (dispatch, getState) => {
             },
             body: JSON.stringify({pageId, element})
         });
-        console.log(response)
         let data = await response.json();
         if(response.status == 200){
             dispatch(editElementDispatcher(data));

@@ -7,7 +7,6 @@ import SideMenu from '../SideMenu/sideMenu';
 import FixedNavbar from '../Navbar/FixedNavbar';
 import Navbar from './Navbar/Navbar';
 import AddPageModal from './../AddPageModal/addPageModal';
-import ElementCreator from './ElementCreator/elementCreator';
 
 import { setPages, clearPages, selectPage } from './../../store/actions/pages';
 import { setElements, clearElements, addElement, editElement } from './../../store/actions/elements';
@@ -22,7 +21,8 @@ class Editor extends Component {
         this.editor = React.createRef();
         this.state = {
             addPageModalIsOpen: false,
-            selectedElement: null
+            selectedElement: null,
+            selectedElementProperties: null
         }
     }
     openAddPageModal = () => {
@@ -50,7 +50,6 @@ class Editor extends Component {
         element.style.top = e.clientY + 'px';
         let stringHTML = element.outerHTML;
         this.props.editElement({ _id: id, element: stringHTML });
-        console.log('gg', element)
     }
 
     domToString = (dom) => {
@@ -73,7 +72,6 @@ class Editor extends Component {
         };
         
         this.props.addElement(element);
-        console.log('test create element 123456')
     }
 
     save = () => {
@@ -100,9 +98,11 @@ class Editor extends Component {
                     openAddPageModal= {this.openAddPageModal}
                     save= {this.save}
                 />
-                <Toolbox element= {this.state.selectedElement}/>
+                <Toolbox
+                    element= {this.state.selectedElement}
+                    elementProperties = {this.state.selectedElementProperties}
+                />
                 <SideMenu createElement={(e, type) => this.createElement(e, type)}/> 
-                {/* <ElementCreator createElement={(e) => this.createElement(e)}/> */}
                 <div 
                     id="editor" 
                     ref= {this.editor} 
@@ -133,8 +133,41 @@ class Editor extends Component {
                                     if(this.state.selectedElement){
                                         $(`#${this.state.selectedElement._id}`).removeClass('selected');
                                     }
-                                    this.setState(() => ({selectedElement: element}), () => console.log('ll', this.state.selectedElement));
-                                    $(`#${id}`).addClass('selected');
+                                    let elmnt = $(`#${element._id}`);
+                                    let width = elmnt.width();
+                                    let height = elmnt.height();
+                                    let color = $(elmnt).css('color');
+                                    let paddingTop = $(elmnt).css('padding-top');
+                                    let paddingRight = $(elmnt).css('padding-right');
+                                    let paddingBottom= $(elmnt).css('padding-bottom');
+                                    let paddingLeft = $(elmnt).css('padding-left');
+                                    let marginTop = $(elmnt).css('margin-top');
+                                    let marginRight = $(elmnt).css('margin-right');
+                                    let marginBottom= $(elmnt).css('margin-bottom');
+                                    let marginLeft = $(elmnt).css('margin-left');
+                                    let positionTop = $(elmnt).css('top');
+                                    let positionRight = $(elmnt).css('right');
+                                    let positionBottom= $(elmnt).css('bottom');
+                                    let positionLeft = $(elmnt).css('left');
+                                    
+                                    this.setState(()=>({
+                                        selectedElement: element, 
+                                        selectedElementProperties: {
+                                            width,
+                                            height,
+                                            paddingTop,
+                                            paddingRight,
+                                            paddingBottom,
+                                            paddingLeft,
+                                            marginTop,
+                                            marginRight,
+                                            marginBottom,
+                                            marginLeft,
+                                            positionTop,
+                                            positionRight,
+                                            positionBottom,
+                                            positionLeft
+                                    }}), () => {});
                                 }}
                             />
                         })  
