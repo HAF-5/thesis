@@ -209,7 +209,7 @@ svg:hover{
     width: 500px;
     min-height: 50vh;
     max-height: 70vh;
-    overflow-y: scroll;
+    overflow-y: scroll ;
     box-shadow: 0 0 14px 0 rgba(22, 45, 61, 0.36);
     color:#fff;
     max-height: calc(100vh - 112px);
@@ -238,8 +238,10 @@ svg:hover{
     text-decoration: none;
     padding: 10px;
     list-style: none;
+    padding-left: 0px;
    
 }
 .sideMenu-list{
-    display:flex
+    display:flex;
+    padding-left: 10px;
 }

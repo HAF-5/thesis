@@ -22,7 +22,7 @@ class FixedNavbar extends Component{
                             <a className="nav-link editor-nav-link" href= "#">Undo</a>
                         </li>
                         <li className="editor-nav-item nav-item">
-                            <a className="nav-link editor-nav-link" onClick={this.goFull}>Preview</a>
+                            <a className="nav-link editor-nav-link" onClick={this.props.previewSite} >Preview</a>
                         </li>
                         <li className="editor-nav-item nav-item">
                             <a className="nav-link editor-nav-link" href= "#">Publish</a>
@@ -46,7 +46,7 @@ class FixedNavbar extends Component{
                                     className= "dropdown-item"
                                     onClick= {this.props.openAddPageModal}
                                 >
-                                    <i class="fas fa-plus"></i> Add Page
+                                    <i className="fas fa-plus"></i> Add Page
                                 </button>
                             </div>
                         </li>
