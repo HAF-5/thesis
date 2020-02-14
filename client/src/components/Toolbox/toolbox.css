@@ -19,60 +19,95 @@ body {
   z-index: 1;
 }
 
- .wrapper .sidebar {
-  /* width: 150px; */
+.wrapper .sidebar {
+  width: 200px;
   height: 80%;
-  background: #ececec;
+  background: rgb(251, 251, 251);
   padding: 30px 0px;
   padding-top: 30px;
   position: fixed;
   box-sizing: border-box;
-  box-shadow: 0 15px 5px #4d4c4c;
-  border-radius: 10px;
+  box-shadow: 0 2px 5px #4d4c4c;
+  border-radius: 5px;
+  flex-direction: row;
 }
 
 .position-flex {
   display: flex;
   flex-direction: row;
-  /* width: 95px; */
-  /* z-index: 1; */
-} 
-
-.number-inpt {
-  width: 40px;
+  width: 95px;
+  z-index: 1;
 }
 
-/*
-.wrapper .sidebar h2 {
+.number-inptw {
+  width: 30px;
+  height: 25px;
+  border-radius: 5px;
+  display: block;
+  margin-right: 30px;
+  text-align: center;
+}
+
+/* .wrapper .sidebar {
   color: #fff;
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 30px;
-}
+} */
 
-.wrapper .sidebar ul li {
+.myLi {
   padding: 15px;
-  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid #ffffff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  background-color: #fff;
+  border-top: 1px solid rgba(165, 164, 164, 0.05);
+  color: #010042;
+  list-style-type: none;
 }
 
-.wrapper .sidebar ul li a {
-  color: #bdb8d7;
+.myA {
+  color: #f8f8f8;
   display: block;
 }
 
-.wrapper .sidebar ul li a .fas {
+.fas {
   width: 15px;
   height: 10px;
 }
 
-.wrapper .sidebar ul li:hover {
-  background-color: #d7e6fd;
-}
+/* .wrapper .sidebar .myUl .myLi:hover {
+  background-color: #eff5ff;
+} */
 
-.wrapper .sidebar ul li a {
+.myA {
   color: rgb(13, 1, 65);
 }
-*/
+.henry {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+}
+.input-number-label {
+  margin-right: 10px;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.number-inpt {
+  width: 30px;
+  height: 25px;
+  border: none;
+  text-align: center;
+  color: rgb(3, 126, 148);
+}
+.number-inpt:hover {
+  background-color: rgb(214, 240, 240);
+  border-radius: 4px;
+}
+.width-hieght {
+  display: block;
+  left: 100px;
+  position: absolute;
+  left: 5px;
+}
