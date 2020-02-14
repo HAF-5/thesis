@@ -1,107 +1,74 @@
 import React, { Component } from "react";
 import "./dashboard.css";
-import DahboardWebsite from "../DashboardWebsite/dashboardWebsite";
 import { Link } from "react-router-dom";
-
-import Loader from '../Loader/Loader';
+import { connect } from 'react-redux';
+import { logout } from '../../store/actions/user';
 
 class Dahboard extends Component {
-  state = { loading: true };
-
-  sleep = milliseconds => {
-    return new Promise(resolve => setTimeout(resolve, milliseconds));
-  };
-
-  wait = async (milliseconds = 2000) => {
-    await this.sleep(milliseconds);
-    this.setState({
-      loading: false
-    });
-  };
-  
-  componentDidMount() {
-    this.wait(2000);
-    
-  }
-
   render() {
-     if (this.state.loading)  return <Loader/ > 
-     
-    return ( 
-      <div className="sideBar_nav_continer">       
-        <input type="checkbox" id="check" />
-          <label className="sidebar_lable" htmlFor="check">
-            <i className="fas fa-bars" id="btn"></i>
-            <i className="fas fa-times" id="cancel"></i>
-          </label>
-          <div className="sidebar_dev_continar">
-            <div className="sidebar_Header">
-              <h1 className="sidebar_Header_h1">
-                My Site <br />
-                <span className="sidebar_Header_p"> Role: Owner</span>
-                <br />
-                <br />
-                <span className="sidebar_Header_p_setUp"> SetUp your site</span>
-              </h1>
-            </div>
-            <ul className="sidebar_ul">
-              <li className="sidebar_ul_li">
-                <a className="sidebar_herf" href="#">
-                  <i className="fas fa-qrcode"></i>Dashboard
-                </a>
-              </li>
-              <li className="sidebar_ul_li">
-                <a className="sidebar_herf" href="#">
-                  <i className="fas fa-link"></i>Shortcuts
-                </a>
-              </li>
-              <li className="sidebar_ul_li">
-                <a className="sidebar_herf" href="#">
-                  <i className="fas fa-stream"></i>Overview
-                </a>
-              </li>
-              <li className="sidebar_ul_li">
-                <a className="sidebar_herf" href="#">
-                  <i className="fas fa-calendar-week"></i>Events
-                </a>
-              </li>
-              <li className="sidebar_ul_li">
-                <a className="sidebar_herf" href="#">
-                  <i className="far fa-question-circle"></i>About
-                </a>
-              </li>
-              <li className="sidebar_ul_li">
-                <a className="sidebar_herf" href="#">
-                  <i className="fas fa-sliders-h"></i>Services
-                </a>
-              </li>
-              <li className="sidebar_ul_li">
-                <a className="sidebar_herf" href="#">
-                  <i className="far fa-envelope"></i>Contact
-                </a>
-              </li>
-            </ul>
-
-            <div className="sidebar_footer">
-              <div className="sidebar_footer-btn_border">
-                <Link
-                  to="/createProject"
-                  className="btn btn-default  btn-lg btn-Upgrad-footer"
-                >
-                  Create
+    return (
+      <div className="sideBar_nav_continer">
+        <input type="checkbox" id="check" checked />
+        <div className="sidebar_dev_continar">
+          <div className="sidebar_Header">
+            <h1 className="sidebar_Header_h1">
+              Settings
+              <br />
+              <br />
+              <span className="sidebar_Header_p_setUp">{this.props.user.name}</span>
+            </h1>
+          </div>
+          <ul className="sidebar_ul">
+            <li className="sidebar_ul_li">
+              <Link to="/dashboard/profile" className="sidebar_herf">
+                <i className="fas fa-qrcode"></i>Profile
+                  </Link>
+            </li>
+            <li className="sidebar_ul_li">
+              <Link to="/dashboard/edit-website" className="sidebar_herf">
+                <i className="fas fa-stream"></i>Websites
                 </Link>
-              </div>
-              <div className="edit_info_footer">
-                <p className="edit-footer-pragraph">
-                  {" "}
-                  <i className="fas fa-pencil-alt edit-icons-space"> </i> Edit
-                  Site
-                </p>
-              </div>
+            </li>
+            <li className="sidebar_ul_li">
+              <a className="sidebar_herf" href="#">
+                <i className="far fa-envelope"></i>Contact
+                </a>
+            </li>
+            <li className="sidebar_ul_li">
+              <a className="sidebar_herf" href="#">
+                <i className="far fa-question-circle"></i>About
+                </a>
+            </li>
+            <li className="sidebar_ul_li">
+              <a className="sidebar_herf" href="#" onClick={this.props.logout}>
+                <i className="fas fa-sign-out-alt"></i>Logout
+                </a>
+            </li>
+          </ul>
+
+          <div className="sidebar_footer">
+            <div className="sidebar_footer-btn_border">
+              <Link
+                to="/sites"
+                className="btn btn-default  btn-lg btn-Upgrad-footer"
+              >
+                Back
+                </Link>
             </div>
           </div>
         </div>
+      </div>
     );
   }
 }
-export default Dahboard;
+
+
+const mapStateToProps = (state, props) => ({
+  user: state.user
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  logout: () => dispatch(logout())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dahboard);

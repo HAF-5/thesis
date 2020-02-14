@@ -1,76 +1,3 @@
-/* li {
-    padding:20px 20px 20px 20px;
-    width:100%;
-    color:black; 
-    font-size:20px
-}
-
-
-.sideMenu {
-    position: fixed;
-    bottom: 0vh;
-    max-height: 75vh;
-    z-index: 998;
-    margin-bottom: 5vh;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: flex-end;
-    padding: 15px 10px 15px 5px;
-    margin: auto;
-}
-
-.btn-rounded-purble {
-    background-color: #990066;
-    color: whitesmoke;
-    width: 100px;
-    border-radius: 25px;
-}
-
-.subMenu {
-    position: fixed;
-    top: 20vh;
-    left: 15vh;
-    height: 75vh;
-    display: none;
-    width: 50vw;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-.subMenu:hover {
-    display: block;
-}
-.subMenu:active {
-    display: block;
-}
-.sideMenu > ul > li > button:hover > ul {
-    display:block;
-    visibility: visible;
-}
-.sideMenu > ul > li > button:focus-within > ul {
-    display:block;
-    visibility: visible;
-}
-
-.sideMenu > ul > li > button > ul > li {
-    background-color: whitesmoke;
-}
-
-.sideMenu > ul > li > button > ul > li:hover {
-    color: #007bff;
-    background-color: rgba(238,238,238,.5);
-    padding-left: 52px;
-}
-
-.sideMenu-menu {
-    display: none;
-}
-
-.display {
-    display: block;
-} */
-/* NEw MEnu */
-
 .left-bar{
     display: block;
     user-select: none;
@@ -239,7 +166,7 @@ svg:hover{
     padding: 10px;
     list-style: none;
     padding-left: 0px;
-   
+    display: inline-grid;
 }
 .sideMenu-list{
     display:flex;

@@ -7,7 +7,7 @@ import { authenticate, isAuth, getCookie } from './helpers';
 import 'react-toastify/dist/ReactToastify.min.css';
 import './auth.css';
 
-const Signin = ({ history }) => {
+const Signin = () => {
   const [values, setValues] = useState({
     email: '',
     password: '',
@@ -24,7 +24,7 @@ const Signin = ({ history }) => {
     authenticate(response, () => {
       toast.success(`Hi ${response.user.name}, Welcome back`);
       setTimeout(() => {
-        history.push('/')
+        window.location.reload(true);
       }, 5000);
     });
   }
@@ -49,15 +49,13 @@ const Signin = ({ history }) => {
         toast.error(response.error);
       } else {
         authenticate(response, () => {
-          setValues({ ...values, email: '', password: '', buttonText: 'logged in' });
           toast.success(`Hi ${response.user.name}, Welcome back`);
           setTimeout(() => {
-            history.push('/')
+            window.location.reload(true);
           }, 5000);
         });
       }
     } catch (err) {
-      setValues({ ...values, buttonText: 'Log In' });
       toast.error(err);
     }
   };
@@ -65,11 +63,9 @@ const Signin = ({ history }) => {
   const singinForm = () => (
     <form className="signin" onSubmit={handleSubmit}>
       <div className="form-group">
-        {/* <label className="text-muted">Email</label> */}
         <input onChange={handelChange('email')} type="email" value={email} className="form-control signup-input" placeholder="Email" />
       </div>
       <div className="form-group">
-        {/* <label className="text-muted">Password</label> */}
         <input onChange={handelChange('password')} type="password" value={password} className="form-control signup-input" placeholder="Type your password" />
       </div>
       <div>
@@ -83,7 +79,7 @@ const Signin = ({ history }) => {
     <div className="auth">
       
       <ToastContainer />
-      {isAuth() ? <Redirect to="/dashboard" /> : null}
+      {isAuth() ? <Redirect to="/sites" /> : null}
       <form className="conatiner login-form">
         <h1 className="p-5 login-title">Log In </h1>
         <div className="redirect-text">New to our website? <Link to="/Signup">Sign Up</Link></div>
@@ -107,5 +103,6 @@ const Signin = ({ history }) => {
     </div>
   );
 };
+
 
 export default Signin;

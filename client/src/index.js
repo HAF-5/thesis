@@ -17,15 +17,16 @@ import "./index.css";
 import AppRouter from "./routers/AppRouter";
 
 const App = () => {
+  if (localStorage.getItem("user")) {
+    store.dispatch(me());
+    store.dispatch(setWebsite());
+  }
   return (
     <Provider store={store}>
       <AppRouter />
     </Provider>
   );
 };
-if (localStorage.getItem("user")) {
-  store.dispatch(me());
-  store.dispatch(setWebsite());
-}
+
 
 ReactDOM.render(<App />, document.getElementById("root"));

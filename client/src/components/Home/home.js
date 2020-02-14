@@ -16,13 +16,14 @@ export default class home extends Component {
       <div>
         <div className="d-flex flex-column flex-md-row align-items-center p-4 home" style={{ padding: "1rem !important"}}>
           <h5 className="my-0 mr-md-auto" style={{fontWeight:"bold"}}>H A F 5</h5>
-          <Link to="dashboard" className="btn btn-outline-primary btn-createSign" >Sign In</Link>
+          <Link to="/sites" className="btn btn-outline-primary btn-createSign" >Sign In</Link>
         </div>
 
         <div className="position-relative overflow-hidden text-center homePage ">
           <div className="col-md-6 p-lg-5 mx-auto my-5">
             <h1 className="display-4 font-weight-normal title">
               Create your website
+              
             </h1>
             <p className="lead font-weight-normal">
               We includes everything you need to start your website today.

@@ -48,14 +48,14 @@ class Site extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ marginTop: "15px" }}>
         <section>
           <div className="img-container">
             <div className="card " style={{ width: "22rem", height: "30rem" }}>
               <a href="#">
                 <img
-                  src="https://colorlib.com/wp/wp-content/uploads/sites/2/best-personal-website-builder.jpg"
-                  className="img-fluid"
+                  src={this.props.website.img}
+                  className="img-fluid henry-img"
                   alt="sample"
                 />
               </a>
@@ -64,7 +64,9 @@ class Site extends Component {
                 className="card-body text-center"
                 style={{ marginBottom: "50px" }}
               >
-                <h4 className="card-title">{this.props.website.title}</h4>
+                <h4 className="card-title" style={{ display: "block" }}>
+                  {this.props.website.title}
+                </h4>
                 <hr />
                 <p
                   className="font-small grey-dark-text mb-0"
@@ -92,7 +94,7 @@ class Site extends Component {
                   to={`/editor/${this.props.website._id}/`}
                   className="btn btn-view"
                   style={{ display: "block" }}
-                  // onClick={e => this.viewWebsite(e, this.props.website._id)}
+                // onClick={e => this.viewWebsite(e, this.props.website._id)}
                 >
                   View
                 </Link>
