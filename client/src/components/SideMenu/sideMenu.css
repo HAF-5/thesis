@@ -169,6 +169,11 @@ svg:hover{
     display: inline-grid;
 }
 .sideMenu-list{
-    
     padding-left: 10px;
+}
+.sideMenu-list-item>button{
+    margin-bottom: 10px;
+}
+.radius{
+    border-radius: 25px;;
 }

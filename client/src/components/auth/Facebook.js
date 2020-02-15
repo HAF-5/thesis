@@ -28,7 +28,8 @@ const Facebook = ({ informParent }) => {
         autoLoad={false}
         callback={(res) => responseFacebook(res)}
         render={renderProps => (
-          <button onClick={renderProps.onClick} className="btn btn-login ">
+          <button onClick={renderProps.onClick} className="btn btn-login
+           ">
             <div class="buttonIcon"><div class="buttonSvgImage"></div></div>
             <span>Continue with Facebook</span>
           </button>

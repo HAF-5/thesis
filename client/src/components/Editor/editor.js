@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import $ from 'jquery';
-import Fullscreen from "react-full-screen";
 
 import SideMenu from '../SideMenu/sideMenu';
 import FixedNavbar from '../Navbar/FixedNavbar';
@@ -10,7 +9,7 @@ import Navbar from './Navbar/Navbar';
 import AddPageModal from './../AddPageModal/addPageModal';
 
 import { setPages, clearPages, selectPage } from './../../store/actions/pages';
-import { setElements, clearElements, addElement, editElement } from './../../store/actions/elements';
+import { setElements, clearElements, addElement, editElement, deleteElement } from './../../store/actions/elements';
 import Toolbox from './../Toolbox/toolbox';
 
 import  './Editor.css';
@@ -157,7 +156,7 @@ class Editor extends Component {
                                 onClick= {(e) => {
                                     let id = e.target.id;
                                     if(this.state.selectedElement){
-                                        $(`#${this.state.selectedElement._id}`).removeclassName('selected');
+                                        // $(`#${this.state.selectedElement._id}`).removeclassName('selected');
                                     }
                                     let elmnt = $(`#${element._id}`);
                                     let width = elmnt.width();

@@ -17,111 +17,191 @@ class sideMenu extends Component {
 	}
 	elements = {
 		'button': [
-			[<button type="button" class="btn btn-primary" onClick= {(e) => this.createElement(e, 'button')}>Primary</button>,
-			<button type="button" class="btn btn-secondary"  onClick= {(e) => this.createElement(e, 'button')}>Secondary</button>,
-			<button type="button" class="btn btn-success"  onClick= {(e) => this.createElement(e, 'button')}>Success</button>,
-			<button type="button" class="btn btn-danger"  onClick= {(e) => this.createElement(e, 'button')}>Danger</button>,
-			<button type="button" class="btn btn-warning"  onClick= {(e) => this.createElement(e, 'button')}>Warning</button>,
-			<button type="button" class="btn btn-info"  onClick= {(e) => this.createElement(e, 'button')}>Info</button>,
-			<button type="button" class="btn btn-light"  onClick= {(e) => this.createElement(e, 'button')}>Light</button>,
-			<button type="button" class="btn btn-dark"  onClick= {(e) => this.createElement(e, 'button')}>Dark</button>,
-		<button type="button" class="btn btn-link"  onClick= {(e) => this.createElement(e, 'button')}>Link</button>],[
-			<button type="button" class="btn btn-outline-primary"  onClick= {(e) => this.createElement(e, 'button')}>Primary</button>,
-			<button type="button" class="btn btn-outline-secondary"  onClick= {(e) => this.createElement(e, 'button')}>Secondary</button>,
-			<button type="button" class="btn btn-outline-success"  onClick= {(e) => this.createElement(e, 'button')}>Success</button>,
-			<button type="button" class="btn btn-outline-danger"  onClick= {(e) => this.createElement(e, 'button')}>Danger</button>,
-			<button type="button" class="btn btn-outline-warning"  onClick= {(e) => this.createElement(e, 'button')}>Warning</button>,
-			<button type="button" class="btn btn-outline-info"  onClick= {(e) => this.createElement(e, 'button')}>Info</button>,
-			<button type="button" class="btn btn-outline-light"  onClick= {(e) => this.createElement(e, 'button')}>Light</button>,
-		<button type="button" class="btn btn-outline-dark"  onClick= {(e) => this.createElement(e, 'button')}>Dark</button>],[
-			<button type="button" class="btn btn-ghost-primary"  onClick= {(e) => this.createElement(e, 'button')}>Primary</button>,
-			<button type="button" class="btn btn-ghost-secondary"  onClick= {(e) => this.createElement(e, 'button')}>Secondary</button>,
-			<button type="button" class="btn btn-ghost-success"  onClick= {(e) => this.createElement(e, 'button')}>Success</button>,
-			<button type="button" class="btn btn-ghost-danger"  onClick= {(e) => this.createElement(e, 'button')}>Danger</button>,
-			<button type="button" class="btn btn-ghost-warning"  onClick= {(e) => this.createElement(e, 'button')}>Warning</button>,
-			<button type="button" class="btn btn-ghost-info"  onClick= {(e) => this.createElement(e, 'button')}>Info</button>,
-			<button type="button" class="btn btn-ghost-light"  onClick= {(e) => this.createElement(e, 'button')}>Light</button>,
-			<button type="button" class="btn btn-ghost-dark"  onClick= {(e) => this.createElement(e, 'button')}>Dark</button>]
-			
-		],
+			[<button type="button" className="btn btn-outline-primary"  onClick= {(e) => this.createElement(e, 'button')}>Primary</button>,
+			<button type="button" className="btn btn-outline-secondary"  onClick= {(e) => this.createElement(e, 'button')}>Secondary</button>,
+			<button type="button" className="btn btn-outline-success"  onClick= {(e) => this.createElement(e, 'button')}>Success</button>,
+			<button type="button" className="btn btn-outline-danger"  onClick= {(e) => this.createElement(e, 'button')}>Danger</button>,
+			<button type="button" className="btn btn-outline-warning"  onClick= {(e) => this.createElement(e, 'button')}>Warning</button>,
+			<button type="button" className="btn btn-outline-info"  onClick= {(e) => this.createElement(e, 'button')}>Info</button>,
+			<button type="button" className="btn btn-outline-light"  onClick= {(e) => this.createElement(e, 'button')}>Light</button>,
+			<button type="button" className="btn btn-outline-dark"  onClick= {(e) => this.createElement(e, 'button')}>Dark</button>],
+			[<button type="button" className="btn btn-ghost-primary"  onClick= {(e) => this.createElement(e, 'button')}>Primary</button>,
+			<button type="button" className="btn btn-ghost-secondary"  onClick= {(e) => this.createElement(e, 'button')}>Secondary</button>,
+			<button type="button" className="btn btn-ghost-success"  onClick= {(e) => this.createElement(e, 'button')}>Success</button>,
+			<button type="button" className="btn btn-ghost-danger"  onClick= {(e) => this.createElement(e, 'button')}>Danger</button>,
+			<button type="button" className="btn btn-ghost-warning"  onClick= {(e) => this.createElement(e, 'button')}>Warning</button>,
+			<button type="button" className="btn btn-ghost-info"  onClick= {(e) => this.createElement(e, 'button')}>Info</button>,
+			<button type="button" className="btn btn-ghost-light"  onClick= {(e) => this.createElement(e, 'button')}>Light</button>,
+			<button type="button" className="btn btn-ghost-dark"  onClick= {(e) => this.createElement(e, 'button')}>Dark</button>],
+			[<button type="button" className="btn btn-primary radius" onClick= {(e) => this.createElement(e, 'button')}>Primary</button>,
+			<button type="button" className="btn btn-secondary radius"  onClick= {(e) => this.createElement(e, 'button')}>Secondary</button>,
+			<button type="button" className="btn btn-success radius"  onClick= {(e) => this.createElement(e, 'button')}>Success</button>,
+			<button type="button" className="btn btn-danger radius"  onClick= {(e) => this.createElement(e, 'button')}>Danger</button>,
+			<button type="button" className="btn btn-warning radius"  onClick= {(e) => this.createElement(e, 'button')}>Warning</button>,
+			<button type="button" className="btn btn-info radius"  onClick= {(e) => this.createElement(e, 'button')}>Info</button>,
+			<button type="button" className="btn btn-light radius"  onClick= {(e) => this.createElement(e, 'button')}>Light</button>,
+			<button type="button" className="btn btn-dark radius"  onClick= {(e) => this.createElement(e, 'button')}>Dark</button>],
+			[<button type="button" className="btn btn-ghost-primary radius"  onClick= {(e) => this.createElement(e, 'button')}>Primary</button>,
+			<button type="button" className="btn btn-ghost-secondary radius"  onClick= {(e) => this.createElement(e, 'button')}>Secondary</button>,
+			<button type="button" className="btn btn-ghost-success radius"  onClick= {(e) => this.createElement(e, 'button')}>Success</button>,
+			<button type="button" className="btn btn-ghost-danger radius"  onClick= {(e) => this.createElement(e, 'button')}>Danger</button>,
+			<button type="button" className="btn btn-ghost-warning radius"  onClick= {(e) => this.createElement(e, 'button')}>Warning</button>,
+			<button type="button" className="btn btn-ghost-info radius"  onClick= {(e) => this.createElement(e, 'button')}>Info</button>,
+			<button type="button" className="btn btn-ghost-light radius"  onClick= {(e) => this.createElement(e, 'button')}>Light</button>,
+			<button type="button" className="btn btn-ghost-dark radius"  onClick= {(e) => this.createElement(e, 'button')}>Dark</button>]],
 		'navbar': [
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary" onClick= {(e) => this.createElement(e, 'navbar')} >
-				<a class="navbar-brand" href="#">Navbar</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav">
-						<li class="nav-item active">
-							<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Features</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Pricing</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link disabled" href="#"></a>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		,<nav class="navbar navbar-expand-lg navbar-light bg-dark rounded" onClick= {(e) => this.createElement(e, 'navbar')}>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
+		<nav className="navbar navbar-expand-lg navbar-dark bg-primary" onClick= {(e) => this.createElement(e, 'navbar')} >
+			<a className="navbar-brand" href="#">Navbar</a>
+			<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span className="navbar-toggler-icon"></span>
+			</button>
+			<div className="collapse navbar-collapse" id="navbarNav">
+				<ul className="navbar-nav">
+					<li className="nav-item active">
+						<a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#">Features</a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#">Pricing</a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link disabled" href="#"></a>
+					</li>
+				</ul>
+			</div>
+		</nav>,
+		<nav className="navbar navbar-expand-lg navbar-light bg-dark " onClick= {(e) => this.createElement(e, 'navbar')}>
+		<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+			<span className="navbar-toggler-icon"></span>
 		</button>
-
-		<div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
-			<ul class="navbar-nav">
-				<li class="nav-item active">
-					<a class="nav-link" href="#">Centered nav only <span class="sr-only">(current)</span></a>
+		<div className="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
+			<ul className="navbar-nav">
+				<li className="nav-item active">
+					<a className="nav-link" href="#">Centered nav only <span className="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Link</a>
+				<li className="nav-item">
+					<a className="nav-link" href="#">Link</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link disabled" href="#">Disabled</a>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-					<div class="dropdown-menu" aria-labelledby="dropdown10">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
-						<a class="dropdown-item" href="#">Something else here</a>
+				
+				<li className="nav-item dropdown">
+					<a className="nav-link dropdown-toggle" href="http://example.com" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+					<div className="dropdown-menu" aria-labelledby="dropdown10">
+						<a className="dropdown-item" href="#">Action</a>
+						<a className="dropdown-item" href="#">Another action</a>
+						<a className="dropdown-item" href="#">Something else here</a>
 					</div>
 				</li>
 			</ul>
 		</div>
-	</nav>
-		,<nav class="navbar navbar-inverse" onClick= {(e) => this.createElement(e, 'navbar')}>
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#">WebSiteName</a>
-				</div>
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">Page 1</a></li>
-					<li><a href="#">Page 2</a></li>
+	</nav>,
+		<nav className="navbar navbar-expand-lg navbar-light bg-light" onClick= {(e) => this.createElement(e, 'navbar')}>
+			<a className="navbar-brand" href="#">Navbar</a>
+			<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span className="navbar-toggler-icon"></span>
+			</button>
+			<div className="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul className="navbar-nav mr-auto">
+					<li className="nav-item active">
+						<a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#">Link</a>
+					</li>
+					<li className="nav-item dropdown">
+						<a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Dropdown
+						</a>
+						<div className="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a className="dropdown-item" href="#">Action</a>
+							<a className="dropdown-item" href="#">Another action</a>
+							<div className="dropdown-divider"></div>
+							<a className="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>
 				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-				</ul>
+				<form className="form-inline my-2 my-lg-0" style={{display:"contents"}}>
+					<input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+					<button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
 			</div>
-		</nav>],
-		'menu': [],
+		</nav>,
+		<nav class="navbar navbar-light bg-light" onClick= {(e) => this.createElement(e, 'navbar')}>
+			<form class="form-inline">
+				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+		</nav>
+		],
+		'section': [
+		<section class="jumbotron text-center" onClick= {(e) => this.createElement(e, 'section')}>
+			<div class="container">
+			<h1 class="jumbotron-heading">Album example</h1>
+			<p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+			<p>
+				<a href="" class="btn btn-primary my-2">Main call to action</a>
+				<a href="" class="btn btn-secondary my-2">Secondary action</a>
+			</p>
+			</div>
+		</section>,
+		<section class="card" onClick= {(e) => this.createElement(e, 'section')}>
+			<img class="card-img-top" src="https://advancepetproduct.com/wp-content/uploads/2019/04/no-image.png" style={{width:"100px"}} alt="Card image cap"/>
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<a href="#" class="btn btn-primary">Go somewhere</a>
+			</div>
+		</section>,
+		<section onClick= {(e) => this.createElement(e, 'section')}>
+			<div class="card-body">
+				<h5 class="card-title">Special title treatment</h5>
+				<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+				<a href="#" class="btn btn-primary">Go somewhere</a>
+			</div>
+		</section>,
+		<section class="jumbotron">
+			<h1 class="display-4">Hello, world!</h1>
+			<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+			<hr class="my-4"/>
+			<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+			<p class="lead">
+				<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+			</p>
+		</section>,
+		<section class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<h1 class="display-4">Fluid jumbotron</h1>
+				<p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+			</div>
+		</section>
+	
+		],
 		'text': [
-			<h1 onClick= {(e) => {this.createElement(e, 'text')}}>Title 1</h1>,
-      <h2 onClick= {(e) => {this.createElement(e, 'text')}}>Title 2</h2>,
-      <p onClick= {(e) => {this.createElement(e, 'text')}}>paragraph </p>
-    ],
-    'background': [
-			<div style={{backgroundColor:"red", color:"red"}}>red </div>,
-      <div style={{backgroundColor:"blue", color:"blue"}}>red </div>,
-      <div style={{backgroundColor:"gray", color:"gray"}}>red </div>
+			<h1 class="display-1" onClick= {(e) => this.createElement(e, 'text')}>Display 1</h1>,
+			<h2 class="display-2" onClick= {(e) => this.createElement(e, 'text')}>Display 2</h2>,
+			<h1 class="display-3" onClick= {(e) => this.createElement(e, 'text')}>Display 3</h1>,
+			<h2 class="display-4" onClick= {(e) => this.createElement(e, 'text')}>Display 4</h2>,
+    	],
+		'background': [
+		[<div style={{backgroundColor:"#FFD954", color:"#FFD954", width:"50px", height:"50px"}}>color </div>,
+		<div style={{backgroundColor:"#E4B660", color:"#E4B660",  width:"50px", height:"50px"}}>color </div>,
+		<div style={{backgroundColor:"#F2AB39", color:"#F2AB39",  width:"50px", height:"50px"}}>color </div>,
+		<div style={{backgroundColor:"#69491A", color:"#69491A",  width:"50px", height:"50px"}}>color </div>],
+		[<div style={{backgroundColor:"#D1EDE1", color:"#D1EDE1", width:"50px", height:"50px"}}>color </div>,
+		<div style={{backgroundColor:"#7BC5AE", color:"#7BC5AE",  width:"50px", height:"50px"}}>color </div>,
+		<div style={{backgroundColor:"#028C6A", color:"#028C6A",  width:"50px", height:"50px"}}>color </div>,
+		<div style={{backgroundColor:"#003E19", color:"#003E19",  width:"50px", height:"50px"}}>color </div>],
+		[<div style={{backgroundColor:"#D1DDDB", color:"#D1DDDB", width:"50px", height:"50px"}}>color </div>,
+		<div style={{backgroundColor:"#85B8CB", color:"#85B8CB",  width:"50px", height:"50px"}}>color </div>,
+		<div style={{backgroundColor:"#1D6A96", color:"#1D6A96",  width:"50px", height:"50px"}}>color </div>,
+		<div style={{backgroundColor:"#283B42", color:"#283B42",  width:"50px", height:"50px"}}>color </div>],
+		[<div style={{backgroundColor:"#D5D2C1", color:"#D5D2C1", width:"50px", height:"50px"}}>color </div>,
+		<div style={{backgroundColor:"#BD8E62", color:"#BD8E62",  width:"50px", height:"50px"}}>color </div>,
+		<div style={{backgroundColor:"#A46843", color:"#A46843",  width:"50px", height:"50px"}}>color </div>,
+		<div style={{backgroundColor:"#370D00", color:"#370D00",  width:"50px", height:"50px"}}>color </div>]
 		]
-	  }
+	}
 
 	createElement = (e, type) => {
 		this.props.createElement(e, type)
@@ -146,22 +226,21 @@ class sideMenu extends Component {
 		return (	               
 			<div className="left-bar menu-collapsed-wrapper">
 				<ul className="left-bar-items menu-collapsed">
-					
           <ul className="left-bar-item bg-panel" 
           onClick= {(e) => this.openSideMenu('navbar')}>
-          <svg width="25" height="25" baseProfile="full" viewBox="0 0 25 25" className="symbol symbol-leftBarBackgroundPanel icon">
-          <path d="M19.5 5.5v14h-14v-14h14m0-5h-14a5 5 0 0 0-5 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5v-14a5 5 0 0 0-5-5z"></path></svg>
-          <span className="mask"></span>
+						<svg width="23" height="26" viewBox="0 0 22 26" className="symbol symbol-leftBarPagesPanelManager icon">
+            <path fillRule="evenodd" d="M17 0a5 5 0 0 1 5 5v16a5 5 0 0 1-5 5H5a5 5 0 0 1-5-5V5a5 5 0 0 1 5-5h12zm0 20V6a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1zM8 10V8h6v2H8zm0 4v-2h6v2H8zm0 4v-2h6v2H8z"></path></svg>
+            <span className="mask"></span>
           <span className="text">Navbar</span>
         </ul>
 
-          <ul className="left-bar-item first-panel pages-panel-pp"
-            onClick= {(e) => this.openSideMenu('menu')}
+          <ul className="left-bar-item  pages-panel-pp"
+            onClick= {(e) => this.openSideMenu('section')}
           >
-            <svg width="23" height="26" viewBox="0 0 22 26" className="symbol symbol-leftBarPagesPanelManager icon">
-            <path fillRule="evenodd" d="M17 0a5 5 0 0 1 5 5v16a5 5 0 0 1-5 5H5a5 5 0 0 1-5-5V5a5 5 0 0 1 5-5h12zm0 20V6a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1zM8 10V8h6v2H8zm0 4v-2h6v2H8zm0 4v-2h6v2H8z"></path></svg>
-            <span className="mask"></span>
-            <span className="text">Menus</span> 
+						<svg width="25" height="25" baseProfile="full" viewBox="0 0 25 25" className="symbol symbol-leftBarBackgroundPanel icon">
+						<path d="M19.5 5.5v14h-14v-14h14m0-5h-14a5 5 0 0 0-5 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5v-14a5 5 0 0 0-5-5z"></path></svg>
+						<span className="mask"></span>            
+            <span className="text">Sections</span> 
           </ul>
           
           <ul className="left-bar-item bg-panel"
@@ -173,7 +252,7 @@ class sideMenu extends Component {
             <span className="text">Button</span>
           </ul>
 
-          <ul className="left-bar-item add-panel"
+          <ul className="left-bar-item add-panel text-style"
               onClick= {(e) => this.openSideMenu('text')}
           >
             <svg width="24" height="23" baseProfile="full" viewBox="0 0 21 25" className="symbol symbol-leftBarAddPanel icon">
