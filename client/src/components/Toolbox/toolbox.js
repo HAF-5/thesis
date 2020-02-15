@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import { editElement, deleteElement } from "./../../store/actions/elements";
+import { addToLastTenSteps } from "./../../store/actions/lastTenSteps";
 
 import "./toolbox.css";
 
@@ -68,6 +69,8 @@ class Toolbox extends Component {
 
   changeStyle = (element, style) => {
     let domElement = document.getElementById(element._id);
+    let stringHTMLB = domElement.outerHTML;
+    this.props.addToLastTenSteps({_id: element._id, element: stringHTMLB});
     for (let key in style) {
       domElement.style[key] = style[key];
     }
@@ -436,8 +439,13 @@ class Toolbox extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+const mapStateToProps = (state) => ({
+  lastStep: state.lastTenSteps[state.lastTenSteps.length - 1]
+})
+const mapDispatchToProps = (dispatch, props) => ({
   editElement: element => dispatch(editElement(element)),
+  addToLastTenSteps: (element) => dispatch(addToLastTenSteps(element)),
   deleteElement: element => dispatch(deleteElement(element))
+
 });
-export default connect(null, mapDispatchToProps)(Toolbox);
+export default connect(mapStateToProps, mapDispatchToProps)(Toolbox);
