@@ -1,30 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { selectPage } from "./../../../store/actions/pages";
+import { selectPage } from './../../../store/actions/pages';
+import { removeFromLastTenSteps } from './../../../store/actions/lastTenSteps';
 
 import "./../Navbar/Navbar.css";
 
 class FixedNavbar extends Component {
   render() {
-    const fontSize = [
-      8,
-      9,
-      10,
-      11,
-      12,
-      14,
-      16,
-      18,
-      20,
-      22,
-      24,
-      26,
-      28,
-      36,
-      48,
-      72
-    ];
+    const fontSize = [ 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 ];
     return (
       <nav className="editor-navbar navbar navbar-expand-lg navbar-light bg-light">
         <button
@@ -152,9 +136,15 @@ class FixedNavbar extends Component {
                 </div>
 
                 <div className="btn-group">
-                  <button type="button" className="btn btn-css">
-                    <i className="fa fa-undo"></i>
-                  </button>
+                    <button 
+                        type="button" className="btn btn-css"
+                        disabled= {this.props.lastTenSteps} 
+                        onClick= {() => {
+                            this.props.removeFromLastTenSteps(this.props.lastStep);
+                        }}
+                    >
+                        <i className="fa fa-undo"></i>
+                    </button>
                 </div>
               </div>
             </li>
@@ -165,12 +155,15 @@ class FixedNavbar extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  pages: state.pages
+const mapStateToProps = (state) => ({
+    pages: state.pages,
+    lastTenSteps: state.lastTenSteps.length === 0,
+    lastStep: state.lastTenSteps[state.lastTenSteps.length - 1]
 });
 
-const mapDispatchToProps = dispatch => ({
-  selectPage: page => dispatch(selectPage(page))
+const mapDispatchToProps = (dispatch) => ({
+    selectPage: (page) => dispatch(selectPage(page)),
+    removeFromLastTenSteps: (lastStep) => dispatch(removeFromLastTenSteps(lastStep))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FixedNavbar);
