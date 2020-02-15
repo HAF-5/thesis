@@ -24,3 +24,13 @@
 .btn-css:hover {
   background-color: lightgrey;
 }
+.element-style {
+  background-color: rgb(240, 239, 239);
+  border: none;
+  padding: 7px;
+  color: #01053b;
+  border-radius: 3px;
+}
+.element-style:hover {
+  background-color: lightgrey;
+}
