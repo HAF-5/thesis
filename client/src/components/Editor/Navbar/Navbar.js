@@ -18,7 +18,6 @@ class FixedNavbar extends Component{
                     <ul className="navbar-nav menu">
                         <li className="editor-nav-item nav-item">
                             <button className="nav-link editor-nav-link" disabled= {this.props.lastTenSteps} onClick= {() => {
-                                console.log(this.props.lastStep)
                                 this.props.removeFromLastTenSteps(this.props.lastStep);
                             }}>Undo</button>
                         </li>
