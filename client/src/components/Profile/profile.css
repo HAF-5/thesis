@@ -2,7 +2,6 @@
     background-color:#ebeef4 ;
 }
 
-
 .profile-continer-main {
     height:100vh;
     width: 100%;
@@ -44,7 +43,7 @@
     width: 60%;
     height: 70vh;
     display: flex;
-    margin-left: 30%;
+    margin-left: 24%;
     flex-direction: column;
     box-sizing: border-box;
     background-color: white;
@@ -98,9 +97,9 @@
 } 
 
 #profile-h1-text {
-    margin-left: 35%;
-    padding-bottom: 39px;
-    padding-top: 25px;
+    margin-left: 25%;
+    padding-bottom: 54px;
+    padding-top: 50px;
     color: rgb(34, 56, 74);
     font-size: xx-large;
     font-family: 'Open Sans', sans-serif;

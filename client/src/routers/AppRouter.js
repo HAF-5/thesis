@@ -16,7 +16,7 @@ import Reset from './../components/auth/Reset';
 import createProject from './../components/CreateProject/createProject';
 import Profile from './../components/Profile/profile';
 import dashboardWebsite from './../components/DashboardWebsite/dashboardWebsite';
-import sideMenu  from './../components/SideMenu/sideMenu'
+
 
 
 const AppRouter = () => {
@@ -28,15 +28,12 @@ const AppRouter = () => {
           <PublicRoute path='/signup' component={Signup} />
           <PublicRoute path='/login' component={Signin} />
           <PrivateRoute path='/sites' component={MySites} />
-
           <PrivateRoute path='/createProject' component={createProject} />
-
           <PrivateRoute path='/editor/:id' component={Editor} />
           <PublicRoute path='/auth/activate/:token' component={Activate} />
           <PublicRoute path='/auth/password/forgot' component={Forgot} />
           <PublicRoute path='/auth/password/reset/:token' component={Reset} />
           <PrivateRoute path='/dashboard/profile' component={Profile} />
-          <PrivateRoute path='/dashboard/sideMenu' component={sideMenu} />
           <PrivateRoute path='/dashboard/edit-website' component={dashboardWebsite} />
           <Route>
             <div>not found</div>
