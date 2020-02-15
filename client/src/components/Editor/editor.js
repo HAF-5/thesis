@@ -10,6 +10,7 @@ import AddPageModal from './../AddPageModal/addPageModal';
 
 import { setPages, clearPages, selectPage } from './../../store/actions/pages';
 import { setElements, clearElements, addElement, editElement } from './../../store/actions/elements';
+import { addToLastTenSteps } from './../../store/actions/lastTenSteps';
 import Toolbox from './../Toolbox/toolbox';
 
 import "./Editor.css";
@@ -44,6 +45,9 @@ class Editor extends Component {
     handleOnDrop(e) {
         let id = e.dataTransfer.getData("id");
         let element = document.getElementById(id);
+        let stringHTMLB = element.outerHTML;
+        this.props.addToLastTenSteps({ _id: id, element: stringHTMLB });
+
         $(`#${id}`) && $(`#${id}`).removeClass('selected');
         element.style.position = "absolute";
         element.style.left = e.clientX + 'px';
@@ -74,10 +78,6 @@ class Editor extends Component {
         this.props.addElement(element);
     }
 
-    save = () => {
-        console.log(document.getElementById(this.props.elements[this.props.elements.length-1]._id))
-    }
-
     componentWillUnmount() {
         this.props.clearElements();
         this.props.clearPages();
@@ -96,7 +96,6 @@ class Editor extends Component {
                 <Navbar 
                     website= {this.props.match.params.id} 
                     openAddPageModal= {this.openAddPageModal}
-                    save= {this.save}
                 />
                 <Toolbox
                     element= {this.state.selectedElement}
@@ -149,7 +148,7 @@ class Editor extends Component {
                                     let positionRight = $(elmnt).css('right');
                                     let positionBottom= $(elmnt).css('bottom');
                                     let positionLeft = $(elmnt).css('left');
-                                    
+
                                     this.setState(()=>({
                                         selectedElement: element, 
                                         selectedElementProperties: {
@@ -212,7 +211,8 @@ const mapDispatchToProps = (dispatch) => ({
     clearPages: () => dispatch(clearPages()),
     selectPage: () => dispatch(selectPage()),
     addElement: (page) => dispatch(addElement(page)),
-    editElement: (element) => dispatch(editElement(element))
+    editElement: (element) => dispatch(editElement(element)),
+    addToLastTenSteps: (element) => dispatch(addToLastTenSteps(element))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Editor);
