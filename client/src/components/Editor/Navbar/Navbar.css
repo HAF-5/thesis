@@ -1,19 +1,26 @@
 .editor-navbar {
-    background-color: white !important;
-    border-bottom: 1px solid whitesmoke;
-    @media (min-width: 1200px) { 
-        height: 10vh;
-    }
+  background-color: white !important;
+  border-bottom: 1px solid whitesmoke;
+  @media (min-width: 1200px) {
+    height: 10vh;
+  }
 }
 
 .editor-nav-item {
-    padding: 0;
-    margin-left: 45px;
-    font-size: 18px;
-    text-align: center;
+  padding: 0;
+  margin-left: 45px;
+  font-size: 18px;
+  text-align: center;
 }
 
 .editor-nav-link {
-    color: #111111 !important;
-    font-family: 'Questrial', sans-serif;
+  color: #111111 !important;
+  font-family: "Questrial", sans-serif;
+}
+.btn-css {
+  background-color: #f1f0f0;
+  color: #01053b;
+}
+.btn-css:hover {
+  background-color: lightgrey;
 }
