@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { selectPage } from './../../../store/actions/pages';
+import { removeFromLastTenSteps } from './../../../store/actions/lastTenSteps';
 
 import './../Navbar/Navbar.css';
 
@@ -16,10 +17,10 @@ class FixedNavbar extends Component{
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav menu">
                         <li className="editor-nav-item nav-item">
-                            <a className="nav-link editor-nav-link" onClick= {this.props.save}>Save</a>
-                        </li>
-                        <li className="editor-nav-item nav-item">
-                            <a className="nav-link editor-nav-link" href= "#">Undo</a>
+                            <button className="nav-link editor-nav-link" disabled= {this.props.lastTenSteps} onClick= {() => {
+                                console.log(this.props.lastStep)
+                                this.props.removeFromLastTenSteps(this.props.lastStep);
+                            }}>Undo</button>
                         </li>
                         <li className="editor-nav-item nav-item">
                             <a className="nav-link editor-nav-link" href= "#">Preview</a>
@@ -58,11 +59,14 @@ class FixedNavbar extends Component{
 }
 
 const mapStateToProps = (state) => ({
-    pages: state.pages
+    pages: state.pages,
+    lastTenSteps: state.lastTenSteps.length === 0,
+    lastStep: state.lastTenSteps[state.lastTenSteps.length - 1]
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    selectPage: (page) => dispatch(selectPage(page))
+    selectPage: (page) => dispatch(selectPage(page)),
+    removeFromLastTenSteps: (lastStep) => dispatch(removeFromLastTenSteps(lastStep))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FixedNavbar);
