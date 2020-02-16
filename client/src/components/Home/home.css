@@ -1,12 +1,39 @@
+.home{
+    box-shadow: rgba(41, 85, 115, 0.21) 0px 1px 5px 0px;
+    border-bottom: 1px solid #80808042;
+    background-color: #80808003;
+
+}
+.homePage{
+    background-image: linear-gradient(120deg, rgb(253, 251, 251) 0%, rgb(235, 237, 238) 100%);
+    min-height: 100vh;
+    
+}
 .title{
     font-size: 8em;
+    color: black;
 }
-.btn-create{
+.btn-createSign{
     border-radius: 50px;
     box-shadow: 0 0.4306rem 0.08rem rgba(0, 0, 0, 0.03);
     background-color: #fcf9f91c;
     font-family:Cambria, Georgia, serif;
-    
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.btn-create{
+    border-radius: 50px;
+    box-shadow: 0 0.4306rem 0.08rem rgba(0, 0, 0, 0.03);
+    color:white;
+    font-family:Cambria, Georgia, serif;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.btn-create:hover{
+    background-color: #fcf9f91c;
+    color: #007bff;
 }
 
 
@@ -27,8 +54,7 @@
     margin-bottom: 15px;
    
 }
-.image:hover {
-    
+.imag:hover {
     transform: scale(1.2);
 }
 h1{

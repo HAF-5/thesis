@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { editElement } from "./../../store/actions/elements";
+import { editElement, deleteElement } from "./../../store/actions/elements";
 import { addToLastTenSteps } from "./../../store/actions/lastTenSteps";
 
 import "./toolbox.css";
+
 class Toolbox extends Component {
   constructor(props) {
     super(props);
@@ -163,6 +164,12 @@ class Toolbox extends Component {
     this.changeStyle(this.props.element, { left: `${positionLeft}px` });
   };
 
+  // deleteElement = (e, element) => {
+  //   console.log(this.props.element._id)
+  //   e.preventDefault()
+  //   this.props.deleteElement(this.props.element._id);
+  // }
+
   render() {
     return (
       <div className="wrapper">
@@ -171,21 +178,21 @@ class Toolbox extends Component {
             <ul className="myUl">
               <div className="position-flex">
                 <li className="myLi">
-                  <a className="myA" href="#">
+                  <a className="myA">
                     {" "}
                     <i className="fas fa-copy"> </i>
                   </a>
                 </li>
                 <li className="myLi">
-                  <a className="myA" href="#">
+                  <a className="myA">
                     <i className="fas fa-paste"></i>
                   </a>
                 </li>
 
                 <li className="myLi">
-                  <a className="myA" href="#">
+                  <button className="myA" onClick={(e) => this.props.deleteElement(this.props.element)}>
                     <i className="fas fa-trash-alt"></i>
-                  </a>
+                  </button>
                 </li>
               </div>
               <li
@@ -437,6 +444,8 @@ const mapStateToProps = (state) => ({
 })
 const mapDispatchToProps = (dispatch, props) => ({
   editElement: element => dispatch(editElement(element)),
-  addToLastTenSteps: (element) => dispatch(addToLastTenSteps(element))
+  addToLastTenSteps: (element) => dispatch(addToLastTenSteps(element)),
+  deleteElement: element => dispatch(deleteElement(element))
+
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Toolbox);

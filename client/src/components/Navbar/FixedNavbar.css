@@ -41,9 +41,17 @@
     background-color: #007bff !important;
     border-color: #007bff !important;
 } */
+.logo:hover{
+    text-decoration: none;
+    color:#007bff;
+    font-weight: bold;
+}
 .fixed-nav{
     box-shadow: 0 1px 5px 0 rgba(41,85,115,.21);
     height: 8vh 
+}
+.logo{
+    font-weight: bold;
 }
 .header {
     border-bottom: 1px solid rgba(199, 199, 199, 0.4);
