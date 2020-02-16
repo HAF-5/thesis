@@ -31,6 +31,9 @@ class MySites extends Component {
     event.preventDefault()
     this.props.deleteWebsite(id);
   }
+  // renameWebsite(event, title){
+  //   alert(this.props.title)
+  // }
 
   render() {
     return (
@@ -83,7 +86,7 @@ class MySites extends Component {
                               </button>
                               <div class="dropdown-menu action-list site-list">
                                 <button className="btn" key={website._id} onClick={(e) => this.deleteWebsite(e, website._id)} ><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" class="ListItemAction3311636269--prefixIcon" data-hook="list-item-action-prefix-icon"><path d="M17,17 C17,18.6568542 15.6568542,20 14,20 L9,20 C7.34314575,20 6,18.6568542 6,17 L6,7 L5,7 L5,6 L18,6 L18,7 L17,7 L17,17 Z M9,9 L10,9 L10,16 L9,16 L9,9 Z M11,9 L12,9 L12,16 L11,16 L11,9 Z M13,9 L14,9 L14,16 L13,16 L13,9 Z M7,17 C7,18.1045695 7.8954305,19 9,19 L14,19 C15.1045695,19 16,18.1045695 16,17 L16,7 L7,7 L7,17 Z M13,6 L13,5 L10,5 L10,6 L9,6 L9,5 C9,4.44771525 9.44771525,4 10,4 L13,4 C13.5522847,4 14,4.44771525 14,5 L14,6 L13,6 Z"></path></svg>Move to Trash</button>
-                                <button className="btn "><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" class="ListItemAction3311636269--prefixIcon" data-hook="list-item-action-prefix-icon"><path d="M18.5,5 L13,5 L12,5 L6.5,5 C5.673,5 5,5.673 5,6.5 L5,10 L6,10 L6,6.5 C6,6.224 6.225,6 6.5,6 L12,6 L12,18 L9,18 L9,19 L16,19 L16,18 L13,18 L13,6 L18.5,6 C18.775,6 19,6.224 19,6.5 L19,10 L20,10 L20,6.5 C20,5.673 19.327,5 18.5,5"></path></svg>Rename Site</button>
+                                <button className="btn  "><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" class="ListItemAction3311636269--prefixIcon" data-hook="list-item-action-prefix-icon"><path d="M18.5,5 L13,5 L12,5 L6.5,5 C5.673,5 5,5.673 5,6.5 L5,10 L6,10 L6,6.5 C6,6.224 6.225,6 6.5,6 L12,6 L12,18 L9,18 L9,19 L16,19 L16,18 L13,18 L13,6 L18.5,6 C18.775,6 19,6.224 19,6.5 L19,10 L20,10 L20,6.5 C20,5.673 19.327,5 18.5,5"></path></svg>Rename Site</button>
                                 <button className="btn "><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" class="ListItemAction3311636269--prefixIcon" data-hook="list-item-action-prefix-icon"><path d="M19.918,12.298 L20,12.5 L19.918,12.701 C19.813,12.959 17.293,19 11.5,19 C5.707,19 3.187,12.959 3.082,12.701 L3,12.5 L3.082,12.298 C3.187,12.041 5.707,6 11.5,6 C17.293,6 19.813,12.041 19.918,12.298 Z M4.089,12.499 C4.567,13.51 6.932,17.964 11.5,17.964 C16.08,17.964 18.435,13.512 18.911,12.5 C18.433,11.49 16.068,7.036 11.5,7.036 C6.92,7.036 4.565,11.488 4.089,12.499 Z M11.5,15.75 C9.70507456,15.75 8.25,14.2949254 8.25,12.5 C8.25,10.7050746 9.70507456,9.25 11.5,9.25 C13.2949254,9.25 14.75,10.7050746 14.75,12.5 C14.75,14.2949254 13.2949254,15.75 11.5,15.75 Z M11.5,14.75 C12.7426407,14.75 13.75,13.7426407 13.75,12.5 C13.75,11.2573593 12.7426407,10.25 11.5,10.25 C10.2573593,10.25 9.25,11.2573593 9.25,12.5 C9.25,13.7426407 10.2573593,14.75 11.5,14.75 Z"></path></svg>view Live Site</button>
                               </div>
                             </div>
@@ -121,7 +124,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   selectWebsite: (payload) => dispatch(selectWebsite(payload)),
-  deleteWebsite: (payload) => dispatch(deleteWebsite(payload))
+  deleteWebsite: (payload) => dispatch(deleteWebsite(payload)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MySites)

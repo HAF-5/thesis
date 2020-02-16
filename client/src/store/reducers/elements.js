@@ -1,6 +1,7 @@
-import {SET_ELEMENTS, SELECT_ELEMENT, ADD_ELEMENT, EDIT_ELEMENT, CLEAR_ELEMENTS} from '../actions/constants';
+import {SET_ELEMENTS, SELECT_ELEMENT, ADD_ELEMENT, EDIT_ELEMENT, CLEAR_ELEMENTS, DELETE_ELEMENT} from '../actions/constants';
+import { element } from 'prop-types';
 
-
+ 
 const elementReducer = (state = [], action) => {
     switch (action.type) {
         case SET_ELEMENTS:
@@ -14,10 +15,15 @@ const elementReducer = (state = [], action) => {
                     element: action.payload.element,
                 }
             ]
+        case DELETE_ELEMENT:
+            return state.filter(element => element._id !== action.payload);    
         case EDIT_ELEMENT: 
             return state.map(element => {
                 if(element._id === action.payload._id){
-                    return action.payload;
+                    return {
+                        ...element,
+                        ...action.payload
+                    };
                 }
                 return element;
             })
