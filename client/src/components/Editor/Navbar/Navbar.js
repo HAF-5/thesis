@@ -15,7 +15,11 @@ class FixedNavbar extends Component {
     super(props);
     this.state = {
       textAlign: "",
-      fontWeight: "normal"
+      fontWeight: "normal",
+      fontStyle: "normal",
+      fontSize:
+        this.props.elementProperties &&
+        parseInt(this.props.elementProperties.fontSize)
     };
   }
   changeStyle = (element, style) => {
@@ -41,21 +45,39 @@ class FixedNavbar extends Component {
     this.changeStyle(this.props.element, { textAlign: textLeft });
   };
   onClickBold = e => {
-    console.log(this.state.fontWeight);
     if (this.state.fontWeight === "normal") {
       this.setState(() => ({ fontWeight: "bold" }));
-      console.log(this.state.fontWeight);
-      console.log(this.state.element);
       this.changeStyle(this.props.element, {
         fontWeight: this.state.fontWeight
       });
     } else {
       this.setState(() => ({ fontWeight: "normal" }));
-      console.log(this.state.element);
       this.changeStyle(this.props.element, {
         fontWeight: this.state.fontWeight
       });
     }
+  };
+
+  onClickItalic = e => {
+    if (this.state.fontStyle === "normal") {
+      this.setState(() => ({ fontStyle: "italic" }));
+      let styleFont = this.state.fontStyle;
+      this.changeStyle(this.props.element, {
+        fontStyle: styleFont
+      });
+    } else {
+      this.setState(() => ({ fontStyle: "normal" }));
+      let styleFont = this.state.fontStyle;
+
+      this.changeStyle(this.props.element, {
+        fontStyle: styleFont
+      });
+    }
+  };
+  onChangeSizeList = e => {
+    let fontSize = e.target.value;
+    this.setState(() => ({ fontSize }));
+    this.changeStyle(this.props.element, { fontSize: `${fontSize}px` });
   };
 
   render() {
@@ -171,7 +193,12 @@ class FixedNavbar extends Component {
                 {/* //////////////////////////////////////// */}
 
                 <div className="btn-group mr-2">
-                  <select className="element-style">
+                  <select
+                    className="element-style"
+                    disabled={!this.props.element}
+                    id="size-list"
+                    onChange={this.onChangeSizeList}
+                  >
                     {fontSize.map(size => {
                       return (
                         <option value={size} style={{ fontSize: "16px" }}>
@@ -188,10 +215,16 @@ class FixedNavbar extends Component {
                     type="button"
                     className="btn btn-css"
                     onClick={this.onClickBold}
+                    disabled={!this.props.element}
                   >
                     <i className="fa fa-bold"></i>
                   </button>
-                  <button type="button" className="btn btn-css">
+                  <button
+                    type="button"
+                    className="btn btn-css"
+                    onClick={this.onClickItalic}
+                    disabled={!this.props.element}
+                  >
                     <i className="fa fa-italic"></i>
                   </button>
                 </div>
@@ -200,6 +233,7 @@ class FixedNavbar extends Component {
                     type="button"
                     className="btn btn btn-css"
                     onClick={this.onClickLeft}
+                    disabled={!this.props.element}
                   >
                     <i className="fa fa-align-left"></i>
                   </button>
@@ -207,6 +241,7 @@ class FixedNavbar extends Component {
                     type="button"
                     className="btn btn btn-css"
                     onClick={this.onClickCenter}
+                    disabled={!this.props.element}
                   >
                     <i className="fa fa-align-center"></i>
                   </button>
@@ -214,6 +249,7 @@ class FixedNavbar extends Component {
                     type="button"
                     className="btn btn btn-css"
                     onClick={this.onClickRight}
+                    disabled={!this.props.element}
                   >
                     <i className="fa fa-align-right"></i>
                   </button>
