@@ -5,6 +5,7 @@ import pageReducer from './pages';
 import elementReducer from './elements';
 import sideMenuElementsReducer from './sideMenuElements';
 import selectedPageReducer from './selectedPage';
+import lastTenStepsReducer from './../reducers/lastTenSteps';
 
 export default combineReducers({
   user: userReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   pages: pageReducer,
   elements: elementReducer,
   sideMenuElements: sideMenuElementsReducer,
-  selectedPage: selectedPageReducer
+  selectedPage: selectedPageReducer,
+  lastTenSteps: lastTenStepsReducer
 });
