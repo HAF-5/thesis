@@ -69,7 +69,7 @@ class Toolbox extends Component {
   changeStyle = (element, style) => {
     let domElement = document.getElementById(element._id);
     let stringHTMLB = domElement.outerHTML;
-    this.props.addToLastTenSteps({_id: element._id, element: stringHTMLB});
+    this.props.addToLastTenSteps({ _id: element._id, element: stringHTMLB });
     for (let key in style) {
       domElement.style[key] = style[key];
     }
@@ -165,266 +165,336 @@ class Toolbox extends Component {
 
   render() {
     return (
-      <div className="wrapper">
-        <div className="sidebar">
-          <div className="henry">
-            <ul className="myUl">
-              <div className="position-flex">
-                <li className="myLi">
-                  <a className="myA" href="#">
-                    {" "}
-                    <i className="fas fa-copy"> </i>
-                  </a>
-                </li>
-                <li className="myLi">
-                  <a className="myA" href="#">
-                    <i className="fas fa-paste"></i>
-                  </a>
-                </li>
+      <div>
+        <div className="wrapper">
+          <div className="sidebar">
+            <div className="henry">
+              <ul className="myUl">
+                <div className="position-flex">
+                  <li className="myLi">
+                    <a className="myA" href="#">
+                      {" "}
+                      <i className="fas fa-copy"> </i>
+                    </a>
+                  </li>
+                  <li className="myLi">
+                    <a className="myA" href="#">
+                      <i className="fas fa-paste"></i>
+                    </a>
+                  </li>
 
-                <li className="myLi">
-                  <a className="myA" href="#">
-                    <i className="fas fa-trash-alt"></i>
-                  </a>
-                </li>
-              </div>
-              <li
-                className=" myLi"
-                style={{
-                  display: "inline-flex",
-                  position: "absolute",
-                  left: "20px"
-                }}
-              >
-                <label className="input-number-label">Background</label>
-                <input type="color" />
-              </li>
-              <div className="width-hieght">
-                <div>
-                  <li
-                    className="position-flex myLi"
-                    style={{ position: "relative", top: "60px" }}
-                  >
-                    <label className="input-number-label">W:</label>
-                    <input
-                      className=" number-inptw"
-                      type="number"
-                      placeholder="0"
-                      value={this.state.width}
-                      onChange={e => this.onWidthChangeHandler(e)}
-                      disabled={!this.props.element}
-                    />
-                    <label className="input-number-label">H:</label>
-                    <input
-                      className=" number-inptw"
-                      type="number"
-                      placeholder="0"
-                      disabled={!this.props.element}
-                      value={this.state.height}
-                      onChange={this.onHeightChangeHandler}
-                    />
+                  <li className="myLi">
+                    <a
+                      className="myA"
+                      href="#"
+                      data-toggle="modal"
+                      data-target="#modalConfirmDelete"
+                    >
+                      <i className="fas fa-trash-alt"></i>
+                    </a>
                   </li>
                 </div>
                 <li
-                  className="position-flex myLi"
-                  style={{ position: "relative", top: "90px" }}
+                  className=" myLi"
+                  style={{
+                    display: "inline-flex",
+                    position: "absolute",
+                    left: "20px"
+                  }}
                 >
-                  <label
-                    style={{
-                      position: "relative",
-                      right: "-50px",
-                      top: "-10px"
-                    }}
-                  >
-                    padding
-                  </label>
-                  <input
-                    className="number-inpt" //top
-                    type="number"
-                    placeholder="0"
-                    style={{
-                      position: "relative",
-                      top: "-40px",
-                      left: "4px"
-                    }}
-                    disabled={!this.props.element}
-                    value={this.state.paddingTop} // padding top
-                    onChange={this.onPaddingTopChangeHandler}
-                  />
-                  <input
-                    className="number-inpt" //bottom
-                    type="number"
-                    placeholder="0"
-                    style={{
-                      position: "relative",
-                      bottom: "-20px",
-                      left: "-26px"
-                    }}
-                    disabled={!this.props.element}
-                    value={this.state.paddingBottom} // padding bottom
-                    onChange={this.onPaddingBottomChangeHandler}
-                  />
-                  <input
-                    className="number-inpt" //right
-                    type="number"
-                    placeholder="0"
-                    style={{
-                      position: "relative",
-                      top: "-10px"
-                    }}
-                    disabled={!this.props.element}
-                    value={this.state.paddingRight} // padding right
-                    onChange={this.onPaddingRightChangeHandler}
-                  />
-                  <input
-                    className="number-inpt" //left
-                    type="number"
-                    placeholder="0"
-                    style={{
-                      position: "relative",
-                      top: "-10px",
-                      left: "-140px"
-                    }}
-                    disabled={!this.props.element}
-                    value={this.state.paddingLeft} // padding left
-                    onChange={this.onPaddingLeftChangeHandler}
-                  />
+                  <label className="input-number-label">Background</label>
+                  <input type="color" />
                 </li>
-                <li
-                  className="position-flex myLi"
-                  style={{ position: "relative", top: "125px" }}
-                >
-                  <label
-                    style={{
-                      position: "relative",
-                      right: "-55px",
-                      top: "-10px"
-                    }}
+                <div className="width-hieght">
+                  <div>
+                    <li
+                      className="position-flex myLi"
+                      style={{ position: "relative", top: "60px" }}
+                    >
+                      <label className="input-number-label">W:</label>
+                      <input
+                        className=" number-inptw"
+                        type="number"
+                        placeholder="0"
+                        value={this.state.width}
+                        onChange={e => this.onWidthChangeHandler(e)}
+                        disabled={!this.props.element}
+                      />
+                      <label className="input-number-label">H:</label>
+                      <input
+                        className=" number-inptw"
+                        type="number"
+                        placeholder="0"
+                        disabled={!this.props.element}
+                        value={this.state.height}
+                        onChange={this.onHeightChangeHandler}
+                      />
+                    </li>
+                  </div>
+                  <li
+                    className="position-flex myLi"
+                    style={{ position: "relative", top: "90px" }}
                   >
-                    margin
-                  </label>
-                  <input
-                    className="number-inpt" //top
-                    type="number"
-                    placeholder="0"
-                    style={{
-                      position: "relative",
-                      top: "-40px",
-                      left: "12px"
-                    }}
-                    disabled={!this.props.element}
-                    value={this.state.marginTop}
-                    onChange={this.onMarginTopChangeHandler}
-                  />
-                  <input
-                    className="number-inpt" //bottom
-                    type="number"
-                    placeholder="0"
-                    style={{
-                      position: "relative",
-                      bottom: "-20px",
-                      left: "-18px"
-                    }}
-                    disabled={!this.props.element}
-                    value={this.state.marginBottom}
-                    onChange={this.onMarginBottomChangeHandler}
-                  />
-                  <input
-                    className="number-inpt" //right
-                    type="number"
-                    placeholder="0"
-                    style={{
-                      position: "relative",
-                      top: "-10px",
-                      right: "-6px"
-                    }}
-                    disabled={!this.props.element}
-                    value={this.state.marginRight}
-                    onChange={this.onMarginRightChangeHandler}
-                  />
-                  <input
-                    className="number-inpt" //left
-                    type="number"
-                    placeholder="0"
-                    style={{
-                      position: "relative",
-                      top: "-10px",
-                      left: "-130px"
-                    }}
-                    disabled={!this.props.element}
-                    value={this.state.marginLeft}
-                    onChange={this.onMarginLeftChangeHandler}
-                  />
-                </li>
+                    <label
+                      style={{
+                        position: "relative",
+                        right: "-50px",
+                        top: "-10px"
+                      }}
+                    >
+                      padding
+                    </label>
+                    <input
+                      className="number-inpt" //top
+                      type="number"
+                      placeholder="0"
+                      style={{
+                        position: "relative",
+                        top: "-40px",
+                        left: "4px"
+                      }}
+                      disabled={!this.props.element}
+                      value={this.state.paddingTop} // padding top
+                      onChange={this.onPaddingTopChangeHandler}
+                    />
+                    <input
+                      className="number-inpt" //bottom
+                      type="number"
+                      placeholder="0"
+                      style={{
+                        position: "relative",
+                        bottom: "-20px",
+                        left: "-26px"
+                      }}
+                      disabled={!this.props.element}
+                      value={this.state.paddingBottom} // padding bottom
+                      onChange={this.onPaddingBottomChangeHandler}
+                    />
+                    <input
+                      className="number-inpt" //right
+                      type="number"
+                      placeholder="0"
+                      style={{
+                        position: "relative",
+                        top: "-10px"
+                      }}
+                      disabled={!this.props.element}
+                      value={this.state.paddingRight} // padding right
+                      onChange={this.onPaddingRightChangeHandler}
+                    />
+                    <input
+                      className="number-inpt" //left
+                      type="number"
+                      placeholder="0"
+                      style={{
+                        position: "relative",
+                        top: "-10px",
+                        left: "-140px"
+                      }}
+                      disabled={!this.props.element}
+                      value={this.state.paddingLeft} // padding left
+                      onChange={this.onPaddingLeftChangeHandler}
+                    />
+                  </li>
+                  <li
+                    className="position-flex myLi"
+                    style={{ position: "relative", top: "125px" }}
+                  >
+                    <label
+                      style={{
+                        position: "relative",
+                        right: "-55px",
+                        top: "-10px"
+                      }}
+                    >
+                      margin
+                    </label>
+                    <input
+                      className="number-inpt" //top
+                      type="number"
+                      placeholder="0"
+                      style={{
+                        position: "relative",
+                        top: "-40px",
+                        left: "12px"
+                      }}
+                      disabled={!this.props.element}
+                      value={this.state.marginTop}
+                      onChange={this.onMarginTopChangeHandler}
+                    />
+                    <input
+                      className="number-inpt" //bottom
+                      type="number"
+                      placeholder="0"
+                      style={{
+                        position: "relative",
+                        bottom: "-20px",
+                        left: "-18px"
+                      }}
+                      disabled={!this.props.element}
+                      value={this.state.marginBottom}
+                      onChange={this.onMarginBottomChangeHandler}
+                    />
+                    <input
+                      className="number-inpt" //right
+                      type="number"
+                      placeholder="0"
+                      style={{
+                        position: "relative",
+                        top: "-10px",
+                        right: "-6px"
+                      }}
+                      disabled={!this.props.element}
+                      value={this.state.marginRight}
+                      onChange={this.onMarginRightChangeHandler}
+                    />
+                    <input
+                      className="number-inpt" //left
+                      type="number"
+                      placeholder="0"
+                      style={{
+                        position: "relative",
+                        top: "-10px",
+                        left: "-130px"
+                      }}
+                      disabled={!this.props.element}
+                      value={this.state.marginLeft}
+                      onChange={this.onMarginLeftChangeHandler}
+                    />
+                  </li>
 
-                <li
-                  className="position-flex"
-                  style={{ position: "relative", top: "180px" }}
-                >
-                  <label
-                    style={{
-                      position: "relative",
-                      right: "-64px",
-                      top: "-10px"
-                    }}
+                  <li
+                    className="position-flex"
+                    style={{ position: "relative", top: "180px" }}
                   >
-                    position
-                  </label>
-                  <input
-                    className="number-inpt"
-                    type="number"
-                    disabled={!this.props.element}
-                    value={this.state.positionTop}
-                    onChange={this.onPositionTopChangeHandler}
-                    placeholder="0"
-                    style={{
-                      position: "relative",
-                      top: "-40px",
-                      left: "20px"
-                    }}
-                  />
-                  <input
-                    className="number-inpt"
-                    type="number"
-                    disabled={!this.props.element}
-                    value={this.state.positionRight}
-                    onChange={this.onPositionRightChangeHandler}
-                    placeholder="0"
-                    style={{
-                      position: "relative",
-                      top: "-10px",
-                      right: "-46px"
-                    }}
-                  />
-                  <input
-                    className="number-inpt"
-                    type="number"
-                    disabled={!this.props.element}
-                    value={this.state.positionBottom}
-                    onChange={this.onPositionBottomChangeHandler}
-                    placeholder="0"
-                    style={{
-                      position: "relative",
-                      bottom: "-20px",
-                      left: "-39px"
-                    }}
-                  />
-                  <input
-                    className="number-inpt"
-                    type="number"
-                    disabled={!this.props.element}
-                    value={this.state.positionLeft}
-                    onChange={this.onPositionLeftChangeHandler}
-                    placeholder="0"
-                    style={{
-                      position: "relative",
-                      top: "-10px",
-                      left: "-122px"
-                    }}
-                  />
-                </li>
+                    <label
+                      style={{
+                        position: "relative",
+                        right: "-64px",
+                        top: "-10px"
+                      }}
+                    >
+                      position
+                    </label>
+                    <input
+                      className="number-inpt"
+                      type="number"
+                      disabled={!this.props.element}
+                      value={this.state.positionTop}
+                      onChange={this.onPositionTopChangeHandler}
+                      placeholder="0"
+                      style={{
+                        position: "relative",
+                        top: "-40px",
+                        left: "20px"
+                      }}
+                    />
+                    <input
+                      className="number-inpt"
+                      type="number"
+                      disabled={!this.props.element}
+                      value={this.state.positionRight}
+                      onChange={this.onPositionRightChangeHandler}
+                      placeholder="0"
+                      style={{
+                        position: "relative",
+                        top: "-10px",
+                        right: "-46px"
+                      }}
+                    />
+                    <input
+                      className="number-inpt"
+                      type="number"
+                      disabled={!this.props.element}
+                      value={this.state.positionBottom}
+                      onChange={this.onPositionBottomChangeHandler}
+                      placeholder="0"
+                      style={{
+                        position: "relative",
+                        bottom: "-20px",
+                        left: "-39px"
+                      }}
+                    />
+                    <input
+                      className="number-inpt"
+                      type="number"
+                      disabled={!this.props.element}
+                      value={this.state.positionLeft}
+                      onChange={this.onPositionLeftChangeHandler}
+                      placeholder="0"
+                      style={{
+                        position: "relative",
+                        top: "-10px",
+                        left: "-122px"
+                      }}
+                    />
+                  </li>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          className="modal fade"
+          id="modalConfirmDelete"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div
+            className="modal-dialog modal-sm modal-notify modal-danger"
+            role="document"
+            // style={{ border: "solid 0.5px #fafafafa" }}
+          >
+            {/* <!--Content--> */}
+            <div className="modal-content text-center">
+              {/* <!--Header--> */}
+              <div
+                className="modal-header d-flex justify-content-center"
+                style={{ backgroundColor: "#cc0000 ", height: "75px" }}
+              >
+                <p
+                  className="heading"
+                  style={{
+                    color: "#ffff",
+                    position: "relative",
+                    top: "-25px"
+                  }}
+                >
+                  Are you sure?
+                </p>
               </div>
-            </ul>
+
+              {/* <!--Body--> */}
+              <div className="modal-body justify-content-center">
+                <i
+                  className="far fa-times-circle fa-4x"
+                  style={{
+                    color: "#CC0000",
+                    position: "relative",
+                    left: "-5px"
+                  }}
+                ></i>
+                <p>Do you really want to delete this element?</p>
+              </div>
+
+              {/* <!--Footer--> */}
+              <div className="modal-footer flex-center justify-content-center">
+                <a href="" className="btn  btn-outline-danger">
+                  Yes
+                </a>
+                <a
+                  type="button"
+                  className="btn  btn-danger waves-effect"
+                  data-dismiss="modal"
+                  style={{ backgroundColor: "#CC0000", color: "#ffff" }}
+                >
+                  No
+                </a>
+              </div>
+            </div>
+            {/* <!--/.Content--> */}
           </div>
         </div>
       </div>
@@ -432,11 +502,11 @@ class Toolbox extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   lastStep: state.lastTenSteps[state.lastTenSteps.length - 1]
-})
+});
 const mapDispatchToProps = (dispatch, props) => ({
   editElement: element => dispatch(editElement(element)),
-  addToLastTenSteps: (element) => dispatch(addToLastTenSteps(element))
+  addToLastTenSteps: element => dispatch(addToLastTenSteps(element))
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Toolbox);
