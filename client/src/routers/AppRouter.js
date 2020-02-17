@@ -3,7 +3,7 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
+
 
 import MySites from './../components/MySites/mySites';
 import Signin from './../components/auth/Signin';
@@ -34,7 +34,7 @@ const AppRouter = () => {
           <PublicRoute path='/auth/activate/:token' component={Activate} />
           <PublicRoute path='/auth/password/forgot' component={Forgot} />
           <PublicRoute path='/auth/password/reset/:token' component={Reset} />
-          <PrivateRoute path='/dashboard/profile' component={Profile} />
+          <Route path='/dashboard/profile' component={Profile} />
           <PrivateRoute path='/dashboard/edit-website' component={dashboardWebsite} />
           <Route>
             <div>not found</div>

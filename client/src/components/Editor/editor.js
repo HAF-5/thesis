@@ -7,10 +7,10 @@ import SideMenu from '../SideMenu/sideMenu';
 import FixedNavbar from '../Navbar/FixedNavbar';
 import Navbar from './Navbar/Navbar';
 import AddPageModal from './../AddPageModal/addPageModal';
-import ElementCreator from './ElementCreator/elementCreator';
 
 import { setPages, clearPages, selectPage } from './../../store/actions/pages';
 import { setElements, clearElements, addElement, editElement } from './../../store/actions/elements';
+import { addToLastTenSteps } from './../../store/actions/lastTenSteps';
 import Toolbox from './../Toolbox/toolbox';
 
 import "./Editor.css";
@@ -22,7 +22,8 @@ class Editor extends Component {
         this.editor = React.createRef();
         this.state = {
             addPageModalIsOpen: false,
-            selectedElement: null
+            selectedElement: null,
+            selectedElementProperties: null
         }
     }
     openAddPageModal = () => {
@@ -44,13 +45,15 @@ class Editor extends Component {
     handleOnDrop(e) {
         let id = e.dataTransfer.getData("id");
         let element = document.getElementById(id);
+        let stringHTMLB = element.outerHTML;
+        this.props.addToLastTenSteps({ _id: id, element: stringHTMLB });
+
         $(`#${id}`) && $(`#${id}`).removeClass('selected');
         element.style.position = "absolute";
         element.style.left = e.clientX + 'px';
         element.style.top = e.clientY + 'px';
         let stringHTML = element.outerHTML;
         this.props.editElement({ _id: id, element: stringHTML });
-        console.log('gg', element)
     }
 
     domToString = (dom) => {
@@ -73,11 +76,6 @@ class Editor extends Component {
         };
         
         this.props.addElement(element);
-        console.log('test create element 123456')
-    }
-
-    save = () => {
-        console.log(document.getElementById(this.props.elements[this.props.elements.length-1]._id))
     }
 
     componentWillUnmount() {
@@ -98,11 +96,12 @@ class Editor extends Component {
                 <Navbar 
                     website= {this.props.match.params.id} 
                     openAddPageModal= {this.openAddPageModal}
-                    save= {this.save}
                 />
-                <Toolbox element= {this.state.selectedElement}/>
+                <Toolbox
+                    element= {this.state.selectedElement}
+                    elementProperties = {this.state.selectedElementProperties}
+                />
                 <SideMenu createElement={(e, type) => this.createElement(e, type)}/> 
-                {/* <ElementCreator createElement={(e) => this.createElement(e)}/> */}
                 <div 
                     id="editor" 
                     ref= {this.editor} 
@@ -133,8 +132,41 @@ class Editor extends Component {
                                     if(this.state.selectedElement){
                                         $(`#${this.state.selectedElement._id}`).removeClass('selected');
                                     }
-                                    this.setState(() => ({selectedElement: element}), () => console.log('ll', this.state.selectedElement));
-                                    $(`#${id}`).addClass('selected');
+                                    let elmnt = $(`#${element._id}`);
+                                    let width = elmnt.width();
+                                    let height = elmnt.height();
+                                    let color = $(elmnt).css('color');
+                                    let paddingTop = $(elmnt).css('padding-top');
+                                    let paddingRight = $(elmnt).css('padding-right');
+                                    let paddingBottom= $(elmnt).css('padding-bottom');
+                                    let paddingLeft = $(elmnt).css('padding-left');
+                                    let marginTop = $(elmnt).css('margin-top');
+                                    let marginRight = $(elmnt).css('margin-right');
+                                    let marginBottom= $(elmnt).css('margin-bottom');
+                                    let marginLeft = $(elmnt).css('margin-left');
+                                    let positionTop = $(elmnt).css('top');
+                                    let positionRight = $(elmnt).css('right');
+                                    let positionBottom= $(elmnt).css('bottom');
+                                    let positionLeft = $(elmnt).css('left');
+
+                                    this.setState(()=>({
+                                        selectedElement: element, 
+                                        selectedElementProperties: {
+                                            width,
+                                            height,
+                                            paddingTop,
+                                            paddingRight,
+                                            paddingBottom,
+                                            paddingLeft,
+                                            marginTop,
+                                            marginRight,
+                                            marginBottom,
+                                            marginLeft,
+                                            positionTop,
+                                            positionRight,
+                                            positionBottom,
+                                            positionLeft
+                                    }}), () => {});
                                 }}
                             />
                         })  
@@ -179,7 +211,8 @@ const mapDispatchToProps = (dispatch) => ({
     clearPages: () => dispatch(clearPages()),
     selectPage: () => dispatch(selectPage()),
     addElement: (page) => dispatch(addElement(page)),
-    editElement: (element) => dispatch(editElement(element))
+    editElement: (element) => dispatch(editElement(element)),
+    addToLastTenSteps: (element) => dispatch(addToLastTenSteps(element))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Editor);

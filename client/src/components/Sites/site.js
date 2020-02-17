@@ -54,8 +54,8 @@ class Site extends Component {
             <div className="card " style={{ width: "22rem", height: "30rem" }}>
               <a href="#">
                 <img
-                  src="https://colorlib.com/wp/wp-content/uploads/sites/2/best-personal-website-builder.jpg"
-                  className="img-fluid"
+                  src={this.props.website.img}
+                  className="img-fluid henry-img"
                   alt="sample"
                 />
               </a>
@@ -64,7 +64,9 @@ class Site extends Component {
                 className="card-body text-center"
                 style={{ marginBottom: "50px" }}
               >
-                <h4 className="card-title">{this.props.website.title}</h4>
+                <h4 className="card-title" style={{ display: "block" }}>
+                  {this.props.website.title}
+                </h4>
                 <hr />
                 <p
                   className="font-small grey-dark-text mb-0"
