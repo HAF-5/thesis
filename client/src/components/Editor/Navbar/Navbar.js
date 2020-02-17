@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { toast } from 'react-toastify';
 
 import { editElement } from "./../../../store/actions/elements";
 import { selectPage } from "./../../../store/actions/pages";
@@ -19,7 +20,8 @@ class FixedNavbar extends Component {
       fontStyle: "normal",
       fontSize:
         this.props.elementProperties &&
-        parseInt(this.props.elementProperties.fontSize)
+        parseInt(this.props.elementProperties.fontSize),
+      websiteTitle: ''
     };
   }
   changeStyle = (element, style) => {
@@ -80,6 +82,13 @@ class FixedNavbar extends Component {
     this.changeStyle(this.props.element, { fontSize: `${fontSize}px` });
   };
 
+  static getDerivedStateFromProps(nextProps, prevState){
+    if(nextProps.website!==prevState.website){
+      return { websiteTitle: nextProps.website.title};
+   }
+   else return null;
+ }
+
   render() {
     const fontSize = [
       8,
@@ -99,6 +108,7 @@ class FixedNavbar extends Component {
       48,
       72
     ];
+
     return (
       <nav className="editor-navbar navbar navbar-expand-lg navbar-light bg-light">
         <button
@@ -115,24 +125,20 @@ class FixedNavbar extends Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav menu">
             <li className="editor-nav-item nav-item">
-              <a className="nav-link editor-nav-link" onClick={this.props.save}>
-                Save
-              </a>
-            </li>
-            <li className="editor-nav-item nav-item">
-              <a className="nav-link editor-nav-link" href="#">
-                Undo
-              </a>
-            </li>
-            <li className="editor-nav-item nav-item">
-              <a className="nav-link editor-nav-link" href="#">
+              <a className="nav-link editor-nav-link" href= {`http://localhost:5000/${this.state.websiteTitle}/${this.props.selectedPage.title}`}>
                 Preview
               </a>
             </li>
             <li className="editor-nav-item nav-item">
-              <a className="nav-link editor-nav-link" href="#">
+              <button className="nav-link editor-nav-link"
+                    onClick= {() => {
+                        toast.success(`Website ${this.state.websiteTitle}, Published Successfuly`);
+                        setTimeout(() => {
+                            window.location.replace(`http://localhost:5000/${this.state.websiteTitle}/${this.props.selectedPage.title}`)
+                        }, 8000);
+                    }}>
                 Publish
-              </a>
+              </button>
             </li>
             <li className="editor-nav-item nav-item dropdown">
               <a
@@ -279,7 +285,8 @@ class FixedNavbar extends Component {
 const mapStateToProps = state => ({
   pages: state.pages,
   lastTenSteps: state.lastTenSteps.length === 0,
-  lastStep: state.lastTenSteps[state.lastTenSteps.length - 1]
+  lastStep: state.lastTenSteps[state.lastTenSteps.length - 1],
+  selectedPage: state.selectedPage
 });
 
 const mapDispatchToProps = dispatch => ({
