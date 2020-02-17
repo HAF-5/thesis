@@ -1,0 +1,15 @@
+#selectedElementWrapper {
+    border: 1px solid blue;
+}
+
+#selectedElementButtons {
+    position: fixed;
+}
+
+#content {
+    height: 60vh;
+}
+
+button, p {
+    cursor: pointer;
+}

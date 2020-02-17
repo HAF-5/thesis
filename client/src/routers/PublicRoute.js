@@ -7,14 +7,14 @@ const PublicRoute = ({
     component: Component,
     ...rest
 }) => (
-    <Route {...rest} component = {(props) => (
-        auth ? (
-            <Redirect to = '/dashboard' />
-        ):(
-            <Component {...props}/>
-        )
-    )}/>
-);
+        <Route {...rest} component={(props) => (
+            auth ? (
+                <Redirect to='/sites' />
+            ) : (
+                    <Component {...props} />
+                )
+        )} />
+    );
 
 const mapStateToProps = (state) => ({
     auth: !!state.user._id
