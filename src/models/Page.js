@@ -51,9 +51,20 @@ const editElement = async function(pageId, element) {
     return {...elementDoc, ...element};
 };
 
+const deleteElement = async function(pageId, elementId) {
+  await Element.findByIdAndDelete(elementId);
+  let pageDoc = await Page.findById(pageId);
+
+  pageDoc.element = pageDoc.element.filter((elem) => {
+    return elementId != elem._id;
+  });
+  pageDoc.save();
+};
+
 const Page = mongoose.model('Page', pageSchema);
 
 
 module.exports = Page;
 module.exports.createElement = createElement;
 module.exports.editElement = editElement;
+module.exports.deleteElement = deleteElement;

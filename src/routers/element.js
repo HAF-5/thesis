@@ -3,7 +3,7 @@ const express = require('express');
 const Element = require('../models/Element');
 const Page = require('../models/Page');
 
-const { createElement, editElement } = require('./../models/Page');
+const { createElement, editElement, deleteElement } = require('./../models/Page');
 
 const router = express.Router();
 
@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
         let doc = await createElement(pageId, element);
         res.status(201).send(doc);
     } catch(err) {
-        console.log(err)
+        
         res.status(400).send();
     }
 });
@@ -30,6 +30,20 @@ router.post('/edit/:id', async (req, res) => {
         res.status(400).send();
     }
 });
+
+//delete element route
+
+router.post('/delete/:id', async (req, res) => {
+    
+    try {
+        const { pageId} = req.body;
+      await deleteElement(pageId, req.params.id);
+      res.status(200).send();
+    } catch (err) {
+        console.log(err)
+      res.status(400).send(err);
+    }
+  });
 
 //get element route
 //GET /api/element/:pageId

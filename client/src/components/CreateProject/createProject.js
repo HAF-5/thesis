@@ -108,13 +108,13 @@ class CreateProject extends Component {
                             </div>
                         </div>
 
-                        {/* <div className="form-group row">
+                        <div className="form-group row">
                             <label htmlFor="colFormLabel" className="col-sm-4 col-form-label create_project_labal_form">Logo</label>
                             <div className="col-sm-8">
                                 <input type="file" name="file" onChange={this.uploadImage} />
                             </div>
                             
-                        </div> */}
+                        </div>
 
                         <button type="submit" className="btn create-Project_nextPage">  Next</button>
                     </form>

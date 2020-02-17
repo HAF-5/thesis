@@ -119,27 +119,61 @@ svg:hover{
     visibility: inherit;
      opacity: 1;
 }
+/* 
+.sideMenu-list{
+    left: 120px;
+    top: 250px;
+    position: fixed;
+    min-height: 270px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 17px 0 17px 6px;
+    box-sizing: border-box;} */
 .sideMenu-list {
-    left: 14vw;
-    top: 19vh;
+    left: 160px;
+    top: 150px;
     position: fixed;
     width: 500px;
     min-height: 50vh;
     max-height: 70vh;
-    overflow-y: scroll;
+    overflow-y: scroll ;
     box-shadow: 0 0 14px 0 rgba(22, 45, 61, 0.36);
-    color:red;
+    color:#fff;
     max-height: calc(100vh - 112px);
     box-sizing: border-box;
     border-radius: 5px;
+    /* background: #00aaaf;
+    visibility: inherit;
+    opacity: 1;
+    
+    }
+    .left-bar-items.menu-collapsed svg.ear.ear-top {
+        top: -4px;
+        left: -5px;
+    }
+    .left-bar-items.menu-collapsed svg.ear {
+        top: -20px;
+        position: absolute;
+        left: -9px;
+    } */
     background-color: #fff;
     z-index: 999;
-    /* display: flex;
-    flex-direction: row; */
+   
 }
 
 .sideMenu-list-item {
     text-decoration: none;
     padding: 10px;
     list-style: none;
+    padding-left: 0px;
+    display: inline-grid;
+}
+.sideMenu-list{
+    padding-left: 10px;
+}
+.sideMenu-list-item>button{
+    margin-bottom: 10px;
+}
+.radius{
+    border-radius: 25px;;
 }
