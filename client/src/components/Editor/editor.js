@@ -39,7 +39,9 @@ class Editor extends Component {
   changeText = (element) => {
     let domElement = document.getElementById(element._id);
     let stringHTML = domElement.outerHTML;
+    if(stringHTML !== element.element){
     this.props.editElement({ _id: element._id, element: stringHTML });
+    }
   };
 
   openAddPageModal = () => {
@@ -67,7 +69,7 @@ class Editor extends Component {
     $(`#${id}`) && $(`#${id}`).removeClass("selected");
     element.style.position = "absolute";
     element.style.left = e.clientX + "px";
-    element.style.top = e.clientY + "px";
+    element.style.top = e.clientY - 100 + "px";
     let stringHTML = element.outerHTML;
     this.props.editElement({ _id: id, element: stringHTML });
   }
@@ -81,10 +83,10 @@ class Editor extends Component {
     target.style.position = "absolute";
     if (type === "navbar") {
       target.style.left = "0";
-      target.style.top = "24vh";
+      // target.style.top = "24vh";
       target.style.width = "100vw";
     } 
-    if (type === "section") {
+    else if (type === "section") {
         target.style.width = "100vw"
         target.style.left = "0";
     }
@@ -127,13 +129,14 @@ class Editor extends Component {
           elementProperties={this.state.selectedElementProperties}
         />
         <SideMenu createElement={(e, type) => this.createElement(e, type)} />
+        <div id="editor-container">
         <div
           id="editor"
           ref={this.editor}
           onDragOver={e => this.handleOnDragOver(e)}
           onDrop={e => this.handleOnDrop(e)}
         >
-          {this.props.elements.map(element => {
+          {this.props.elements.map((element, i) => {
             element.element = element.element
               .split(">")
               .map((val, i) => {
@@ -155,7 +158,6 @@ class Editor extends Component {
                   e.dataTransfer.effectAllowed = "move";
                 }}
                 contentEditable={true}
-                // onKeyUp={this.textChangeQuery}
                 onInput= {() => {
                     this.changeText(element)
                 }}
@@ -230,6 +232,7 @@ class Editor extends Component {
             </div>
           )}
         </div>
+      </div>
       </div>
     );
   }

@@ -127,7 +127,7 @@ class FixedNavbar extends Component {
     ];
 
     return (
-      <nav className="editor-navbar navbar navbar-expand-lg navbar-light bg-light">
+      <nav  className="editor-navbar navbar navbar-expand-lg navbar-light bg-light">
         <button
           className="navbar-toggler"
           type="button"
@@ -168,7 +168,7 @@ class FixedNavbar extends Component {
               >
                 Pages
               </a>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <div style= {{zIndex: '9900'}} className="dropdown-menu" aria-labelledby="navbarDropdown">
                 {this.props.pages.map(page => (
                   <button
                     className="dropdown-item"

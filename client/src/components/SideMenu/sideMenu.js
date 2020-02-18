@@ -135,9 +135,9 @@ class sideMenu extends Component {
 		</nav>
 		],
 		'section': [
-		<section class="jumbotron text-center" onClick= {(e) => this.createElement(e, 'section')}>
+		<section style= {{top: '57px'}} class="jumbotron" onClick= {(e) => this.createElement(e, 'section')}>
 			<div class="container">
-			<h1 class="jumbotron-heading">Album example</h1>
+			<h1 >Album example</h1>
 			<p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
 			<p>
 				<a href="" class="btn btn-primary my-2">Main call to action</a>
@@ -160,13 +160,13 @@ class sideMenu extends Component {
 				<a href="#" class="btn btn-primary">Go somewhere</a>
 			</div>
 		</section>,
-		<section class="jumbotron" onClick= {(e) => this.createElement(e, 'section')}>
+		<section style= {{top: '495px'}} class="jumbotron" onClick= {(e) => this.createElement(e, 'section')}>
 			<h1 class="display-4">Hello, world!</h1>
 			<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
 			<hr class="my-4"/>
 			<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
 			<p class="lead">
-				<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+				<button class="btn btn-primary btn-lg">Learn more</button>
 			</p>
 		</section>,
 		<section class="jumbotron jumbotron-fluid" onClick= {(e) => this.createElement(e, 'section')}>
@@ -263,13 +263,12 @@ class sideMenu extends Component {
           
           <ul className="left-bar-item add-background"
             onClick= {(e) => this.openSideMenu('background')}>
-								<svg width="75" height="89" baseProfile="full" viewBox="0 0 75 89" className="symbol symbol-leftBarButtonEarMiddle icon"></svg>
-								<svg width="25" height="24" viewBox="0 0 25 24" className="symbol symbol-leftBarMediaPanelC icon">
-								<path d="M21.5 21.003c.38 0 .62-.41.439-.75l-3.72-6.68a.991.991 0 0 0-1.74 0l-2.787 5.007a.3.3 0 0 1-.52.008l-.694-1.154a1.001 1.001 0 0 0-1.718-.001l-1.69 2.81a.501.501 0 0 0 .43.76h12zm-10-11c-.83 0-1.5.67-1.5 1.5 0 .82.67 1.5 1.5 1.5s1.5-.68 1.5-1.5c0-.83-.67-1.5-1.5-1.5zm10.5-3c1.66 0 3 1.34 3 3v11A3 3 0 0 1 22 24H9a3 3 0 0 1-3-2.997v-11c0-1.66 1.34-3 3-3h13zM20 4v1H9a5 5 0 0 0-5 5v7.003H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h4.172a2 2 0 0 1 1.414.585L9 2h9a2 2 0 0 1 2 2z"></path></svg>
-								<span className="mask"></span>
-								<span className="text">Background</span>
-							</ul>
-					
+						<svg width="75" height="89" baseProfile="full" viewBox="0 0 75 89" className="symbol symbol-leftBarButtonEarMiddle icon"></svg>
+						<svg width="25" height="24" viewBox="0 0 25 24" className="symbol symbol-leftBarMediaPanelC icon">
+						<path d="M21.5 21.003c.38 0 .62-.41.439-.75l-3.72-6.68a.991.991 0 0 0-1.74 0l-2.787 5.007a.3.3 0 0 1-.52.008l-.694-1.154a1.001 1.001 0 0 0-1.718-.001l-1.69 2.81a.501.501 0 0 0 .43.76h12zm-10-11c-.83 0-1.5.67-1.5 1.5 0 .82.67 1.5 1.5 1.5s1.5-.68 1.5-1.5c0-.83-.67-1.5-1.5-1.5zm10.5-3c1.66 0 3 1.34 3 3v11A3 3 0 0 1 22 24H9a3 3 0 0 1-3-2.997v-11c0-1.66 1.34-3 3-3h13zM20 4v1H9a5 5 0 0 0-5 5v7.003H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h4.172a2 2 0 0 1 1.414.585L9 2h9a2 2 0 0 1 2 2z"></path></svg>
+						<span className="mask"></span>
+						<span className="text">Background</span>
+					</ul>
 				</ul>
 				{
 				this.state.display && 

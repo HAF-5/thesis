@@ -6,6 +6,12 @@
     <link href="https://fonts.googleapis.com/css?family=Changa|McLaren|Montserrat|Muli|Noto+Serif|Open+Sans+Condensed:300|PT+Sans+Narrow|Playfair+Display|Quicksand|Raleway|Rubik|Source+Sans+Pro|ZCOOL+KuaiLe|ZCOOL+XiaoWei&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
     
@@ -23,7 +29,7 @@
     fetch(`http://localhost:5000/api/${websiteTitle}/${pageTitle}`)
     .then((response) => response.json())
     .then((elements) => {
-        elements.map((element) => {
+        elements.map((element, i) => {
             let newElement = element.element.split('>').map((elm, i) => {
                 if(i === 0){
                     elm += `id=${element._id}`
@@ -31,9 +37,17 @@
                 return elm;
             }).join('>');
             $('body').append(newElement)
-            if(element.type === 'navbar'){
-                $(`#${element._id}`).css('top', 0)
-            }
+            // if(element.type === 'navbar'){
+            //     $(`#${element._id}`).css('top', 0)
+            // } 
+            // else {
+            //     let top =  parseInt($(`#${element._id}`).css('top'));
+            //     $(`#${element._id}`).css('top', top - 188);
+            // }
+            // if(i === 2){
+            //     let top =  parseInt($(`#${element._id}`).css('top'));
+            //     $(`#${element._id}`).css('top', top - 105);
+            // }
         })
     });
 </script>
