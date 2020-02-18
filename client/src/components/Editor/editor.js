@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import $ from "jquery";
+import debounce from 'lodash/debounce';
 
 import SideMenu from "../SideMenu/sideMenu";
 import FixedNavbar from "../Navbar/FixedNavbar";
@@ -30,9 +31,17 @@ class Editor extends Component {
     this.state = {
       addPageModalIsOpen: false,
       selectedElement: null,
-      selectedElementProperties: null
+      selectedElementProperties: null,
     };
+    this.changeText = debounce(this.changeText, 500);
   }
+
+  changeText = (element) => {
+    let domElement = document.getElementById(element._id);
+    let stringHTML = domElement.outerHTML;
+    this.props.editElement({ _id: element._id, element: stringHTML });
+  };
+
   openAddPageModal = () => {
     this.setState({ addPageModalIsOpen: true });
   };
@@ -72,11 +81,17 @@ class Editor extends Component {
     target.style.position = "absolute";
     if (type === "navbar") {
       target.style.left = "0";
-      target.style.top = "14vh";
-    } else {
-      target.style.left = "50vw";
-      target.style.top = "50vh";
+      target.style.top = "24vh";
+      target.style.width = "100vw";
+    } 
+    if (type === "section") {
+        target.style.width = "100vw"
+        target.style.left = "0";
     }
+    else {
+        target.style.left = "50vw";
+        target.style.top = "50vh";
+      }
     let element = {
       type,
       element: this.domToString(target)
@@ -140,6 +155,10 @@ class Editor extends Component {
                   e.dataTransfer.effectAllowed = "move";
                 }}
                 contentEditable={true}
+                // onKeyUp={this.textChangeQuery}
+                onInput= {() => {
+                    this.changeText(element)
+                }}
                 onClick={e => {
                   let id = e.target.id;
                   if (this.state.selectedElement) {
