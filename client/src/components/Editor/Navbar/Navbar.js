@@ -27,7 +27,8 @@ class FixedNavbar extends Component {
         this.props.elementProperties &&
         parseInt(this.props.elementProperties.fontSize),
       websiteTitle: '',
-      fontFamily: 'arial'
+      fontFamily: 'arial',
+      color: '#000'
     };
   }
   changeStyle = (element, style) => {
@@ -91,6 +92,11 @@ class FixedNavbar extends Component {
     let fontFamily = e.target.value;
     this.setState(() => ({ fontFamily }));
     this.changeStyle(this.props.element, { fontFamily: `${fontFamily}` });
+  };
+  onColorChangeHandler = e => {
+    let color = e.target.value;
+    this.setState(() => ({ color }));
+    this.changeStyle(this.props.element, {color})
   };
 
   static getDerivedStateFromProps(nextProps, prevState){
@@ -221,6 +227,9 @@ class FixedNavbar extends Component {
                       );
                     })}
                   </select>
+                </div>
+                <div  className="btn-group mr-2">
+                  <input type="color" value= {this.state.color} onChange= {this.onColorChangeHandler}/>
                 </div>
                 {/* ///////////////////////// */}
 
