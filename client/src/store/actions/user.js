@@ -1,5 +1,5 @@
 
-import {LOGIN, LOGOUT} from './constants';
+import { LOGIN, LOGOUT } from './constants';
 
 
 export const loginDispatcher = (user) => ({
@@ -10,10 +10,10 @@ export const loginDispatcher = (user) => ({
 
 //updated
 export const me = () => async dispatch => {
-    try{
+    try {
         let result = JSON.parse(localStorage.getItem('user'));
         dispatch(loginDispatcher(result));
-    } catch(err) {
+    } catch (err) {
         console.log(err);
     }
 };
@@ -23,9 +23,10 @@ export const logoutDispatcher = () => ({
 });
 
 export const logout = (token) => async dispatch => {
-    try{
+    try {
         localStorage.removeItem('user');
-    } catch(err) {
+        window.location.reload(true);
+    } catch (err) {
         console.log(err)
     }
 }

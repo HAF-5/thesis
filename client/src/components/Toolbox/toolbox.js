@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { editElement } from "./../../store/actions/elements";
+import { editElement, deleteElement } from "./../../store/actions/elements";
 import { addToLastTenSteps } from "./../../store/actions/lastTenSteps";
 
 import "./toolbox.css";
+
 class Toolbox extends Component {
   constructor(props) {
     super(props);
-    // this.selectedElement = document.getElementById(this.props.element);
-    // var borderWidth = window.getComputedStyle(this.selectedElement, null).getPropertyValue('width');
     this.state = {
       width:
         this.props.elementProperties &&
@@ -41,7 +40,8 @@ class Toolbox extends Component {
         parseInt(this.props.elementProperties.marginBottom),
       marginLeft:
         this.props.elementProperties &&
-        parseInt(this.props.elementProperties.marginLeft)
+        parseInt(this.props.elementProperties.marginLeft),
+        background: "#FFF"
     };
   }
 
@@ -163,6 +163,12 @@ class Toolbox extends Component {
     this.changeStyle(this.props.element, { left: `${positionLeft}px` });
   };
 
+  onBackgroundColorChangeHandler = e => {
+    let background = e.target.value;
+    this.setState(() => ({ background }));
+    this.changeStyle(this.props.element, {background})
+  };
+
   render() {
     return (
       <div className="wrapper">
@@ -171,21 +177,21 @@ class Toolbox extends Component {
             <ul className="myUl">
               <div className="position-flex">
                 <li className="myLi">
-                  <a className="myA" href="#">
+                  <a className="myA">
                     {" "}
                     <i className="fas fa-copy"> </i>
                   </a>
                 </li>
                 <li className="myLi">
-                  <a className="myA" href="#">
+                  <a className="myA">
                     <i className="fas fa-paste"></i>
                   </a>
                 </li>
 
                 <li className="myLi">
-                  <a className="myA" href="#">
+                  <button className="myA" onClick={(e) => this.props.deleteElement(this.props.element)}>
                     <i className="fas fa-trash-alt"></i>
-                  </a>
+                  </button>
                 </li>
               </div>
               <li
@@ -197,7 +203,7 @@ class Toolbox extends Component {
                 }}
               >
                 <label className="input-number-label">Background</label>
-                <input type="color" />
+                <input type="color" value= {this.state.background} onChange= {this.onBackgroundColorChangeHandler}/>
               </li>
               <div className="width-hieght">
                 <div>
@@ -437,6 +443,8 @@ const mapStateToProps = (state) => ({
 })
 const mapDispatchToProps = (dispatch, props) => ({
   editElement: element => dispatch(editElement(element)),
-  addToLastTenSteps: (element) => dispatch(addToLastTenSteps(element))
+  addToLastTenSteps: (element) => dispatch(addToLastTenSteps(element)),
+  deleteElement: element => dispatch(deleteElement(element))
+
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Toolbox);

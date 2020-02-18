@@ -17,7 +17,7 @@
   flex-wrap: wrap;
   height: 100%;
   margin-left: 15%;
-  padding-top:5%;
+  padding-top:4%;
   padding-bottom: 10vh;
 }
 
@@ -98,7 +98,7 @@
   padding-right: 150px;
   padding-bottom: 45px;
   color: #162d3d;
-  padding-top: 4%;
+  padding-top: 3%;
   line-height: 25px;
   background-color: white;
 }
@@ -148,10 +148,7 @@
   font-weight: 100;
   padding-top: 0;
 }
-.filter{
-  padding-top: 1%;
-  float: right;
-}
+
 .filter-grid{
   border: 1px solid white;
     box-shadow: 0 0 0 1.5px #3899ec;
@@ -160,10 +157,11 @@
 }
 .filter-view > svg{
  padding-top: 0px;
+ 
 }
 .filter-view {
-  padding-top: 5%;
-  padding-bottom: 5%;
+  padding-top: 2%;
+  float: right;
  }
 
 .table-title-bar{
@@ -270,5 +268,5 @@
   width: 100%;
 }
 .list-view{
-  padding-top: 200px;
+  padding-top: 10%;
 }

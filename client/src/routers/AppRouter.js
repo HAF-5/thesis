@@ -3,7 +3,7 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
+
 
 import MySites from './../components/MySites/mySites';
 import Signin from './../components/auth/Signin';

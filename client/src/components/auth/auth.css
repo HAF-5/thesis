@@ -8,11 +8,9 @@
 }
 /* social login */
 .social-log{
-    padding-bottom: 30px;
     padding-top: 100px;
     display: grid;
     width: 50%;
-    padding-left: 30px;
 }
 /* facebook button */
 .btn-login{
@@ -23,13 +21,12 @@
     border: 1px solid transparent;
     color: #fff;
     display: flex;
-    width: 50%;;
+    width: 50%;
 }
 .btn-login>span{
     font-size: 16px;
     font-weight: 500;
     letter-spacing: .21px;
-    margin-left: 10%;
     margin-right: 6px;
     vertical-align: top;
     line-height: 48px;
@@ -66,7 +63,6 @@
     font-size: 16px;
     font-weight: 500;
     letter-spacing: .21px;
-    margin-left: 10%;
     margin-right: 6px;
     vertical-align: top;
     line-height: 48px;
@@ -216,4 +212,19 @@
 .google-log{
     width: 200px;
     float: right;
+}
+.social-log>div>span>button{
+    cursor: pointer;
+    padding: 0;
+    background-color: #3b5998;
+    border: 1px solid transparent;
+    color: #fff;
+    display: flex !important;
+    width: 50%;
+    font-size: 16px;
+    font-weight: 400;
+    vertical-align: top;
+    line-height: 48px;
+    border-radius: 3px !important;
+    text-transform: capitalize;
 }

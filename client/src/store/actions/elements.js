@@ -1,4 +1,4 @@
-import { ADD_ELEMENT, SELECT_ELEMENT, EDIT_ELEMENT, SET_ELEMENTS, CLEAR_ELEMENTS } from './constants';
+import { ADD_ELEMENT, SELECT_ELEMENT, EDIT_ELEMENT, SET_ELEMENTS, CLEAR_ELEMENTS, DELETE_ELEMENT } from './constants';
  
 export const setElementsDispatcher = (payload) => ({
     type: SET_ELEMENTS,
@@ -73,3 +73,27 @@ export const selectElementDispatcher = (payload) => ({
     type: SELECT_ELEMENT,
     payload
 });
+
+export const deleteElementDispatcher = (payload) => ({
+    type: DELETE_ELEMENT,
+    payload
+});
+
+export const deleteElement = (element) => async (dispatch, getState) => {
+    let pageId = getState().selectedPage._id;
+    try {
+        let response = await fetch(`${process.env.REACT_APP_API}/api/element/delete/${element._id}`, 
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({pageId})
+        });
+        if(response.status == 200){
+            dispatch(deleteElementDispatcher(element._id));
+        }
+    } catch(err) {
+        console.log(err);
+    }
+}
