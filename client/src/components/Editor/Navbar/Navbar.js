@@ -11,6 +11,11 @@ import {
 
 import "./../Navbar/Navbar.css";
 
+const fonts = [
+    'McLaren', 'cursive', 'Montserrat', 'sans-serif', 'Source Sans Pro', 'sans-serif', 
+    'Raleway', 'ZCOOL XiaoWei', 'ZCOOL KuaiLe', 'Open Sans Condensed', 'Playfair Display', 
+    'Muli','Rubik', 'Noto Serif', 'Changa', 'Quicksand', 'PT Sans Narrow', 'arial'];
+
 class FixedNavbar extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +26,8 @@ class FixedNavbar extends Component {
       fontSize:
         this.props.elementProperties &&
         parseInt(this.props.elementProperties.fontSize),
-      websiteTitle: ''
+      websiteTitle: '',
+      fontFamily: 'arial'
     };
   }
   changeStyle = (element, style) => {
@@ -80,6 +86,11 @@ class FixedNavbar extends Component {
     let fontSize = e.target.value;
     this.setState(() => ({ fontSize }));
     this.changeStyle(this.props.element, { fontSize: `${fontSize}px` });
+  };
+  onChangeFontFamily = e => {
+    let fontFamily = e.target.value;
+    this.setState(() => ({ fontFamily }));
+    this.changeStyle(this.props.element, { fontFamily: `${fontFamily}` });
   };
 
   static getDerivedStateFromProps(nextProps, prevState){
@@ -176,17 +187,14 @@ class FixedNavbar extends Component {
                 {/* ///////////////////////////////////// */}
                 <div className="btn-group mr-2">
                   <div className="dropdown">
-                    <button
-                      type="button"
-                      className="btn btn-css dropdown-toggle"
-                      id="dropdownMenuMenu"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <i className="fa fa-font"></i>
-                    </button>
-                    <div
+                      <select value= {this.state.fontFamily} onChange= {this.onChangeFontFamily} >
+                          {
+                            fonts.map((font) => (
+                                <option value= {font}>{font}</option>
+                            ))
+                          }
+                      </select>
+                            <div
                       className="dropdown-menu "
                       aria-labelledby="dropdownMenuMenu"
                     >
