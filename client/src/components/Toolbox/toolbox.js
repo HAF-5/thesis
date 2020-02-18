@@ -9,8 +9,6 @@ import "./toolbox.css";
 class Toolbox extends Component {
   constructor(props) {
     super(props);
-    // this.selectedElement = document.getElementById(this.props.element);
-    // var borderWidth = window.getComputedStyle(this.selectedElement, null).getPropertyValue('width');
     this.state = {
       width:
         this.props.elementProperties &&
@@ -42,7 +40,8 @@ class Toolbox extends Component {
         parseInt(this.props.elementProperties.marginBottom),
       marginLeft:
         this.props.elementProperties &&
-        parseInt(this.props.elementProperties.marginLeft)
+        parseInt(this.props.elementProperties.marginLeft),
+        background: "#FFF"
     };
   }
 
@@ -164,11 +163,11 @@ class Toolbox extends Component {
     this.changeStyle(this.props.element, { left: `${positionLeft}px` });
   };
 
-  // deleteElement = (e, element) => {
-  //   console.log(this.props.element._id)
-  //   e.preventDefault()
-  //   this.props.deleteElement(this.props.element._id);
-  // }
+  onBackgroundColorChangeHandler = e => {
+    let background = e.target.value;
+    this.setState(() => ({ background }));
+    this.changeStyle(this.props.element, {background})
+  };
 
   render() {
     return (
@@ -204,7 +203,7 @@ class Toolbox extends Component {
                 }}
               >
                 <label className="input-number-label">Background</label>
-                <input type="color" />
+                <input type="color" value= {this.state.background} onChange= {this.onBackgroundColorChangeHandler}/>
               </li>
               <div className="width-hieght">
                 <div>

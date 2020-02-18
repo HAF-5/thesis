@@ -32,9 +32,9 @@ const Profile = ({ history }) => {
       const { name, email, image } = res;
       setValues({ ...values, name, email, image });
     } catch (err) {
-      signout(() => {
-        history.push('/');
-      });
+      // signout(() => {
+      //   history.push('/');
+      // });
     }
   }
 

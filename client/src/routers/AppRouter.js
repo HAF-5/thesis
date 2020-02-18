@@ -34,7 +34,7 @@ const AppRouter = () => {
           <PublicRoute path='/auth/activate/:token' component={Activate} />
           <PublicRoute path='/auth/password/forgot' component={Forgot} />
           <PublicRoute path='/auth/password/reset/:token' component={Reset} />
-          <Route path='/dashboard/profile' component={Profile} />
+          <PrivateRoute path='/dashboard/profile' component={Profile} />
           <PrivateRoute path='/dashboard/edit-website' component={dashboardWebsite} />
           <Route>
             <div>not found</div>
